@@ -66,7 +66,7 @@
     "features": "Fonctionnalités",
     "about": "À propos",
     "signIn": "Se connecter",
-    "dashboard": "Tableau de bord",
+    "dashboard": "Mon Compte",
     "settings": "Paramètres",
     "adminDashboard": "Tableau de bord admin",
     "signOut": "Se déconnecter",
@@ -110,7 +110,7 @@
     }
   },
   "DashboardPage": {
-    "title": "Tableau de bord",
+    "title": "Mon SBsalon",
     "description": "Content de vous revoir ! Voici un résumé de votre projet.",
     "loadErrorTitle": "Erreur du tableau de bord",
     "loadErrorDescription": "Un problème est survenu lors du chargement des données du tableau de bord. Certaines informations peuvent être manquantes. Utilisation de données fictives en secours.",
@@ -345,7 +345,7 @@
     "tryAgain": "Réessayer"
   },
   "DashboardLayout": {
-    "dashboard": "Tableau de bord",
+    "dashboard": "Accueil",
     "aiTools": "Outils d'IA",
     "blog": "Blog",
     "models": "Modèles",

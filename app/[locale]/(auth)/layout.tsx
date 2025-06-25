@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { dashboardConfig } from "@/lib/config";
 import { Providers } from "@/components/providers";
 import { Metadata } from "next";
+import { DefaultFavicon } from "@/components/ui/default-favicon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,9 @@ export default async function AuthLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <DefaultFavicon />
+      </head>
       <body className={`${inter.className} min-h-screen bg-auth-background`}>
         <Providers>
           <NextIntlClientProvider messages={messages}>

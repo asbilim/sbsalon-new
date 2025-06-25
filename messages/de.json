@@ -66,7 +66,7 @@
     "features": "Funktionen",
     "about": "Über uns",
     "signIn": "Anmelden",
-    "dashboard": "Dashboard",
+    "dashboard": "Mein Konto",
     "settings": "Einstellungen",
     "adminDashboard": "Admin-Dashboard",
     "signOut": "Abmelden",
@@ -110,7 +110,7 @@
     }
   },
   "DashboardPage": {
-    "title": "Dashboard",
+    "title": "Mein SBsalon",
     "description": "Willkommen zurück! Hier ist eine Zusammenfassung Ihres Projekts.",
     "loadErrorTitle": "Dashboard-Fehler",
     "loadErrorDescription": "Beim Laden der Dashboard-Daten ist ein Problem aufgetreten. Einige Informationen fehlen möglicherweise. Als Fallback werden Mock-Daten verwendet.",
@@ -352,7 +352,7 @@
     "tryAgain": "Erneut versuchen"
   },
   "DashboardLayout": {
-    "dashboard": "Dashboard",
+    "dashboard": "Startseite",
     "tools": "Werkzeuge",
     "aiTools": "KI-Werkzeuge",
     "blog": "Blog",

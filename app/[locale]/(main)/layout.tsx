@@ -7,6 +7,7 @@ import { Providers } from "@/components/providers";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Metadata } from "next";
+import { DefaultFavicon } from "@/components/ui/default-favicon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,9 @@ export default async function MainLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <DefaultFavicon />
+      </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <Providers>
           <NextIntlClientProvider messages={messages}>

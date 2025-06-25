@@ -66,7 +66,7 @@
     "features": "Features",
     "about": "About",
     "signIn": "Sign In",
-    "dashboard": "Dashboard",
+    "dashboard": "My Account",
     "settings": "Settings",
     "adminDashboard": "Admin Dashboard",
     "signOut": "Sign Out",
@@ -110,7 +110,7 @@
     }
   },
   "DashboardPage": {
-    "title": "Dashboard",
+    "title": "My SBsalon",
     "description": "Welcome back! Here's a summary of your project.",
     "loadErrorTitle": "Dashboard Error",
     "loadErrorDescription": "There was a problem loading dashboard data. Some information may be missing. Using mock data as a fallback.",
@@ -350,7 +350,7 @@
     "tryAgain": "Try Again"
   },
   "DashboardLayout": {
-    "dashboard": "Dashboard",
+    "dashboard": "Home",
     "aiTools": "AI Tools",
     "blog": "Blog",
     "models": "Models",

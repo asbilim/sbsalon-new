@@ -152,7 +152,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     },
   });
 
-  const siteName = adminConfig?.frontend_options?.site_name || "Dashboard";
+  const siteName = adminConfig?.frontend_options?.site_name || "SBsalon";
   const logoUrl = adminConfig?.frontend_options?.logo_url;
 
   useEffect(() => {
@@ -236,7 +236,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   const SidebarContent = () => (
     <>
-      <ScrollArea className="flex-1 w-full">
+      <ScrollArea className="flex-1 w-full overflow-hidden">
         <nav className="px-2 py-4 space-y-1">
           <SidebarLink
             href="/dashboard"
@@ -355,7 +355,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         animate={isSidebarCollapsed ? "collapsed" : "expanded"}
         className="bg-sidebar text-sidebar-foreground border-r border-sidebar-border hidden md:flex flex-col z-30">
         <SidebarHeader />
-        <div className="flex-1 flex flex-col overflow-y-auto">
+        <div className="flex-1 flex flex-col overflow-hidden">
           <SidebarContent />
         </div>
       </motion.aside>

@@ -12,8 +12,8 @@ import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${dashboardConfig.name} - Blog`,
-  description: "Our latest news and articles",
+  title: `${dashboardConfig.name} - Beauty Blog`,
+  description: "Our latest beauty tips and salon news",
 };
 
 export default async function BlogLayout({
@@ -29,8 +29,11 @@ export default async function BlogLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <title>{dashboardConfig.name} - Blog</title>
-        <meta name="description" content="Our latest news and articles" />
+        <title>{dashboardConfig.name} - Beauty Blog</title>
+        <meta
+          name="description"
+          content="Our latest beauty tips and salon news"
+        />
         <DefaultFavicon />
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
