@@ -173,8 +173,7 @@ export function Footer() {
             &copy; {currentYear} {t("companyName")}. {t("allRightsReserved")}
           </p>
           <p className="mt-2 text-xs text-muted-foreground">
-            {t("poweredBy")}{" "}
-            <span className="font-medium">Django Modern Admin</span>
+            {t("poweredBy")} <span className="font-medium">SBsalon</span>
           </p>
         </div>
       </div>

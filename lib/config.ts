@@ -1,6 +1,6 @@
 /**
- * Admin Dashboard Configuration
- * Customize these settings to change the appearance and behavior of the dashboard
+ * SBsalon Configuration
+ * Customize these settings to change the appearance and behavior of the salon booking system
  */
 
 export interface NavigationItem {
@@ -26,8 +26,8 @@ export interface DashboardConfig {
 }
 
 export const dashboardConfig: DashboardConfig = {
-  name: "sbsalon",
-  description: "Sbsalon, make yourself feel better",
+  name: "SBsalon",
+  description: "Premium beauty salon and barber services",
   repositoryUrl: "https://github.com/asbilim/sbsalon-new.git",
   logoUrl: "/logo.svg",
   favicon: "/favicon.ico",
@@ -38,6 +38,6 @@ export const dashboardConfig: DashboardConfig = {
   },
   blog: {
     enabled: true,
-    name: "Blog",
+    name: "Beauty Blog",
   },
 };

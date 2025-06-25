@@ -15,52 +15,52 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Django Modern Admin Dashboard",
-      "description": "A modern, responsive admin dashboard for Django with Next.js, shadcn/ui and AI-powered tools to supercharge your productivity.",
+      "title": "SBsalon Booking System",
+      "description": "Book your beauty and grooming treatments with our easy-to-use salon booking system. Premium services at your fingertips.",
       "loginButton": "Get Started",
       "dashboardButton": "Go to Dashboard",
       "learnMoreButton": "Learn More"
     },
     "features": {
-      "title": "Powerful Features",
-      "subtitle": "Everything you need to build beautiful, data-driven admin interfaces.",
+      "title": "Our Services",
+      "subtitle": "Premium beauty and grooming services to enhance your natural beauty.",
       "modern": {
-        "title": "Modern UI",
-        "description": "Built with Next.js, Tailwind CSS, and shadcn/ui for a sleek, responsive interface."
+        "title": "Hair Styling",
+        "description": "Professional haircuts, styling, coloring and treatments for all hair types."
       },
       "customizable": {
-        "title": "Fully Customizable",
-        "description": "Easily extend and modify components to match your project's specific needs."
+        "title": "Beauty Treatments",
+        "description": "Facials, makeup, manicures, pedicures and other beauty treatments."
       },
       "ai": {
-        "title": "AI-Powered Tools",
-        "description": "Integrated AI features that help automate tasks and increase productivity."
+        "title": "Massage & Spa",
+        "description": "Relaxing massage therapies and spa treatments for body and mind."
       },
       "developer": {
-        "title": "Developer-Friendly",
-        "description": "Well-organized codebase with TypeScript for improved developer experience."
+        "title": "Barber Services",
+        "description": "Classic and modern barber services including beard trimming and hot towel shaves."
       }
     },
     "gettingStarted": {
-      "title": "Getting Started",
-      "subtitle": "Follow these simple steps to start using Django Modern Admin.",
+      "title": "Book Your Appointment",
+      "subtitle": "Follow these simple steps to book your salon appointment.",
       "step1": {
-        "title": "Set Up API",
-        "description": "Configure your Django REST Framework API endpoints."
+        "title": "Choose Service",
+        "description": "Select the beauty or grooming service you need."
       },
       "step2": {
-        "title": "Customize UI",
-        "description": "Tailor the dashboard to match your requirements and brand."
+        "title": "Pick Date & Time",
+        "description": "Choose a convenient date and time for your appointment."
       },
       "step3": {
-        "title": "Deploy",
-        "description": "Deploy your application to your favorite hosting platform."
+        "title": "Confirm Booking",
+        "description": "Complete your booking and receive confirmation."
       },
-      "docsButton": "Read the Documentation"
+      "docsButton": "View Our Services"
     }
   },
   "Header": {
-    "siteName": "Django Admin",
+    "siteName": "SBsalon",
     "home": "Home",
     "blog": "Blog",
     "features": "Features",
@@ -74,8 +74,8 @@
     "signOutSuccessDescription": "You have been successfully signed out."
   },
   "Footer": {
-    "siteName": "Django Admin",
-    "companyName": "Django Modern Admin",
+    "siteName": "SBsalon",
+    "companyName": "SBsalon",
     "allRightsReserved": "All rights reserved",
     "poweredBy": "Powered by",
     "categories": {
