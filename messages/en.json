@@ -15,11 +15,74 @@
   },
   "HomePage": {
     "hero": {
-      "title": "SBsalon Booking System",
-      "description": "Book your beauty and grooming treatments with our easy-to-use salon booking system. Premium services at your fingertips.",
-      "loginButton": "Get Started",
+      "title": "Beauty & Style at Your Fingertips",
+      "description": "Experience premium salon services with our expert stylists. Book your appointment today and discover the true meaning of self-care.",
+      "bookButton": "Book Now",
+      "servicesButton": "Our Services",
       "dashboardButton": "Go to Dashboard",
+      "loginButton": "Get Started",
       "learnMoreButton": "Learn More"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Premium beauty and grooming services to enhance your natural beauty.",
+      "viewAllButton": "View All Services",
+      "bookNow": "Book",
+      "haircut": {
+        "title": "Hair Styling",
+        "description": "Professional haircuts, styling, coloring and treatments for all hair types.",
+        "price": "$45+"
+      },
+      "facial": {
+        "title": "Beauty Treatments",
+        "description": "Facials, makeup, manicures, pedicures and other beauty treatments.",
+        "price": "$65+"
+      },
+      "massage": {
+        "title": "Massage & Spa",
+        "description": "Relaxing massage therapies and spa treatments for body and mind.",
+        "price": "$80+"
+      },
+      "nails": {
+        "title": "Nail Services",
+        "description": "Professional manicures, pedicures, and nail art for beautiful hands and feet.",
+        "price": "$35+"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "subtitle": "Real experiences from our satisfied customers.",
+      "first": {
+        "text": "The service was exceptional! My stylist understood exactly what I wanted and exceeded my expectations.",
+        "author": "Sarah Johnson",
+        "role": "Regular Client"
+      },
+      "second": {
+        "text": "The ambiance, the professionalism, and the results were all incredible. I've found my new favorite salon!",
+        "author": "Michael Chen",
+        "role": "First-time Client"
+      },
+      "third": {
+        "text": "I've been coming here for years, and the quality of service never disappoints. Highly recommended!",
+        "author": "Jennifer Lopez",
+        "role": "VIP Member"
+      }
+    },
+    "gallery": {
+      "title": "Our Gallery",
+      "subtitle": "Take a glimpse into our beautiful salon and see our work.",
+      "itemText": "View details"
+    },
+    "stats": {
+      "clients": "Happy Clients",
+      "stylists": "Expert Stylists",
+      "years": "Years of Service",
+      "awards": "Awards Won"
+    },
+    "cta": {
+      "title": "Ready for a New Look?",
+      "description": "Book your appointment now and let our experts take care of you.",
+      "button": "Book an Appointment"
     },
     "features": {
       "title": "Our Services",
@@ -62,9 +125,10 @@
   "Header": {
     "siteName": "SBsalon",
     "home": "Home",
+    "services": "Services",
+    "booking": "Book Now",
     "blog": "Blog",
-    "features": "Features",
-    "about": "About",
+    "contact": "Contact",
     "signIn": "Sign In",
     "dashboard": "My Account",
     "settings": "Settings",
@@ -79,7 +143,7 @@
     "allRightsReserved": "All rights reserved",
     "poweredBy": "Powered by",
     "categories": {
-      "solutions": "Solutions",
+      "solutions": "Services",
       "support": "Support",
       "company": "Company",
       "legal": "Legal",
@@ -89,14 +153,14 @@
     "solutions": {
       "admin": "Admin Dashboard",
       "analytics": "Analytics",
-      "commerce": "E-commerce",
-      "insights": "Insights"
+      "commerce": "Shop",
+      "insights": "Trends"
     },
     "support": {
-      "docs": "Documentation",
+      "docs": "FAQ",
       "pricing": "Pricing",
       "guides": "Guides",
-      "api": "API Status"
+      "api": "Service Status"
     },
     "company": {
       "about": "About",
@@ -409,5 +473,131 @@
     "noComments": "Be the first to comment.",
     "reply": "Reply",
     "cancelReply": "Cancel Reply"
+  },
+  "BookingPage": {
+    "title": "Book Your Appointment",
+    "subtitle": "Experience premium salon services with our expert stylists. Select your preferred service and time below.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service",
+      "selectService": "Select a service",
+      "date": "Date",
+      "pickDate": "Pick a date",
+      "time": "Time",
+      "selectTime": "Select a time",
+      "notes": "Special Requests or Notes",
+      "notesPlaceholder": "Tell us about any special requirements or preferences...",
+      "submit": "Book Appointment",
+      "submitting": "Booking..."
+    },
+    "services": {
+      "haircut": "Haircut & Styling",
+      "coloring": "Hair Coloring",
+      "styling": "Hair Styling",
+      "facial": "Facial Treatment",
+      "massage": "Massage Therapy",
+      "nails": "Nail Services",
+      "makeup": "Makeup Services"
+    },
+    "success": {
+      "title": "Booking Successful",
+      "description": "Your appointment has been booked successfully.",
+      "heading": "Appointment Booked!",
+      "message": "We've received your booking request and will send a confirmation email shortly.",
+      "newBooking": "Book Another Appointment"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "dateTime": "Missing Information",
+      "dateTimeMessage": "Please select both a date and time for your appointment",
+      "submitTitle": "Booking Failed",
+      "submitMessage": "There was an error processing your booking. Please try again."
+    },
+    "info": {
+      "title": "Booking Information",
+      "description": "Our team of professional stylists is ready to provide you with an exceptional salon experience. Please book your appointment at least 24 hours in advance.",
+      "hours": {
+        "title": "Salon Hours",
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "closed": "Closed"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Have questions about our services? Reach out to us directly through any of these channels."
+    }
+  },
+  "ContactPage": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you. Get in touch with our friendly team.",
+    "form": {
+      "title": "Send Us a Message",
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter your email address"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "What is your message about?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us how we can help you..."
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message Sent",
+        "description": "We've received your message and will get back to you soon.",
+        "heading": "Thank You!",
+        "message": "Your message has been sent successfully. We'll respond to you as soon as possible.",
+        "newMessage": "Send Another Message"
+      },
+      "error": {
+        "title": "Message Not Sent",
+        "description": "There was a problem sending your message. Please try again."
+      },
+      "errors": {
+        "required": "This field is required",
+        "email": "Please enter a valid email address"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Address"
+      },
+      "phone": {
+        "title": "Phone"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": "Monday - Friday: 9:00 AM - 7:00 PM",
+        "saturday": "Saturday: 10:00 AM - 5:00 PM",
+        "sunday": "Sunday: Closed"
+      },
+      "social": {
+        "title": "Follow Us"
+      }
+    },
+    "map": {
+      "placeholder": "Map integration would be displayed here in a production environment."
+    }
   }
 }

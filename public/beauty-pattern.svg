@@ -1,0 +1,38 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="beauty-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <!-- Scissors -->
+      <path d="M15 20 Q 20 25 15 30 M15 20 Q 10 25 15 30" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <circle cx="15" cy="20" r="1.5" fill="currentColor" />
+      <circle cx="15" cy="30" r="1.5" fill="currentColor" />
+      
+      <!-- Comb -->
+      <path d="M70 25 L75 25 M70 27 L75 27 M70 29 L75 29" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <path d="M70 23 L75 23 L75 31 L70 31 Z" fill="none" stroke="currentColor" stroke-width="0.5" />
+      
+      <!-- Perfume bottle -->
+      <rect x="45" y="70" width="8" height="10" rx="1" fill="currentColor" opacity="0.5" />
+      <rect x="46" y="68" width="6" height="2" rx="1" fill="currentColor" opacity="0.6" />
+      <circle cx="49" cy="68" r="1" fill="currentColor" opacity="0.8" />
+      
+      <!-- Makeup brush -->
+      <path d="M20 80 L25 70" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <path d="M24 70 A 5 2 0 1 0 26 70" fill="currentColor" opacity="0.5" />
+      
+      <!-- Heart -->
+      <path d="M80 85 C80 80 75 80 75 85 Q75 87 80 90 Q85 87 85 85 C85 80 80 80 80 85" fill="none" stroke="currentColor" stroke-width="0.8" />
+      
+      <!-- Droplet -->
+      <path d="M85 15 Q85 20 80 20 Q75 20 75 15 Q75 10 80 5 Q85 10 85 15" fill="none" stroke="currentColor" stroke-width="0.8" />
+      
+      <!-- Sparkles -->
+      <path d="M25 50 L25 55 M22.5 52.5 L27.5 52.5 M35 45 L35 50 M32.5 47.5 L37.5 47.5" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
+      
+      <!-- Mirror -->
+      <rect x="60" y="45" width="15" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="0.8" />
+      <rect x="62" y="47" width="11" height="16" rx="1" fill="currentColor" opacity="0.1" />
+    </pattern>
+  </defs>
+  
+  <rect width="100" height="100" fill="url(#beauty-pattern)" />
+</svg> 

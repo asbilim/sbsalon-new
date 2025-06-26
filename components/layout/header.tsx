@@ -43,9 +43,10 @@ export function Header() {
 
   const navigation = [
     { name: t("home"), href: "/" },
+    { name: t("services"), href: "/#services" },
+    { name: t("booking"), href: "/booking" },
     { name: t("blog"), href: "/blog" },
-    { name: t("features"), href: "/#features" },
-    { name: t("about"), href: "/about" },
+    { name: t("contact"), href: "/contact" },
   ];
 
   const isActive = (path: string) => {

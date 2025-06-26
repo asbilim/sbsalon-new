@@ -15,71 +15,138 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Tableau de bord Django Modern Admin",
-      "description": "Un tableau de bord d'administration moderne et réactif pour Django avec Next.js, shadcn/ui et des outils alimentés par l'IA pour augmenter votre productivité.",
+      "title": "Beauté & Style à Portée de Main",
+      "description": "Découvrez des services de salon haut de gamme avec nos stylistes experts. Réservez votre rendez-vous aujourd'hui et découvrez le vrai sens du soin de soi.",
+      "bookButton": "Réserver Maintenant",
+      "servicesButton": "Nos Services",
+      "dashboardButton": "Accéder au tableau de bord",
       "loginButton": "Commencer",
-      "dashboardButton": "Aller au tableau de bord",
       "learnMoreButton": "En savoir plus"
     },
+    "services": {
+      "title": "Nos Services",
+      "subtitle": "Services de beauté et de soins haut de gamme pour mettre en valeur votre beauté naturelle.",
+      "viewAllButton": "Voir Tous les Services",
+      "bookNow": "Réserver",
+      "haircut": {
+        "title": "Coiffure",
+        "description": "Coupes de cheveux professionnelles, coiffage, coloration et traitements pour tous types de cheveux.",
+        "price": "45€+"
+      },
+      "facial": {
+        "title": "Soins Beauté",
+        "description": "Soins du visage, maquillage, manucures, pédicures et autres traitements de beauté.",
+        "price": "65€+"
+      },
+      "massage": {
+        "title": "Massage & Spa",
+        "description": "Thérapies de massage relaxantes et traitements spa pour le corps et l'esprit.",
+        "price": "80€+"
+      },
+      "nails": {
+        "title": "Soins des Ongles",
+        "description": "Manucures et pédicures professionnelles, et nail art pour de belles mains et pieds.",
+        "price": "35€+"
+      }
+    },
+    "testimonials": {
+      "title": "Ce Que Disent Nos Clients",
+      "subtitle": "Expériences réelles de nos clients satisfaits.",
+      "first": {
+        "text": "Le service était exceptionnel ! Ma styliste a parfaitement compris ce que je voulais et a dépassé mes attentes.",
+        "author": "Sarah Johnson",
+        "role": "Cliente Régulière"
+      },
+      "second": {
+        "text": "L'ambiance, le professionnalisme et les résultats étaient tous incroyables. J'ai trouvé mon nouveau salon préféré !",
+        "author": "Michael Chen",
+        "role": "Nouveau Client"
+      },
+      "third": {
+        "text": "Je viens ici depuis des années, et la qualité du service ne déçoit jamais. Fortement recommandé !",
+        "author": "Jennifer Lopez",
+        "role": "Membre VIP"
+      }
+    },
+    "gallery": {
+      "title": "Notre Galerie",
+      "subtitle": "Jetez un coup d'œil à notre magnifique salon et découvrez notre travail.",
+      "itemText": "Voir les détails",
+      "viewMoreButton": "Voir Plus"
+    },
+    "stats": {
+      "title": "Notre Impact",
+      "subtitle": "Les chiffres qui définissent notre passion pour la beauté",
+      "clients": "Clients Satisfaits",
+      "stylists": "Stylistes Experts",
+      "years": "Années d'Expérience",
+      "awards": "Prix Remportés"
+    },
+    "cta": {
+      "title": "Prêt pour un Nouveau Look ?",
+      "description": "Réservez votre rendez-vous maintenant et laissez nos experts prendre soin de vous.",
+      "button": "Prendre Rendez-vous"
+    },
     "features": {
-      "title": "Fonctionnalités puissantes",
-      "subtitle": "Tout ce dont vous avez besoin pour créer de superbes interfaces d'administration riches en données.",
+      "title": "Nos Services",
+      "subtitle": "Services de beauté et de soins haut de gamme pour mettre en valeur votre beauté naturelle.",
       "modern": {
-        "title": "Interface moderne",
-        "description": "Construit avec Next.js, Tailwind CSS et shadcn/ui pour une interface élégante et réactive."
+        "title": "Coiffure",
+        "description": "Coupes de cheveux professionnelles, coiffage, coloration et traitements pour tous types de cheveux."
       },
       "customizable": {
-        "title": "Entièrement personnalisable",
-        "description": "Étendez et modifiez facilement les composants pour répondre aux besoins spécifiques de votre projet."
+        "title": "Soins Beauté",
+        "description": "Soins du visage, maquillage, manucures, pédicures et autres traitements de beauté."
       },
       "ai": {
-        "title": "Outils alimentés par l'IA",
-        "description": "Fonctionnalités d'IA intégrées qui aident à automatiser les tâches et à augmenter la productivité."
+        "title": "Massage & Spa",
+        "description": "Thérapies de massage relaxantes et traitements spa pour le corps et l'esprit."
       },
       "developer": {
-        "title": "Adapté aux développeurs",
-        "description": "Base de code bien organisée avec TypeScript pour une meilleure expérience de développement."
+        "title": "Services Barbier",
+        "description": "Services de barbier classiques et modernes, y compris taille de barbe et rasage à la serviette chaude."
       }
     },
     "gettingStarted": {
-      "title": "Mise en route",
-      "subtitle": "Suivez ces étapes simples pour commencer à utiliser Django Modern Admin.",
+      "title": "Réservez Votre Rendez-vous",
+      "subtitle": "Suivez ces étapes simples pour réserver votre rendez-vous au salon.",
       "step1": {
-        "title": "Configurer l'API",
-        "description": "Configurez vos points de terminaison Django REST Framework."
+        "title": "Choisir un Service",
+        "description": "Sélectionnez le service de beauté ou de soins dont vous avez besoin."
       },
       "step2": {
-        "title": "Personnaliser l'interface",
-        "description": "Adaptez le tableau de bord à vos besoins et à votre marque."
+        "title": "Sélectionner Date & Heure",
+        "description": "Choisissez une date et une heure qui vous conviennent pour votre rendez-vous."
       },
       "step3": {
-        "title": "Déployer",
-        "description": "Déployez votre application sur votre plateforme d'hébergement préférée."
+        "title": "Confirmer la Réservation",
+        "description": "Finalisez votre réservation et recevez une confirmation."
       },
-      "docsButton": "Lire la documentation"
+      "docsButton": "Voir Nos Services"
     }
   },
   "Header": {
-    "siteName": "Django Admin",
+    "siteName": "SBsalon",
     "home": "Accueil",
+    "services": "Services",
+    "booking": "Réserver",
     "blog": "Blog",
-    "features": "Fonctionnalités",
-    "about": "À propos",
+    "contact": "Contact",
     "signIn": "Se connecter",
     "dashboard": "Mon Compte",
     "settings": "Paramètres",
-    "adminDashboard": "Tableau de bord admin",
+    "adminDashboard": "Administration",
     "signOut": "Se déconnecter",
     "signOutSuccessTitle": "Déconnecté",
     "signOutSuccessDescription": "Vous avez été déconnecté avec succès."
   },
   "Footer": {
-    "siteName": "Django Admin",
-    "companyName": "Django Modern Admin",
+    "siteName": "SBsalon",
+    "companyName": "SBsalon",
     "allRightsReserved": "Tous droits réservés",
     "poweredBy": "Propulsé par",
     "categories": {
-      "solutions": "Solutions",
+      "solutions": "Services",
       "support": "Support",
       "company": "Entreprise",
       "legal": "Mentions légales",
@@ -87,16 +154,16 @@
       "followUs": "Suivez-nous"
     },
     "solutions": {
-      "admin": "Tableau de bord",
+      "admin": "Administration",
       "analytics": "Analytiques",
-      "commerce": "E-commerce",
-      "insights": "Insights"
+      "commerce": "Boutique",
+      "insights": "Tendances"
     },
     "support": {
-      "docs": "Documentation",
+      "docs": "FAQ",
       "pricing": "Tarification",
       "guides": "Guides",
-      "api": "État de l'API"
+      "api": "État des Services"
     },
     "company": {
       "about": "À propos",
@@ -380,7 +447,7 @@
   },
   "BlogPage": {
     "title": "Notre Blog",
-    "readingTime": "{minutes, plural, =1 {Lecture d'une minute} other {Lecture de # minutes}}",
+    "readingTime": "{minutes, plural, =1 {# minute de lecture} other {# minutes de lecture}}",
     "searchPlaceholder": "Rechercher des articles...",
     "loading": "Chargement des articles...",
     "noResults": "Aucun article trouvé.",
@@ -391,14 +458,140 @@
     "commentPlaceholder": "Écrire un commentaire...",
     "replyPlaceholder": "Écrire une réponse...",
     "namePlaceholder": "Votre nom",
-    "emailPlaceholder": "Votre e-mail",
-    "submitComment": "Envoyer le commentaire",
-    "submittingComment": "Envoi en cours...",
+    "emailPlaceholder": "Votre email",
+    "submitComment": "Publier le commentaire",
+    "submittingComment": "Publication en cours...",
     "commentSuccess": "Commentaire publié avec succès !",
     "commentError": "Échec de la publication du commentaire.",
     "loadingComments": "Chargement des commentaires...",
     "noComments": "Soyez le premier à commenter.",
     "reply": "Répondre",
     "cancelReply": "Annuler la réponse"
+  },
+  "BookingPage": {
+    "title": "Réservez Votre Rendez-vous",
+    "subtitle": "Découvrez des services de salon haut de gamme avec nos stylistes experts. Sélectionnez votre service et votre horaire préférés ci-dessous.",
+    "form": {
+      "name": "Nom Complet",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "service": "Service",
+      "selectService": "Sélectionnez un service",
+      "date": "Date",
+      "pickDate": "Choisir une date",
+      "time": "Heure",
+      "selectTime": "Sélectionner une heure",
+      "notes": "Demandes Spéciales ou Remarques",
+      "notesPlaceholder": "Dites-nous vos exigences ou préférences particulières...",
+      "submit": "Réserver le Rendez-vous",
+      "submitting": "Réservation en cours..."
+    },
+    "services": {
+      "haircut": "Coupe & Coiffage",
+      "coloring": "Coloration des Cheveux",
+      "styling": "Coiffure",
+      "facial": "Soin du Visage",
+      "massage": "Thérapie de Massage",
+      "nails": "Services d'Onglerie",
+      "makeup": "Services de Maquillage"
+    },
+    "success": {
+      "title": "Réservation Réussie",
+      "description": "Votre rendez-vous a été réservé avec succès.",
+      "heading": "Rendez-vous Réservé !",
+      "message": "Nous avons reçu votre demande de réservation et vous enverrons bientôt un email de confirmation.",
+      "newBooking": "Réserver un Autre Rendez-vous"
+    },
+    "errors": {
+      "required": "Ce champ est obligatoire",
+      "email": "Veuillez entrer une adresse email valide",
+      "dateTime": "Information Manquante",
+      "dateTimeMessage": "Veuillez sélectionner à la fois une date et une heure pour votre rendez-vous",
+      "submitTitle": "Échec de la Réservation",
+      "submitMessage": "Une erreur s'est produite lors du traitement de votre réservation. Veuillez réessayer."
+    },
+    "info": {
+      "title": "Informations de Réservation",
+      "description": "Notre équipe de stylistes professionnels est prête à vous offrir une expérience de salon exceptionnelle. Veuillez réserver votre rendez-vous au moins 24 heures à l'avance.",
+      "hours": {
+        "title": "Heures d'Ouverture du Salon",
+        "monday": "Lundi",
+        "tuesday": "Mardi",
+        "wednesday": "Mercredi",
+        "thursday": "Jeudi",
+        "friday": "Vendredi",
+        "saturday": "Samedi",
+        "sunday": "Dimanche",
+        "closed": "Fermé"
+      }
+    },
+    "contact": {
+      "title": "Contactez-Nous",
+      "description": "Vous avez des questions sur nos services ? Contactez-nous directement par l'un de ces canaux."
+    }
+  },
+  "ContactPage": {
+    "title": "Contactez-Nous",
+    "subtitle": "Nous aimerions avoir de vos nouvelles. Contactez notre équipe sympathique.",
+    "form": {
+      "title": "Envoyez-nous un Message",
+      "name": {
+        "label": "Votre Nom",
+        "placeholder": "Entrez votre nom complet"
+      },
+      "email": {
+        "label": "Adresse Email",
+        "placeholder": "Entrez votre adresse email"
+      },
+      "subject": {
+        "label": "Sujet",
+        "placeholder": "De quoi parle votre message ?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Dites-nous comment nous pouvons vous aider..."
+      },
+      "submit": "Envoyer le Message",
+      "submitting": "Envoi en cours...",
+      "success": {
+        "title": "Message Envoyé",
+        "description": "Nous avons reçu votre message et vous répondrons bientôt.",
+        "heading": "Merci !",
+        "message": "Votre message a été envoyé avec succès. Nous vous répondrons dès que possible.",
+        "newMessage": "Envoyer un Autre Message"
+      },
+      "error": {
+        "title": "Message Non Envoyé",
+        "description": "Un problème est survenu lors de l'envoi de votre message. Veuillez réessayer."
+      },
+      "errors": {
+        "required": "Ce champ est obligatoire",
+        "email": "Veuillez entrer une adresse email valide"
+      }
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "address": {
+        "title": "Adresse"
+      },
+      "phone": {
+        "title": "Téléphone"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Heures d'Ouverture",
+        "weekdays": "Lundi - Vendredi : 9:00 - 19:00",
+        "saturday": "Samedi : 10:00 - 17:00",
+        "sunday": "Dimanche : Fermé"
+      },
+      "social": {
+        "title": "Suivez-Nous"
+      }
+    },
+    "map": {
+      "placeholder": "L'intégration de la carte serait affichée ici dans un environnement de production."
+    }
   }
 }
