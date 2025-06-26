@@ -1,6 +1,6 @@
 {
   "LoginPage": {
-    "title": "Content de vous revoir",
+    "title": "Bon retour",
     "usernameLabel": "Nom d'utilisateur",
     "passwordLabel": "Mot de passe",
     "signInButton": "Se connecter",
@@ -16,14 +16,14 @@
   "HomePage": {
     "hero": {
       "title": "L'élégance dans chaque mèche",
-      "description": "Découvrez l'art de la beauté et de la détente au SBsalon, où nos stylistes experts créent des looks époustouflants conçus spécialement pour vous.",
-      "bookButton": "Prendre rendez-vous",
+      "description": "Découvrez l'art de la beauté et de la relaxation au SBsalon, où nos stylistes experts créent des looks époustouflants sur mesure pour vous.",
+      "bookButton": "Prendre un rendez-vous",
       "servicesButton": "Nos services"
     },
     "services": {
       "title": "Nos services signature",
       "subtitle": "Découvrez notre liste de services conçus pour rajeunir votre corps et votre âme.",
-      "bookNow": "Réserver",
+      "bookNow": "Réserver maintenant",
       "viewAllButton": "Voir tous les services",
       "error": {
         "title": "Impossible de charger les services",
@@ -38,8 +38,8 @@
       "title": "Ce que disent nos clients",
       "subtitle": "Lisez les avis élogieux de nos chers clients.",
       "first": {
-        "text": "Une expérience absolument incroyable ! Le personnel est incroyablement talentueux et amical. Je suis partie en me sentant comme une nouvelle personne. Je recommande vivement !",
-        "author": "Jessica Martin",
+        "text": "Une expérience absolument incroyable ! Le personnel est incroyablement talentueux et sympathique. Je suis partie en me sentant comme une nouvelle personne. Je recommande vivement !",
+        "author": "Jessica Miller",
         "role": "Cliente fidèle"
       },
       "second": {
@@ -54,7 +54,7 @@
       }
     },
     "gallery": {
-      "title": "La galerie de notre salon",
+      "title": "Galerie de notre salon",
       "subtitle": "Un aperçu de notre monde de beauté et de style. Découvrez notre travail et l'ambiance magnifique de notre salon.",
       "itemText": "Notre travail",
       "viewMoreButton": "Voir plus"

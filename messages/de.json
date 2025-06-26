@@ -9,61 +9,38 @@
     "toastSuccessTitle": "Anmeldung erfolgreich",
     "toastSuccessDescription": "Willkommen! Sie werden zum Dashboard weitergeleitet.",
     "toastUnexpectedErrorTitle": "Ein unerwarteter Fehler ist aufgetreten",
-    "toastUnexpectedErrorDescription": "Etwas ist schief gelaufen. Bitte versuchen Sie es später noch einmal.",
+    "toastUnexpectedErrorDescription": "Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.",
     "toastOtpInvalidTitle": "Ungültiges OTP",
     "toastOtpInvalidDescription": "Das von Ihnen eingegebene Einmalpasswort ist falsch."
   },
   "HomePage": {
     "hero": {
       "title": "Eleganz in jeder Strähne",
-      "description": "Erleben Sie die Kunst der Schönheit und Entspannung im SBsalon, wo unsere erfahrenen Stylisten atemberaubende Looks kreieren, die nur auf Sie zugeschnitten sind.",
+      "description": "Erleben Sie die Kunst der Schönheit und Entspannung im SBsalon, wo unsere erfahrenen Stylisten atemberaubende Looks nur für Sie kreieren.",
       "bookButton": "Termin buchen",
-      "servicesButton": "Unsere Dienstleistungen",
-      "dashboardButton": "Zum Dashboard",
-      "loginButton": "Loslegen",
-      "learnMoreButton": "Mehr Erfahren"
+      "servicesButton": "Unsere Dienstleistungen"
     },
     "services": {
       "title": "Unsere besonderen Dienstleistungen",
-      "subtitle": "Entdecken Sie unsere kuratierte Liste von Dienstleistungen, die darauf ausgelegt sind, Ihren Körper und Ihre Seele zu verjüngen.",
-      "viewAllButton": "Alle Dienstleistungen anzeigen",
+      "subtitle": "Entdecken Sie unsere kuratierte Liste von Dienstleistungen, die Körper und Seele verjüngen.",
       "bookNow": "Jetzt buchen",
-      "haircut": {
-        "title": "Haarstyling",
-        "description": "Professionelle Haarschnitte, Styling, Färben und Behandlungen für alle Haartypen.",
-        "price": "45€+"
-      },
-      "facial": {
-        "title": "Schönheitsbehandlungen",
-        "description": "Gesichtsbehandlungen, Make-up, Maniküre, Pediküre und andere Schönheitsbehandlungen.",
-        "price": "65€+"
-      },
-      "massage": {
-        "title": "Massage & Spa",
-        "description": "Entspannende Massagetherapien und Spa-Behandlungen für Körper und Geist.",
-        "price": "80€+"
-      },
-      "nails": {
-        "title": "Nagelpflege",
-        "description": "Professionelle Maniküre, Pediküre und Nail Art für schöne Hände und Füße.",
-        "price": "35€+"
-      },
+      "viewAllButton": "Alle Dienstleistungen anzeigen",
       "error": {
-        "title": "Dienstleistungen konnten nicht geladen werden",
-        "message": "Wir haben derzeit Probleme beim Abrufen unserer Dienstleistungen. Bitte aktualisieren Sie die Seite oder versuchen Sie es in einem Moment erneut."
+        "title": "Dienste konnten nicht geladen werden",
+        "message": "Wir haben im Moment Probleme, unsere Dienste abzurufen. Bitte aktualisieren Sie die Seite oder versuchen Sie es in einem Moment erneut."
       },
       "empty": {
-        "title": "Keine Dienstleistungen gefunden",
-        "message": "Es scheint, dass wir im Moment keine Dienstleistungen verfügbar haben. Bitte schauen Sie bald wieder vorbei!"
+        "title": "Keine Dienste gefunden",
+        "message": "Es scheint, dass wir im Moment keine Dienste verfügbar haben. Bitte schauen Sie bald wieder vorbei!"
       }
     },
     "testimonials": {
       "title": "Was unsere Kunden sagen",
       "subtitle": "Lesen Sie die begeisterten Bewertungen unserer geschätzten Kunden.",
       "first": {
-        "text": "Eine absolut erstaunliche Erfahrung! Das Personal ist unglaublich talentiert und freundlich. Ich fühlte mich wie ein neuer Mensch. Sehr zu empfehlen!",
-        "author": "Jessica Müller",
-        "role": "Stammkundin"
+        "text": "Eine absolut fantastische Erfahrung! Das Personal ist unglaublich talentiert und freundlich. Ich fühlte mich wie ein neuer Mensch. Sehr zu empfehlen!",
+        "author": "Jessica Miller",
+        "role": "Treue Kundin"
       },
       "second": {
         "text": "Der beste Salon der Stadt, ohne Zweifel. Professioneller Service, schöne und saubere Umgebung. Meine Haare sahen noch nie besser aus. Danke!",
@@ -77,10 +54,10 @@
       }
     },
     "gallery": {
-      "title": "Die Galerie unseres Salons",
+      "title": "Galerie unseres Salons",
       "subtitle": "Ein Einblick in unsere Welt der Schönheit und des Stils. Sehen Sie unsere Arbeit und das wunderschöne Ambiente unseres Salons.",
       "itemText": "Unsere Arbeit",
-      "viewMoreButton": "Mehr ansehen"
+      "viewMoreButton": "Mehr anzeigen"
     },
     "stats": {
       "title": "Unser Einfluss",
@@ -91,13 +68,13 @@
       "awards": "Gewonnene Auszeichnungen"
     },
     "cta": {
-      "title": "Bereit für einen neuen Look?",
+      "title": "Bereit, Ihren Look zu verwandeln?",
       "description": "Ihre Reise zu Schönheit und Selbstvertrauen beginnt hier. Buchen Sie noch heute Ihren Termin und lassen Sie sich von unseren Experten verwöhnen.",
       "button": "Platz reservieren"
     },
     "features": {
       "title": "Unsere Dienstleistungen",
-      "subtitle": "Premium-Schönheits- und Pflegedienstleistungen zur Betonung Ihrer natürlichen Schönheit.",
+      "subtitle": "Premium-Schönheits- und Pflegedienste zur Betonung Ihrer natürlichen Schönheit.",
       "modern": {
         "title": "Haarstyling",
         "description": "Professionelle Haarschnitte, Styling, Färben und Behandlungen für alle Haartypen."
@@ -111,26 +88,26 @@
         "description": "Entspannende Massagetherapien und Spa-Behandlungen für Körper und Geist."
       },
       "developer": {
-        "title": "Barbier-Services",
-        "description": "Klassische und moderne Barbierdienstleistungen einschließlich Bartschneiden und Rasierklingen-Behandlungen."
+        "title": "Friseurdienstleistungen",
+        "description": "Klassische und moderne Friseurdienstleistungen einschließlich Barttrimmen und Heißtuchrasur."
       }
     },
     "gettingStarted": {
       "title": "Buchen Sie Ihren Termin",
-      "subtitle": "Folgen Sie diesen einfachen Schritten, um Ihren Salontermin zu buchen.",
+      "subtitle": "Befolgen Sie diese einfachen Schritte, um Ihren Salontermin zu buchen.",
       "step1": {
-        "title": "Dienstleistung Wählen",
-        "description": "Wählen Sie die Schönheits- oder Pflegedienstleistung, die Sie benötigen."
+        "title": "Dienstleistung auswählen",
+        "description": "Wählen Sie die gewünschte Schönheits- oder Pflegedienstleistung aus."
       },
       "step2": {
-        "title": "Datum & Zeit auswählen",
-        "description": "Wählen Sie ein passendes Datum und eine passende Zeit für Ihren Termin."
+        "title": "Datum & Uhrzeit wählen",
+        "description": "Wählen Sie ein passendes Datum und eine passende Uhrzeit für Ihren Termin."
       },
       "step3": {
         "title": "Buchung bestätigen",
         "description": "Schließen Sie Ihre Buchung ab und erhalten Sie eine Bestätigung."
       },
-      "docsButton": "Unsere Dienstleistungen anzeigen"
+      "docsButton": "Unsere Dienstleistungen ansehen"
     }
   },
   "Header": {
@@ -141,28 +118,26 @@
     "blog": "Blog",
     "contact": "Kontakt",
     "signIn": "Anmelden",
+    "signOut": "Abmelden",
     "dashboard": "Dashboard",
     "settings": "Einstellungen",
-    "adminDashboard": "Admin-Panel",
-    "signOut": "Abmelden",
-    "signOutSuccessTitle": "Abgemeldet",
-    "signOutSuccessDescription": "Sie wurden erfolgreich abgemeldet."
+    "adminDashboard": "Admin-Panel"
   },
   "Footer": {
     "siteName": "SBsalon",
     "companyName": "SBsalon",
     "allRightsReserved": "Alle Rechte vorbehalten",
-    "poweredBy": "Unterstützt durch",
+    "poweredBy": "Unterstützt von",
     "categories": {
       "solutions": "Dienstleistungen",
-      "support": "Support",
+      "support": "Hilfe",
       "company": "Unternehmen",
       "legal": "Rechtliches",
       "language": "Sprache",
       "followUs": "Folgen Sie uns"
     },
     "solutions": {
-      "admin": "Administration",
+      "admin": "Admin-Dashboard",
       "analytics": "Analytik",
       "commerce": "Shop",
       "insights": "Trends"
@@ -171,7 +146,7 @@
       "docs": "FAQ",
       "pricing": "Preise",
       "guides": "Anleitungen",
-      "api": "Service-Status"
+      "api": "Dienststatus"
     },
     "company": {
       "about": "Über uns",
@@ -180,12 +155,12 @@
       "partners": "Partner"
     },
     "legal": {
-      "privacy": "Datenschutzrichtlinie",
+      "privacy": "Datenschutz-Bestimmungen",
       "terms": "Nutzungsbedingungen"
     },
     "description": "Entdecken Sie Ihre wahre Schönheit mit unseren Premium-Salondienstleistungen. Buchen Sie noch heute Ihren Termin und lassen Sie sich von uns verwöhnen.",
     "quickLinks": "Schnelllinks",
-    "contactInfo": "Kontaktinformation",
+    "contactInfo": "Kontaktinformationen",
     "address": "Beauty-Straße 123, Style City",
     "phone": "+1 (555) 123-4567",
     "email": "contact@sbsalon.com",
@@ -195,7 +170,7 @@
     "title": "Mein SBsalon",
     "description": "Willkommen zurück! Hier ist eine Zusammenfassung Ihres Projekts.",
     "loadErrorTitle": "Dashboard-Fehler",
-    "loadErrorDescription": "Beim Laden der Dashboard-Daten ist ein Problem aufgetreten. Einige Informationen fehlen möglicherweise. Als Fallback werden Mock-Daten verwendet.",
+    "loadErrorDescription": "Beim Laden der Dashboard-Daten ist ein Problem aufgetreten. Einige Informationen fehlen möglicherweise. Fallback auf Mock-Daten.",
     "userSignupsCardTitle": "Benutzeranmeldungen",
     "userSignupsCardDescription": "Ein Diagramm, das die Benutzeranmeldungen der letzten Monate zeigt.",
     "contentOverviewCardTitle": "Inhaltsübersicht",
@@ -251,41 +226,41 @@
     "name": "Name / Titel",
     "createdAt": "Erstellt am",
     "actions": "Aktionen",
-    "noItems": "Keine Elemente gefunden.",
+    "noItems": "Keine Einträge gefunden.",
     "edit": "Bearbeiten",
     "delete": "Löschen",
-    "deleteTitle": "Sind Sie sich absolut sicher?",
-    "deleteConfirm": "Diese Aktion kann nicht rückgängig gemacht werden. Dadurch wird das Element dauerhaft gelöscht.",
+    "deleteTitle": "Sind Sie absolut sicher?",
+    "deleteConfirm": "Diese Aktion kann nicht rückgängig gemacht werden. Dadurch wird der Eintrag dauerhaft gelöscht.",
     "tryAgain": "Erneut versuchen",
     "save": "Änderungen speichern",
     "errorTitle": "Fehler beim Laden der Daten",
-    "itemCount": "{count, plural, one {# Element} other {# Elemente}}",
+    "itemCount": "{count, plural, one {# Eintrag} other {# Einträge}}",
     "export": "Exportieren",
     "import": "Importieren",
     "exportAsCsv": "Als CSV exportieren",
     "exportAsJson": "Als JSON exportieren",
     "cancel": "Abbrechen",
     "deleting": "Wird gelöscht...",
-    "deleteSuccessTitle": "Element gelöscht",
-    "deleteSuccessDescription": "Das Element mit der ID {id} wurde gelöscht.",
+    "deleteSuccessTitle": "Eintrag gelöscht",
+    "deleteSuccessDescription": "Der Eintrag mit der ID {id} wurde gelöscht.",
     "deleteErrorTitle": "Löschen fehlgeschlagen",
-    "deleteErrorDescription": "Fehler beim Löschen von Element {id}: {message}",
+    "deleteErrorDescription": "Fehler beim Löschen des Eintrags {id}: {message}",
     "exportPreparingTitle": "Export wird vorbereitet",
-    "exportPreparingDescription": "Bereite den Export von {totalItems} Elementen vor. Dies kann einen Moment dauern.",
+    "exportPreparingDescription": "Vorbereitung zum Exportieren von {totalItems} Einträgen. Dies kann einen Moment dauern.",
     "exportReadyTitle": "Export bereit",
     "exportReadyDescription": "Ihre {format}-Datei steht zum Download bereit.",
     "exportFailedTitle": "Export fehlgeschlagen",
-    "exportFailedDescription": "Beim Export ist ein Fehler aufgetreten: {message}",
-    "editTitle": "Bearbeite {modelName}: {id}",
-    "createTitle": "Erstelle neues {modelName}",
+    "exportFailedDescription": "Während des Exports ist ein Fehler aufgetreten: {message}",
+    "editTitle": "{modelName} bearbeiten: {id}",
+    "createTitle": "Neues {modelName} erstellen",
     "loadModelConfigFailed": "Konfiguration für Modell konnte nicht geladen werden: {modelName}",
     "loadModelDataFailed": "Daten für Modell konnten nicht geladen werden: {modelName}",
     "loadingRelationOptions": "Lade Optionen für {fieldName}..."
   },
   "ModelForm": {
-    "saveSuccessTitle": "Element gespeichert",
-    "saveSuccessDescription": "Das Element wurde erfolgreich gespeichert.",
-    "saveErrorTitle": "Fehler beim Speichern des Elements"
+    "saveSuccessTitle": "Eintrag gespeichert",
+    "saveSuccessDescription": "Der Eintrag wurde erfolgreich gespeichert.",
+    "saveErrorTitle": "Fehler beim Speichern des Eintrags"
   },
   "SettingsPage": {
     "title": "Einstellungen",
@@ -314,16 +289,16 @@
     "enabling": "Wird aktiviert...",
     "disable2FA": "2FA deaktivieren",
     "disabling": "Wird deaktiviert...",
-    "scanQrCode": "Scannen Sie den QR-Code unten mit Ihrer Authenticator-App.",
+    "scanQrCode": "Scannen Sie den QR-Code unten mit Ihrer Authentifizierungs-App.",
     "secretKey": "Oder geben Sie diesen geheimen Schlüssel manuell ein",
-    "verificationCode": "Bestätigungscode",
+    "verificationCode": "Verifizierungscode",
     "otpPlaceholder": "6-stelliger Code",
     "cancel": "Abbrechen",
-    "verifying": "Überprüfen...",
-    "verifyAndActivate": "Überprüfen & Aktivieren",
+    "verifying": "Wird verifiziert...",
+    "verifyAndActivate": "Verifizieren & Aktivieren",
     "disable2faPasswordPlaceholder": "Geben Sie Ihr Passwort ein, um 2FA zu deaktivieren",
     "twoFactorEnableErrorTitle": "Fehler beim Aktivieren von 2FA",
-    "twoFactorVerifyErrorTitle": "Fehler beim Überprüfen des OTP",
+    "twoFactorVerifyErrorTitle": "Fehler beim Verifizieren des OTP",
     "twoFactorEnableSuccessTitle": "2FA aktiviert",
     "twoFactorEnableSuccessDescription": "Die Zwei-Faktor-Authentifizierung wurde erfolgreich aktiviert.",
     "twoFactorDisableErrorTitle": "Fehler beim Deaktivieren von 2FA",
@@ -336,25 +311,23 @@
       "otpLength": "Ihr Einmalpasswort muss 6 Zeichen lang sein.",
       "passwordRequiredFor2FA": "Ihr Passwort ist erforderlich, um 2FA zu deaktivieren."
     },
-    "seconds": "{count, plural, one {vor # Sekunde} other {vor # Sekunden}}"
+    "seconds": "{count, plural, one {# Sekunde her} other {# Sekunden her}}"
   },
   "AiToolsPage": {
-    "title": "KI-Werkzeuge",
+    "title": "KI-Power-Tools",
     "resultTitle": "Generiertes Ergebnis",
     "copy": "Kopieren",
-    "regenerate": "Neu generieren",
+    "regenerate": "Erneut generieren",
     "generating": "Wird generiert",
     "copySuccess": "Kopiert!",
     "copyDescription": "In die Zwischenablage kopiert.",
     "summarizer": {
-      "title": "Text-Zusammenfasser",
-      "description": "Langen Text auf Kernpunkte reduzieren.",
+      "title": "Textzusammenfasser",
+      "description": "Langen Text in Kernpunkte zusammenfassen.",
       "textLabel": "Zusammenzufassender Text",
       "textPlaceholder": "Geben Sie hier den Text ein, den Sie zusammenfassen möchten...",
       "button": "Zusammenfassen",
-      "buttonLoading": "Wird zusammengefasst...",
-      "copySuccess": "Kopiert!",
-      "copyDescription": "Passwort in die Zwischenablage kopiert."
+      "buttonLoading": "Wird zusammengefasst..."
     },
     "translator": {
       "title": "Sprachübersetzer",
@@ -364,31 +337,31 @@
       "languageLabel": "Zielsprache",
       "languagePlaceholder": "z.B. Französisch, Spanisch, Deutsch",
       "button": "Übersetzen",
-      "buttonLoading": "Übersetze..."
+      "buttonLoading": "Wird übersetzt..."
     },
     "emailDrafter": {
-      "title": "E-Mail-Verfasser",
+      "title": "E-Mail-Entwerfer",
       "description": "Schnell professionelle E-Mails entwerfen.",
       "topicLabel": "E-Mail-Thema",
-      "topicPlaceholder": "z.B. Projekt-Update, Terminanfrage",
+      "topicPlaceholder": "z.B. Projektaktualisierung, Besprechungsanfrage",
       "button": "Generieren",
-      "buttonLoading": "Generiere..."
+      "buttonLoading": "Wird generiert..."
     },
     "supportReply": {
       "title": "Support-Antwort-Generator",
-      "description": "Höfliche Antworten an Kunden verfassen.",
+      "description": "Freundliche Antworten an Kunden verfassen.",
       "questionLabel": "Kundenfrage",
       "questionPlaceholder": "z.B. Ich kann mich nicht in mein Konto einloggen",
       "button": "Generieren",
-      "buttonLoading": "Generiere..."
+      "buttonLoading": "Wird generiert..."
     },
     "socialPost": {
       "title": "Social-Media-Post-Ideen",
-      "description": "Ansprechende Social-Media-Beiträge erstellen.",
+      "description": "Ansprechende Social-Media-Beiträge generieren.",
       "topicLabel": "Thema oder Ereignis",
       "topicPlaceholder": "z.B. Produkteinführung, Firmenjubiläum",
       "button": "Generieren",
-      "buttonLoading": "Generiere..."
+      "buttonLoading": "Wird generiert..."
     },
     "marketingIdeas": {
       "title": "Marketing-Ideen",
@@ -396,15 +369,15 @@
       "productLabel": "Produkt oder Dienstleistung",
       "productPlaceholder": "z.B. eine neue Kaffeemarke, ein SaaS",
       "button": "Generieren",
-      "buttonLoading": "Generiere..."
+      "buttonLoading": "Wird generiert..."
     },
     "newsletterThemes": {
-      "title": "Newsletter-Themen-Vorschlag",
+      "title": "Newsletter-Themen-Vorschläger",
       "description": "Inspiration für Ihren nächsten Newsletter finden.",
       "audienceLabel": "Zielgruppe",
       "audiencePlaceholder": "z.B. Entwickler, Kleinunternehmer",
       "button": "Vorschlagen",
-      "buttonLoading": "Schlage vor..."
+      "buttonLoading": "Wird vorgeschlagen..."
     },
     "passwordGenerator": {
       "title": "Sicherer Passwort-Generator",
@@ -413,19 +386,19 @@
       "numbersLabel": "Zahlen einschließen",
       "symbolsLabel": "Symbole einschließen",
       "button": "Passwort generieren",
-      "buttonLoading": "Generiere..."
+      "buttonLoading": "Wird generiert..."
     }
   },
   "AuthErrorPage": {
     "credentialsSigninTitle": "Anmeldung fehlgeschlagen",
-    "credentialsSigninDescription": "Die eingegebene E-Mail oder das Passwort ist falsch. Bitte überprüfen Sie Ihre Anmeldeinformationen und versuchen Sie es erneut.",
+    "credentialsSigninDescription": "Die eingegebene E-Mail oder das Passwort ist falsch. Bitte überprüfen Sie Ihre Anmeldedaten und versuchen Sie es erneut.",
     "accessDeniedTitle": "Zugriff verweigert",
     "accessDeniedDescription": "Sie haben keine Berechtigung, auf diese Seite zuzugreifen. Bitte kontaktieren Sie einen Administrator, wenn Sie glauben, dass dies ein Fehler ist.",
     "configurationTitle": "Serverkonfigurationsfehler",
     "configurationDescription": "Es gibt ein Problem mit der Authentifizierungskonfiguration des Servers. Bitte kontaktieren Sie den Support.",
     "defaultTitle": "Ein Fehler ist aufgetreten",
     "defaultDescription": "Ein unbekannter Authentifizierungsfehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support, wenn das Problem weiterhin besteht.",
-    "backToLogin": "Zurück zum Login"
+    "backToLogin": "Zurück zur Anmeldung"
   },
   "ErrorPage": {
     "title": "Etwas ist schief gelaufen",
@@ -435,12 +408,15 @@
   },
   "DashboardLayout": {
     "dashboard": "Startseite",
-    "tools": "Werkzeuge",
-    "aiTools": "KI-Werkzeuge",
+    "aiTools": "KI-Tools",
     "blog": "Blog",
     "models": "Modelle",
     "settings": "Einstellungen",
-    "signOut": "Abmelden"
+    "signOut": "Abmelden",
+    "signOutSuccessTitle": "Abgemeldet",
+    "signOutSuccessDescription": "Sie wurden erfolgreich abgemeldet.",
+    "system": "System",
+    "tools": "Werkzeuge"
   },
   "Time": {
     "years": "{count, plural, one {vor # Jahr} other {vor # Jahren}}",
@@ -461,7 +437,7 @@
     "importButton": "Importieren",
     "importing": "Wird importiert...",
     "importSuccessTitle": "Import erfolgreich",
-    "importSuccessDescription": "{count} Elemente wurden erfolgreich importiert.",
+    "importSuccessDescription": "{count} Einträge wurden erfolgreich importiert.",
     "importErrorTitle": "Import fehlgeschlagen"
   },
   "Common": {
@@ -471,21 +447,21 @@
   "BlogPage": {
     "title": "Unser Blog",
     "readingTime": "{minutes, plural, =1 {# Minute Lesezeit} other {# Minuten Lesezeit}}",
-    "searchPlaceholder": "Suche nach Beiträgen...",
+    "searchPlaceholder": "Nach Beiträgen suchen...",
     "loading": "Beiträge werden geladen...",
     "noResults": "Keine Beiträge gefunden.",
     "loadingCategories": "Kategorien werden geladen...",
     "categoriesTitle": "Kategorien",
     "allCategories": "Alle",
     "commentsTitle": "Kommentare",
-    "commentPlaceholder": "Schreiben Sie einen Kommentar...",
-    "replyPlaceholder": "Schreiben Sie eine Antwort...",
+    "commentPlaceholder": "Einen Kommentar schreiben...",
+    "replyPlaceholder": "Eine Antwort schreiben...",
     "namePlaceholder": "Ihr Name",
     "emailPlaceholder": "Ihre E-Mail",
     "submitComment": "Kommentar abschicken",
-    "submittingComment": "Wird gesendet...",
-    "commentSuccess": "Kommentar erfolgreich veröffentlicht!",
-    "commentError": "Kommentar konnte nicht veröffentlicht werden.",
+    "submittingComment": "Wird abgeschickt...",
+    "commentSuccess": "Kommentar erfolgreich gepostet!",
+    "commentError": "Fehler beim Posten des Kommentars.",
     "loadingComments": "Kommentare werden geladen...",
     "noComments": "Seien Sie der Erste, der kommentiert.",
     "reply": "Antworten",
@@ -493,7 +469,7 @@
   },
   "BookingPage": {
     "title": "Buchen Sie Ihren Termin",
-    "subtitle": "Planen Sie Ihren Besuch bei uns mit nur wenigen Klicks. Wir freuen uns darauf, Sie bei uns begrüßen zu dürfen!",
+    "subtitle": "Planen Sie Ihren Besuch bei uns mit nur wenigen Klicks. Wir freuen uns, Sie begrüßen zu dürfen!",
     "form": {
       "name": "Vollständiger Name",
       "email": "E-Mail-Adresse",
@@ -506,24 +482,36 @@
       "time": "Uhrzeit",
       "selectTime": "Wählen Sie eine Uhrzeit",
       "notes": "Zusätzliche Anmerkungen (optional)",
-      "notesPlaceholder": "Teilen Sie uns besondere Wünsche oder Vorlieben mit.",
+      "notesPlaceholder": "Teilen Sie uns Ihre Wünsche oder Präferenzen mit.",
       "submit": "Termin buchen",
-      "submitting": "Bucht..."
+      "submitting": "Wird gebucht...",
+      "employee": "Spezialist auswählen",
+      "noEmployee": {
+        "title": "Kein Spezialist verfügbar",
+        "message": "Für die ausgewählte Dienstleistung sind derzeit keine Spezialisten verfügbar. Bitte wählen Sie eine andere Dienstleistung."
+      },
+      "yourInfo": "Ihre Informationen",
+      "bookingDetails": "Buchungsdetails"
     },
     "services": {
       "haircut": "Haarschnitt & Styling",
       "coloring": "Haarfärbung",
       "styling": "Haarstyling",
       "facial": "Gesichtsbehandlung",
-      "massage": "Massage-Therapie",
-      "nails": "Nagel-Services",
-      "makeup": "Make-up-Services"
+      "massage": "Massagetherapie",
+      "nails": "Nageldienste",
+      "makeup": "Make-up-Dienste"
+    },
+    "summary": {
+      "title": "Buchungsübersicht",
+      "start": "Wählen Sie einen Service, um zu beginnen.",
+      "specialist": "Spezialist"
     },
     "success": {
       "title": "Buchung bestätigt!",
-      "description": "Ihr Termin wurde erfolgreich geplant. Wir haben eine Bestätigung an Ihre E-Mail gesendet.",
+      "description": "Wir haben eine Bestätigung an Ihre E-Mail gesendet. Wir freuen uns auf Ihren Besuch!",
       "heading": "Vielen Dank!",
-      "message": "Ihre Buchung ist bestätigt. Wir freuen uns, Sie bald zu sehen.",
+      "message": "Ihre Buchung ist bestätigt. Wir freuen uns darauf, Sie bald zu sehen.",
       "newBooking": "Weitere Buchung vornehmen"
     },
     "errors": {
@@ -532,7 +520,7 @@
       "dateTime": "Datum & Uhrzeit erforderlich",
       "dateTimeMessage": "Bitte wählen Sie sowohl ein Datum als auch eine Uhrzeit für Ihren Termin.",
       "submitTitle": "Buchung fehlgeschlagen",
-      "submitMessage": "Etwas ist schiefgegangen. Bitte versuchen Sie es erneut."
+      "submitMessage": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
     },
     "info": {
       "title": "Bevor Sie buchen",
@@ -553,24 +541,11 @@
       "title": "Brauchen Sie Hilfe?",
       "description": "Haben Sie Fragen zu unseren Dienstleistungen? Kontaktieren Sie uns direkt über einen dieser Kanäle."
     },
-    "form": {
-      "employee": "Spezialist auswählen",
-      "noEmployee": {
-        "title": "Kein Spezialist verfügbar",
-        "message": "Für die ausgewählte Dienstleistung sind derzeit keine Spezialisten verfügbar. Bitte wählen Sie eine andere Dienstleistung."
-      },
-      "yourInfo": "Ihre Informationen",
-      "bookingDetails": "Buchungsdetails"
-    },
-    "summary": {
-      "title": "Buchungsübersicht",
-      "start": "Wählen Sie einen Service, um zu beginnen.",
-      "specialist": "Spezialist"
-    }
+    "servicesButton": "Unsere Dienstleistungen"
   },
   "ContactPage": {
     "title": "Kontaktieren Sie uns",
-    "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Ob Sie eine Frage zu unseren Dienstleistungen, Preisen oder etwas anderem haben, unser Team ist bereit, alle Ihre Fragen zu beantwortrauen.",
+    "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Ob Sie eine Frage zu unseren Dienstleistungen, Preisen oder etwas anderem haben, unser Team ist bereit, alle Ihre Fragen zu beantworten.",
     "info": {
       "title": "Kontaktinformationen",
       "address": {
@@ -580,10 +555,10 @@
         "title": "Telefon"
       },
       "email": {
-        "title": "Email"
+        "title": "E-Mail"
       },
       "hours": {
-        "title": "Öffnungszeiten",
+        "title": "Geschäftszeiten",
         "weekdays": "Mo - Fr: 9 - 19 Uhr",
         "saturday": "Samstag: 10 - 17 Uhr",
         "sunday": "Sonntag: Geschlossen"
@@ -608,13 +583,13 @@
       },
       "message": {
         "label": "Ihre Nachricht",
-        "placeholder": "Schreiben Sie hier Ihre Nachricht..."
+        "placeholder": "Schreiben Sie Ihre Nachricht hier..."
       },
       "submit": "Nachricht senden",
       "submitting": "Wird gesendet...",
       "success": {
         "title": "Nachricht gesendet!",
-        "description": "Danke für Ihre Kontaktaufnahme. Wir werden uns so schnell wie möglich bei Ihnen melden.",
+        "description": "Vielen Dank für Ihre Kontaktaufnahme. Wir werden uns so schnell wie möglich bei Ihnen melden.",
         "heading": "Erfolg!",
         "message": "Ihre Nachricht wurde erfolgreich gesendet.",
         "newMessage": "Weitere Nachricht senden"
@@ -626,6 +601,11 @@
       "errors": {
         "required": "Dieses Feld ist erforderlich.",
         "email": "Bitte geben Sie eine gültige E-Mail ein."
+      },
+      "employee": "Spezialist auswählen",
+      "noEmployee": {
+        "title": "Kein Spezialist verfügbar",
+        "message": "Für die ausgewählte Dienstleistung sind derzeit keine Spezialisten verfügbar. Bitte wählen Sie eine andere Dienstleistung."
       }
     },
     "map": {
@@ -634,16 +614,20 @@
   },
   "ServicesPage": {
     "title": "Unsere Dienstleistungen",
-    "subtitle": "Entdecken Sie unser breites Angebot an professionellen Schönheits- und Wellnessdienstleistungen, die darauf zugeschnitten sind, dass Sie gut aussehen und sich gut fühlen.",
+    "subtitle": "Entdecken Sie unser breites Angebot an professionellen Schönheits- und Wellnessdienstleistungen, die darauf ausgerichtet sind, dass Sie sich von Ihrer besten Seite zeigen und fühlen.",
     "categories": "Kategorien",
     "bookNow": "Jetzt buchen",
     "error": {
-      "title": "Dienste konnten nicht geladen werden",
-      "message": "Wir konnten unsere Dienste im Moment nicht abrufen. Bitte versuchen Sie es später noch einmal."
+      "title": "Dienstleistungen konnten nicht geladen werden",
+      "message": "Wir konnten unsere Dienstleistungen im Moment nicht abrufen. Bitte versuchen Sie es später erneut."
     },
     "empty": {
-      "title": "Keine Dienste verfügbar",
-      "message": "Derzeit sind keine Dienste in dieser Kategorie verfügbar. Bitte schauen Sie später wieder vorbei."
+      "title": "Keine Dienstleistungen verfügbar",
+      "message": "In dieser Kategorie sind derzeit keine Dienstleistungen verfügbar. Bitte schauen Sie später wieder vorbei."
     }
+  },
+  "stats": {
+    "title": "Unser Einfluss",
+    "subtitle": "Die Zahlen, die unsere Leidenschaft für Schönheit definieren"
   }
 }
