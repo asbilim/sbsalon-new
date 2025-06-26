@@ -353,14 +353,18 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         variants={sidebarVariants}
         initial={false}
         animate={isSidebarCollapsed ? "collapsed" : "expanded"}
-        className="bg-sidebar text-sidebar-foreground border-r border-sidebar-border hidden md:flex flex-col z-30">
+        className="bg-sidebar text-sidebar-foreground border-r border-sidebar-border hidden md:flex flex-col z-30 fixed h-screen">
         <SidebarHeader />
         <div className="flex-1 flex flex-col overflow-hidden">
           <SidebarContent />
         </div>
       </motion.aside>
 
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div
+        className={cn(
+          "flex-1 flex flex-col overflow-hidden transition-all duration-300",
+          isSidebarCollapsed ? "md:ml-[72px]" : "md:ml-[240px]"
+        )}>
         <header className="md:hidden flex items-center justify-between h-16 px-4 border-b bg-background">
           <Sheet>
             <SheetTrigger asChild>

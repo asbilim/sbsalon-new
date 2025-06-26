@@ -357,7 +357,9 @@
     "settings": "Settings",
     "signOut": "Sign Out",
     "signOutSuccessTitle": "Signed Out",
-    "signOutSuccessDescription": "You have been successfully signed out."
+    "signOutSuccessDescription": "You have been successfully signed out.",
+    "system": "System",
+    "tools": "Tools"
   },
   "Time": {
     "years": "{count, plural, one {# year ago} other {# years ago}}",
