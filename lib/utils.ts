@@ -53,3 +53,20 @@ export function formatDate(
     return String(date);
   }
 }
+
+/**
+ * Extracts localized name and description from an item.
+ * Falls back to default fields if localized versions are not available.
+ * @param item - The object containing fields like name, name_en, description, description_fr, etc.
+ * @param locale - The desired locale (e.g., "en", "de", "fr").
+ * @returns An object with the localized name and description.
+ */
+export function getLocalizedFields(
+  item: Record<string, any>,
+  locale: string
+): { name: string; description: string } {
+  const name = item[`name_${locale}`] ?? item.name;
+  const description = item[`description_${locale}`] ?? item.description;
+
+  return { name, description };
+}

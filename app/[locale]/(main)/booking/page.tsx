@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -25,10 +25,20 @@ import { format } from "date-fns";
 import { CalendarIcon, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@/lib/api";
 
 export default function BookingPage() {
   const t = useTranslations("BookingPage");
   const { toast } = useToast();
+  const locale = useLocale();
+
+  const { data: servicesData, isLoading: isLoadingServices } = useQuery({
+    queryKey: ["services", locale],
+    queryFn: () => api.getServices(locale),
+  });
+
+  const services = servicesData?.results || [];
 
   // Form state
   const [date, setDate] = useState<Date | undefined>(undefined);
@@ -50,17 +60,6 @@ export default function BookingPage() {
       notes: "",
     },
   });
-
-  // Available services
-  const services = [
-    { id: "haircut", name: t("services.haircut") },
-    { id: "coloring", name: t("services.coloring") },
-    { id: "styling", name: t("services.styling") },
-    { id: "facial", name: t("services.facial") },
-    { id: "massage", name: t("services.massage") },
-    { id: "nails", name: t("services.nails") },
-    { id: "makeup", name: t("services.makeup") },
-  ];
 
   // Available time slots
   const timeSlots = [
@@ -230,14 +229,21 @@ export default function BookingPage() {
                     onValueChange={(value) => {
                       const field = register("service", { required: true });
                       field.onChange({ target: { name: "service", value } });
-                    }}>
+                    }}
+                    disabled={isLoadingServices}>
                     <SelectTrigger
                       className={cn({ "border-destructive": errors.service })}>
-                      <SelectValue placeholder={t("form.selectService")} />
+                      <SelectValue
+                        placeholder={
+                          isLoadingServices
+                            ? t("form.loadingServices")
+                            : t("form.selectService")
+                        }
+                      />
                     </SelectTrigger>
                     <SelectContent>
                       {services.map((service) => (
-                        <SelectItem key={service.id} value={service.id}>
+                        <SelectItem key={service.id} value={String(service.id)}>
                           {service.name}
                         </SelectItem>
                       ))}

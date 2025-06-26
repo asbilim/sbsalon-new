@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing/navigation";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
@@ -17,6 +17,7 @@ import {
   Heart,
   Droplet,
   Feather,
+  AlertCircle,
 } from "lucide-react";
 import {
   motion,
@@ -26,6 +27,19 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@/lib/api";
+import { Skeleton } from "@/components/ui/skeleton";
+import { getLocalizedFields } from "@/lib/utils";
+
+const serviceIcons = [
+  <Scissors className="h-7 w-7" />,
+  <Sparkles className="h-7 w-7" />,
+  <Clock className="h-7 w-7" />,
+  <Star className="h-7 w-7" />,
+  <Heart className="h-7 w-7" />,
+  <Droplet className="h-7 w-7" />,
+];
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -37,6 +51,18 @@ export default function HomePage() {
   const galleryRef = useRef(null);
   const statsRef = useRef(null);
   const ctaRef = useRef(null);
+  const locale = useLocale();
+
+  const {
+    data: servicesData,
+    isLoading: isLoadingServices,
+    isError: isErrorServices,
+  } = useQuery({
+    queryKey: ["services", locale],
+    queryFn: () => api.getServices(locale, { ordering: "id" }),
+  });
+
+  const services = servicesData?.results || [];
 
   // Register GSAP plugins
   useEffect(() => {
@@ -173,34 +199,6 @@ export default function HomePage() {
   const { scrollYProgress } = useScroll();
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, -150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-
-  // Services data
-  const services = [
-    {
-      icon: <Scissors className="h-7 w-7" />,
-      title: t("services.haircut.title"),
-      description: t("services.haircut.description"),
-      price: t("services.haircut.price"),
-    },
-    {
-      icon: <Sparkles className="h-7 w-7" />,
-      title: t("services.facial.title"),
-      description: t("services.facial.description"),
-      price: t("services.facial.price"),
-    },
-    {
-      icon: <Clock className="h-7 w-7" />,
-      title: t("services.massage.title"),
-      description: t("services.massage.description"),
-      price: t("services.massage.price"),
-    },
-    {
-      icon: <Star className="h-7 w-7" />,
-      title: t("services.nails.title"),
-      description: t("services.nails.description"),
-      price: t("services.nails.price"),
-    },
-  ];
 
   // Testimonials data
   const testimonials = [
@@ -584,63 +582,108 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                className="service-card p-8 bg-card border rounded-xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}>
-                {/* Background decoration */}
-                <div className="absolute -right-10 -top-10 w-20 h-20 rounded-full bg-primary/5 group-hover:scale-150 transition-transform duration-700"></div>
-                <div className="absolute -left-10 -bottom-10 w-20 h-20 rounded-full bg-primary/5 group-hover:scale-150 transition-transform duration-700"></div>
-
-                <div className="p-4 bg-primary/10 rounded-2xl w-fit mb-4 relative z-10 overflow-hidden group-hover:bg-primary/20 transition-colors duration-300">
-                  <motion.div
-                    initial={{ rotate: 0 }}
-                    whileHover={{ rotate: 10 }}
-                    transition={{ duration: 0.3 }}>
-                    {service.icon}
-                  </motion.div>
-
-                  {/* Animated glow effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-primary/20 rounded-2xl opacity-0 group-hover:opacity-100"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.5, opacity: 0.3 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </div>
-
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-semibold mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {service.description}
-                  </p>
+            {isLoadingServices &&
+              Array.from({ length: 4 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="p-8 bg-card border rounded-xl shadow-sm">
+                  <Skeleton className="h-16 w-16 rounded-2xl mb-4" />
+                  <Skeleton className="h-8 w-3/4 mb-2" />
+                  <Skeleton className="h-16 w-full mb-4" />
                   <div className="flex justify-between items-center">
-                    <span className="text-xl font-mono font-semibold text-primary">
-                      {service.price}
-                    </span>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="relative overflow-hidden group/btn">
-                      <Link href="/booking">
-                        <span className="relative z-10">
-                          {t("services.bookNow")}
-                        </span>
-                        <span className="absolute inset-0 bg-primary opacity-0 group-hover/btn:opacity-10 transition-opacity duration-300 rounded-md"></span>
-                      </Link>
-                    </Button>
+                    <Skeleton className="h-8 w-20" />
+                    <Skeleton className="h-10 w-24" />
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+
+            {isErrorServices && (
+              <div className="md:col-span-2 flex flex-col items-center justify-center text-center p-8 bg-destructive/10 text-destructive rounded-xl border border-destructive/20">
+                <AlertCircle className="h-12 w-12 mb-4" />
+                <h3 className="text-2xl font-semibold mb-2">
+                  {t("services.error.title")}
+                </h3>
+                <p>{t("services.error.message")}</p>
+              </div>
+            )}
+
+            {!isLoadingServices &&
+              !isErrorServices &&
+              services.length === 0 && (
+                <div className="md:col-span-2 flex flex-col items-center justify-center text-center p-8 bg-muted/50 rounded-xl border">
+                  <Scissors className="h-12 w-12 text-muted-foreground mb-4" />
+                  <h3 className="text-2xl font-semibold mb-2">
+                    {t("services.empty.title")}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {t("services.empty.message")}
+                  </p>
+                </div>
+              )}
+
+            {!isLoadingServices &&
+              !isErrorServices &&
+              services.slice(0, 4).map((service, i) => {
+                const { name, description } = getLocalizedFields(
+                  service,
+                  locale
+                );
+                return (
+                  <motion.div
+                    key={service.id}
+                    className="service-card p-8 bg-card border rounded-xl shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}>
+                    {/* Background decoration */}
+                    <div className="absolute -right-10 -top-10 w-20 h-20 rounded-full bg-primary/5 group-hover:scale-150 transition-transform duration-700"></div>
+                    <div className="absolute -left-10 -bottom-10 w-20 h-20 rounded-full bg-primary/5 group-hover:scale-150 transition-transform duration-700"></div>
+
+                    <div className="p-4 bg-primary/10 rounded-2xl w-fit mb-4 relative z-10 overflow-hidden group-hover:bg-primary/20 transition-colors duration-300">
+                      <motion.div
+                        initial={{ rotate: 0 }}
+                        whileHover={{ rotate: 10 }}
+                        transition={{ duration: 0.3 }}>
+                        {serviceIcons[i % serviceIcons.length]}
+                      </motion.div>
+
+                      {/* Animated glow effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-primary/20 rounded-2xl opacity-0 group-hover:opacity-100"
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileHover={{ scale: 1.5, opacity: 0.3 }}
+                        transition={{ duration: 0.5 }}
+                      />
+                    </div>
+
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-semibold mb-2">{name}</h3>
+                      <p className="text-muted-foreground mb-4">
+                        {description}
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xl font-mono font-semibold text-primary">
+                          ${service.base_price}
+                        </span>
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="relative overflow-hidden group/btn">
+                          <Link href="/booking">
+                            <span className="relative z-10">
+                              {t("services.bookNow")}
+                            </span>
+                            <span className="absolute inset-0 bg-primary opacity-0 group-hover/btn:opacity-10 transition-opacity duration-300 rounded-md"></span>
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
           </div>
 
           <div className="mt-12 text-center">

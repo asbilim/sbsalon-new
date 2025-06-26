@@ -15,6 +15,7 @@ export interface DashboardConfig {
   logoUrl: string;
   favicon: string;
   repositoryUrl: string;
+  backendUrl: string;
   api: {
     baseUrl: string;
     debugMode: boolean;
@@ -31,6 +32,7 @@ export const dashboardConfig: DashboardConfig = {
   repositoryUrl: "https://github.com/asbilim/sbsalon-new.git",
   logoUrl: "/logo.svg",
   favicon: "/favicon.ico",
+  backendUrl: process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000",
   api: {
     baseUrl:
       process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/admin",
