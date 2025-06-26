@@ -369,7 +369,11 @@ export function ModelForm({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <div className="flex justify-end">
-          <AiGenerateButton modelConfig={modelConfig} form={form} />
+          <AiGenerateButton
+            modelConfig={modelConfig}
+            form={form}
+            modelKey={modelKey}
+          />
         </div>
 
         <div className="p-6 border rounded-lg space-y-6">

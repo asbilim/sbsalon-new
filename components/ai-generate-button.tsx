@@ -12,19 +12,30 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
+import { api } from "@/lib/api";
 
 interface AiGenerateButtonProps {
   modelConfig: any;
-  form: any; // react-hook-form useForm return type
+  form: any;
+  modelKey: string;
 }
 
-export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
+export function AiGenerateButton({
+  modelConfig,
+  form,
+  modelKey,
+}: AiGenerateButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [prompt, setPrompt] = useState("");
+  const [numberOfItems, setNumberOfItems] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const processStream = async (reader: ReadableStreamDefaultReader) => {
     const decoder = new TextDecoder();
@@ -49,19 +60,13 @@ export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
       if (!response.ok) {
         const errorText = await response.text();
         try {
-          // Try to parse it as our structured error
           const errorData = JSON.parse(errorText);
           if (errorData.error && errorData.error.message) {
             throw new Error(errorData.error.message);
           }
         } catch (e) {
-          // If parsing fails, it's not our structured error, so show the raw text
-          throw new Error(
-            `The server returned an error:
-${errorText}`
-          );
+          throw new Error(`The server returned an error:\n${errorText}`);
         }
-        // It was JSON, but not in the expected format
         throw new Error("An unknown error occurred during AI generation.");
       }
 
@@ -74,7 +79,7 @@ ${errorText}`
 
       try {
         const match = completion.match(
-          /```(?:json)?\s*({[\s\S]*?})\s*```|({[\s\S]*})/
+          /```(?:json)?\s*([\s\S]*?)\s*```|([\s\S]*)/
         );
         if (!match) {
           throw new Error("No valid JSON object found in the AI response.");
@@ -82,15 +87,28 @@ ${errorText}`
         const jsonString = match[1] || match[2];
         const jsonResponse = JSON.parse(jsonString);
 
-        Object.keys(jsonResponse).forEach((key) => {
-          if (modelConfig.fields[key]) {
-            form.setValue(key, jsonResponse[key], { shouldValidate: true });
-          }
-        });
-        toast({
-          title: "Success",
-          description: "AI data has been populated in the form.",
-        });
+        if (Array.isArray(jsonResponse)) {
+          const creationPromises = jsonResponse.map((itemData) =>
+            api.createModelItem(`/api/admin/models/${modelKey}/`, itemData)
+          );
+          await Promise.all(creationPromises);
+          toast({
+            title: "Success",
+            description: `${jsonResponse.length} items have been created.`,
+          });
+          queryClient.invalidateQueries({ queryKey: ["modelItems", modelKey] });
+          queryClient.invalidateQueries({ queryKey: ["adminConfig"] });
+        } else {
+          Object.keys(jsonResponse).forEach((key) => {
+            if (modelConfig.fields[key]) {
+              form.setValue(key, jsonResponse[key], { shouldValidate: true });
+            }
+          });
+          toast({
+            title: "Success",
+            description: "AI data has been populated in the form.",
+          });
+        }
         setIsOpen(false);
       } catch (error) {
         const errorMessage =
@@ -148,12 +166,18 @@ ${errorText}`
         return acc;
       }, {} as Record<string, any>);
 
+    const outputInstruction =
+      numberOfItems > 1
+        ? `You must return a JSON array containing ${numberOfItems} objects.`
+        : "The output must be ONLY the raw JSON object. Do not add any commentary, greetings, or markdown syntax.";
+
     const fullPrompt = `
       You are a data generation assistant for a Django admin panel.
       Your task is to generate a complete JSON object based on a user's request and a provided model schema.
       The JSON object must be valid and should not be wrapped in markdown or any other text. Your output should be clean, raw JSON.
 
       User Request: "${prompt}"
+      Number of items to generate: ${numberOfItems}
 
       Model: "${modelConfig.verbose_name}"
 
@@ -161,7 +185,7 @@ ${errorText}`
       1. Analyze the user request.
       2. Look at the model schema below to understand the required fields, their types, and their languages.
       3. **Crucially, you must provide plausible values for ALL fields in the schema, especially for all language variations (e.g., fields ending in _en, _fr, _de).** If the user's prompt is in one language, you must translate and adapt the content for the other languages.
-      4. The output must be ONLY the raw JSON object. Do not add any commentary, greetings, or markdown syntax.
+      4. ${outputInstruction}
 
       Example of a perfect response:
       {
@@ -193,12 +217,26 @@ ${errorText}`
             who is a developer".
           </DialogDescription>
         </DialogHeader>
-        <Textarea
-          placeholder="Enter your prompt here..."
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          rows={4}
-        />
+        <div className="space-y-4">
+          <Textarea
+            placeholder="Enter your prompt here..."
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            rows={4}
+          />
+          <div className="space-y-2">
+            <Label htmlFor="numberOfItems">Number of Items (1-10)</Label>
+            <Input
+              id="numberOfItems"
+              type="number"
+              min="1"
+              max="10"
+              value={numberOfItems}
+              onChange={(e) => setNumberOfItems(parseInt(e.target.value, 10))}
+              className="w-24"
+            />
+          </div>
+        </div>
         <DialogFooter>
           <Button
             onClick={handleGenerateClick}
