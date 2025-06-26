@@ -484,7 +484,14 @@
       "notes": "Additional Notes (optional)",
       "notesPlaceholder": "Let us know about any special requests or preferences.",
       "submit": "Book Appointment",
-      "submitting": "Booking..."
+      "submitting": "Booking...",
+      "employee": "Select a Specialist",
+      "noEmployee": {
+        "title": "No Specialist Available",
+        "message": "There are currently no specialists available for the selected service. Please choose another service."
+      },
+      "yourInfo": "Your Information",
+      "bookingDetails": "Booking Details"
     },
     "services": {
       "haircut": "Haircut & Styling",
@@ -495,9 +502,14 @@
       "nails": "Nail Services",
       "makeup": "Makeup Services"
     },
+    "summary": {
+      "title": "Booking Summary",
+      "start": "Select a service to begin.",
+      "specialist": "Specialist"
+    },
     "success": {
       "title": "Booking Confirmed!",
-      "description": "Your appointment has been successfully scheduled. We've sent a confirmation to your email.",
+      "description": "We've sent a confirmation to your email. We look forward to seeing you!",
       "heading": "Thank You!",
       "message": "Your booking is confirmed. We look forward to seeing you soon.",
       "newBooking": "Make Another Booking"
@@ -589,6 +601,11 @@
       "errors": {
         "required": "This field is required.",
         "email": "Please enter a valid email."
+      },
+      "employee": "Select a Specialist",
+      "noEmployee": {
+        "title": "No Specialist Available",
+        "message": "There are currently no specialists available for the selected service. Please choose another service."
       }
     },
     "map": {

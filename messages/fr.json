@@ -475,11 +475,23 @@
       "notes": "Notes supplémentaires (facultatif)",
       "notesPlaceholder": "Faites-nous part de toute demande ou préférence particulière.",
       "submit": "Réserver le rendez-vous",
-      "submitting": "Réservation en cours..."
+      "submitting": "Réservation en cours...",
+      "employee": "Sélectionner un spécialiste",
+      "noEmployee": {
+        "title": "Aucun spécialiste disponible",
+        "message": "Aucun spécialiste n'est actuellement disponible pour le service sélectionné. Veuillez choisir un autre service."
+      },
+      "yourInfo": "Vos informations",
+      "bookingDetails": "Détails de la réservation"
+    },
+    "summary": {
+      "title": "Résumé de la réservation",
+      "start": "Sélectionnez un service pour commencer.",
+      "specialist": "Spécialiste"
     },
     "success": {
       "title": "Réservation confirmée !",
-      "description": "Votre rendez-vous a été programmé avec succès. Nous avons envoyé une confirmation à votre adresse e-mail.",
+      "description": "Nous avons envoyé une confirmation à votre adresse e-mail. Nous avons hâte de vous voir !",
       "heading": "Merci !",
       "message": "Votre réservation est confirmée. Nous sommes impatients de vous voir bientôt.",
       "newBooking": "Faire une autre réservation"
@@ -490,11 +502,11 @@
       "dateTime": "Date et heure requises",
       "dateTimeMessage": "Veuillez sélectionner à la fois une date et une heure pour votre rendez-vous.",
       "submitTitle": "La réservation a échoué",
-      "submitMessage": "Un problème est survenu. Veuillez réessayer."
+      "submitMessage": "Une erreur s'est produite. Veuillez réessayer."
     },
     "info": {
       "title": "Avant de réserver",
-      "description": "Veuillez arriver 10 minutes à l'avance pour votre rendez-vous. Si vous devez annuler ou reporter, veuillez nous en informer au moins 24 heures à l'avance.",
+      "description": "Veuillez arriver 10 minutes avant votre rendez-vous. Si vous devez annuler ou reporter, veuillez nous en informer au moins 24 heures à l'avance.",
       "hours": {
         "title": "Heures d'ouverture",
         "monday": "Lun",

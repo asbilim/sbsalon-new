@@ -535,8 +535,8 @@
       "submitMessage": "Etwas ist schiefgegangen. Bitte versuchen Sie es erneut."
     },
     "info": {
-      "title": "Vor Ihrer Buchung",
-      "description": "Bitte kommen Sie 10 Minuten vor Ihrem Termin an. Wenn Sie stornieren oder verschieben müssen, teilen Sie uns dies bitte mindestens 24 Stunden im Voraus mit.",
+      "title": "Bevor Sie buchen",
+      "description": "Bitte erscheinen Sie 10 Minuten vor Ihrem Termin. Wenn Sie stornieren oder verschieben müssen, geben Sie uns bitte mindestens 24 Stunden im Voraus Bescheid.",
       "hours": {
         "title": "Öffnungszeiten",
         "monday": "Mo",
@@ -550,8 +550,22 @@
       }
     },
     "contact": {
-      "title": "Benötigen Sie Hilfe?",
+      "title": "Brauchen Sie Hilfe?",
       "description": "Haben Sie Fragen zu unseren Dienstleistungen? Kontaktieren Sie uns direkt über einen dieser Kanäle."
+    },
+    "form": {
+      "employee": "Spezialist auswählen",
+      "noEmployee": {
+        "title": "Kein Spezialist verfügbar",
+        "message": "Für die ausgewählte Dienstleistung sind derzeit keine Spezialisten verfügbar. Bitte wählen Sie eine andere Dienstleistung."
+      },
+      "yourInfo": "Ihre Informationen",
+      "bookingDetails": "Buchungsdetails"
+    },
+    "summary": {
+      "title": "Buchungsübersicht",
+      "start": "Wählen Sie einen Service, um zu beginnen.",
+      "specialist": "Spezialist"
     }
   },
   "ContactPage": {

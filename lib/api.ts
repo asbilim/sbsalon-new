@@ -10,7 +10,7 @@ import {
   Comment,
   BlogStats,
 } from "@/types/blog";
-import { Service } from "@/types/salon";
+import { Service, PaginatedResponse, Employee } from "@/types/salon";
 
 const REFRESH_ATTEMPT_LIMIT = 3;
 const REFRESH_ATTEMPT_WINDOW_MS = 30000;
@@ -80,13 +80,6 @@ const refreshManager = {
 };
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-interface PaginatedResponse<T> {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: T[];
-}
 
 const getApiHeaders = async (locale?: string) => {
   const session = await getSession();
@@ -506,6 +499,11 @@ export const api = {
   ): Promise<PaginatedResponse<Service>> => {
     const queryParams = new URLSearchParams(params).toString();
     return publicApiFetch(`/api/v1/salon/services/?${queryParams}`, {
+      headers: { "Accept-Language": locale },
+    });
+  },
+  getEmployees: (locale: string): Promise<PaginatedResponse<Employee>> => {
+    return publicApiFetch(`/api/v1/salon/employees/`, {
       headers: { "Accept-Language": locale },
     });
   },
