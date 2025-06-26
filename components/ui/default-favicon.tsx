@@ -1,31 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ReactDOMServer from "react-dom/server";
-
-const Svg = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round">
-    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-  </svg>
-);
+import React from "react";
 
 export function DefaultFavicon() {
-  const [favicon, setFavicon] = useState<string | null>(null);
-
-  useEffect(() => {
-    const svgString = ReactDOMServer.renderToString(<Svg />);
-    const faviconUri = `data:image/svg+xml;base64,${btoa(svgString)}`;
-    setFavicon(faviconUri);
-  }, []);
-
-  if (!favicon) return null;
-
-  return <link rel="icon" href={favicon} />;
+  return (
+    <>
+      <link rel="icon" href="/favicon.ico" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d4af37" />
+      <meta name="msapplication-TileColor" content="#d4af37" />
+      <meta name="theme-color" content="#121212" />
+    </>
+  );
 }

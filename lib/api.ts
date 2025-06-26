@@ -10,6 +10,7 @@ import {
   Comment,
   BlogStats,
 } from "@/types/blog";
+import { Service, PaginatedResponse, Employee } from "@/types/salon";
 
 const REFRESH_ATTEMPT_LIMIT = 3;
 const REFRESH_ATTEMPT_WINDOW_MS = 30000;
@@ -79,13 +80,6 @@ const refreshManager = {
 };
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-interface PaginatedResponse<T> {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: T[];
-}
 
 const getApiHeaders = async (locale?: string) => {
   const session = await getSession();
@@ -296,6 +290,37 @@ const getPostsByCategory = async (
   });
 };
 
+async function publicApiFetch<T>(
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const url = `${dashboardConfig.backendUrl}${endpoint}`;
+  const headers = new Headers(options.headers);
+
+  if (!(options.body instanceof FormData) && !headers.has("Content-Type")) {
+    headers.set("Content-Type", "application/json");
+  }
+
+  const finalOptions: RequestInit = { ...options, headers };
+  const response = await fetch(url, finalOptions);
+
+  if (!response.ok) {
+    let errorDetail = `API Error: ${response.status} ${response.statusText}`;
+    try {
+      const errorData = await response.json();
+      errorDetail = errorData.detail || JSON.stringify(errorData);
+    } catch (e) {
+      // Ignore if response is not JSON
+    }
+    throw new Error(errorDetail);
+  }
+
+  if (response.headers.get("Content-Type")?.includes("application/json")) {
+    return (await response.json()) as T;
+  }
+  return null as T;
+}
+
 export const api = {
   getAdminConfig: () => apiRequest("GET", "/api/admin/"),
   getDashboardStats: () => apiFetch<any>("/api/admin/dashboard-stats/"),
@@ -407,7 +432,10 @@ export const api = {
   disable2FA: (password: string) =>
     apiRequest("POST", "/api/auth/2fa/disable/", JSON.stringify({ password })),
   importModelItems: (modelKey: string, data: FormData) => {
-    return apiRequest("POST", `/api/admin/models/${modelKey}/import/`, data);
+    return apiFetch(`/api/admin/models/${modelKey}/import/`, {
+      method: "POST",
+      body: data,
+    });
   },
   getBlogPosts: (
     locale: string,
@@ -464,5 +492,19 @@ export const api = {
     }
   ) => {
     return apiRequest("POST", `/api/blog/posts/${postId}/comments/`, data);
+  },
+  getServices: (
+    locale: string,
+    params: { page?: string; search?: string; ordering?: string } = {}
+  ): Promise<PaginatedResponse<Service>> => {
+    const queryParams = new URLSearchParams(params).toString();
+    return publicApiFetch(`/api/v1/salon/services/?${queryParams}`, {
+      headers: { "Accept-Language": locale },
+    });
+  },
+  getEmployees: (locale: string): Promise<PaginatedResponse<Employee>> => {
+    return publicApiFetch(`/api/v1/salon/employees/`, {
+      headers: { "Accept-Language": locale },
+    });
   },
 };

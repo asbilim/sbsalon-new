@@ -105,6 +105,7 @@ interface UserProfile {
   first_name: string;
   email: string;
   avatar_url?: string;
+  is_superuser?: boolean;
   preferences: {
     theme?: string;
     sidebar_collapsed?: boolean;
@@ -123,16 +124,16 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  const { data: adminConfig } = useQuery<AdminConfig>({
+  const { data: adminConfig } = useQuery({
     queryKey: ["adminConfig"],
-    queryFn: api.getAdminConfig,
+    queryFn: () => api.getAdminConfig() as Promise<AdminConfig>,
     enabled: !!session,
     staleTime: 1000 * 60 * 5,
   });
 
-  const { data: userProfile } = useQuery<UserProfile>({
+  const { data: userProfile } = useQuery({
     queryKey: ["userProfile"],
-    queryFn: api.getUserProfile,
+    queryFn: () => api.getUserProfile() as Promise<UserProfile>,
     enabled: !!session,
   });
 
@@ -151,7 +152,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     },
   });
 
-  const siteName = adminConfig?.frontend_options?.site_name || "Dashboard";
+  const siteName = adminConfig?.frontend_options?.site_name || "SBsalon";
   const logoUrl = adminConfig?.frontend_options?.logo_url;
 
   useEffect(() => {
@@ -188,7 +189,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   };
 
   const isActive = (path: string) => {
-    return pathname === path || (path !== "/" && pathname.startsWith(path));
+    return (
+      pathname === path || (path !== "/dashboard" && pathname.startsWith(path))
+    );
   };
 
   if (!session) return null;
@@ -233,17 +236,18 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   const SidebarContent = () => (
     <>
-      <ScrollArea className="flex-1 w-full">
+      <ScrollArea className="flex-1 w-full overflow-hidden">
         <nav className="px-2 py-4 space-y-1">
           <SidebarLink
-            href="/"
+            href="/dashboard"
             icon={<Layers className="h-5 w-5 flex-shrink-0" />}
             label={t("dashboard")}
             isCollapsed={isSidebarCollapsed && !isMobile}
-            isActive={isActive("/")}
+            isActive={isActive("/dashboard")}
           />
 
           {adminConfig &&
+            adminConfig.categories &&
             Object.entries(adminConfig.categories).map(
               ([category, modelKeys]) => (
                 <div key={category} className="my-2">
@@ -259,9 +263,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                     ) : null}
                   </AnimatePresence>
                   {modelKeys.map((modelKey) => {
-                    const model = adminConfig.models[modelKey];
+                    const model =
+                      adminConfig.models && adminConfig.models[modelKey];
                     if (!model) return null;
-                    const href = `dashboard/models/${model.model_name}`;
+                    const href = `/dashboard/models/${model.model_name}`;
                     return (
                       <SidebarLink
                         key={href}
@@ -295,11 +300,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               ) : null}
             </AnimatePresence>
             <SidebarLink
-              href="/ai-tools"
+              href="/dashboard/ai-tools"
               icon={<BrainCircuit className="h-5 w-5 flex-shrink-0" />}
               label={t("aiTools")}
               isCollapsed={isSidebarCollapsed && !isMobile}
-              isActive={isActive("/ai-tools")}
+              isActive={isActive("/dashboard/ai-tools")}
             />
             <SidebarLink
               href="/blog"
@@ -323,11 +328,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               ) : null}
             </AnimatePresence>
             <SidebarLink
-              href="/settings"
+              href="/dashboard/settings"
               icon={<Settings className="h-5 w-5 flex-shrink-0" />}
               label={t("settings")}
               isCollapsed={isSidebarCollapsed && !isMobile}
-              isActive={isActive("/settings")}
+              isActive={isActive("/dashboard/settings")}
             />
           </div>
         </nav>
@@ -348,14 +353,18 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         variants={sidebarVariants}
         initial={false}
         animate={isSidebarCollapsed ? "collapsed" : "expanded"}
-        className="bg-sidebar text-sidebar-foreground border-r border-sidebar-border hidden md:flex flex-col z-30">
+        className="bg-sidebar text-sidebar-foreground border-r border-sidebar-border hidden md:flex flex-col z-30 fixed h-screen">
         <SidebarHeader />
-        <div className="flex-1 flex flex-col overflow-y-auto">
+        <div className="flex-1 flex flex-col overflow-hidden">
           <SidebarContent />
         </div>
       </motion.aside>
 
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div
+        className={cn(
+          "flex-1 flex flex-col overflow-hidden transition-all duration-300",
+          isSidebarCollapsed ? "md:ml-[72px]" : "md:ml-[240px]"
+        )}>
         <header className="md:hidden flex items-center justify-between h-16 px-4 border-b bg-background">
           <Sheet>
             <SheetTrigger asChild>

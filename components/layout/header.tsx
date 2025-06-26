@@ -43,9 +43,10 @@ export function Header() {
 
   const navigation = [
     { name: t("home"), href: "/" },
+    { name: t("services"), href: "/services" },
+    { name: t("booking"), href: "/booking" },
     { name: t("blog"), href: "/blog" },
-    { name: t("features"), href: "/#features" },
-    { name: t("about"), href: "/about" },
+    { name: t("contact"), href: "/contact" },
   ];
 
   const isActive = (path: string) => {
@@ -58,6 +59,8 @@ export function Header() {
   };
 
   const isSuperUser = session?.user?.is_superuser;
+
+  const user = session?.user;
 
   return (
     <header
@@ -109,14 +112,14 @@ export function Header() {
                     variant="ghost"
                     className="relative h-9 w-9 rounded-full">
                     <Avatar className="h-9 w-9">
-                      {session.user.image ? (
+                      {session.user?.image ? (
                         <AvatarImage
                           src={session.user.image}
                           alt={session.user.name || "User"}
                         />
                       ) : (
                         <AvatarFallback>
-                          {getInitials(session.user.name || "User")}
+                          {getInitials(session.user?.name || "User")}
                         </AvatarFallback>
                       )}
                     </Avatar>
@@ -125,10 +128,10 @@ export function Header() {
                 <DropdownMenuContent align="end" className="w-56">
                   <div className="flex items-center justify-start gap-2 p-2">
                     <div className="flex flex-col space-y-1 leading-none">
-                      {session.user.name && (
+                      {session.user?.name && (
                         <p className="font-medium">{session.user.name}</p>
                       )}
-                      {session.user.email && (
+                      {session.user?.email && (
                         <p className="w-[200px] truncate text-sm text-muted-foreground">
                           {session.user.email}
                         </p>
@@ -222,20 +225,20 @@ export function Header() {
               {session && (
                 <div className="flex items-center gap-4">
                   <div>
-                    <div className="font-medium">{session.user.name}</div>
+                    <div className="font-medium">{session.user?.name}</div>
                     <div className="text-sm text-muted-foreground">
-                      {session.user.email}
+                      {session.user?.email}
                     </div>
                   </div>
                   <Avatar className="h-9 w-9">
-                    {session.user.image ? (
+                    {session.user?.image ? (
                       <AvatarImage
                         src={session.user.image}
-                        alt={session.user.name || "User"}
+                        alt={session.user?.name || "User"}
                       />
                     ) : (
                       <AvatarFallback>
-                        {getInitials(session.user.name || "User")}
+                        {getInitials(session.user?.name || "User")}
                       </AvatarFallback>
                     )}
                   </Avatar>

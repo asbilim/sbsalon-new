@@ -19,7 +19,9 @@ export function LanguageSwitcher() {
     <select
       onChange={handleChange}
       value={currentLocale}
-      className="border rounded px-2 py-1 text-sm bg-background">
+      className="border rounded px-2 py-1 text-sm bg-background"
+      aria-label="Select language"
+      title="Language selector">
       {locales.map((loc) => (
         <option key={loc} value={loc}>
           {loc.toUpperCase()}

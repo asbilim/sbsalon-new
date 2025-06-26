@@ -15,71 +15,121 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Django Modern Admin Dashboard",
-      "description": "A modern, responsive admin dashboard for Django with Next.js, shadcn/ui and AI-powered tools to supercharge your productivity.",
-      "loginButton": "Get Started",
-      "dashboardButton": "Go to Dashboard",
-      "learnMoreButton": "Learn More"
+      "title": "Elegance in Every Strand",
+      "description": "Experience the art of beauty and relaxation at SBsalon, where our expert stylists create stunning looks tailored just for you.",
+      "bookButton": "Book an Appointment",
+      "servicesButton": "Our Services"
+    },
+    "services": {
+      "title": "Our Signature Services",
+      "subtitle": "Discover our curated list of services designed to rejuvenate your body and soul.",
+      "bookNow": "Book Now",
+      "viewAllButton": "View All Services",
+      "error": {
+        "title": "Could Not Load Services",
+        "message": "We're having trouble fetching our services right now. Please refresh the page or try again in a moment."
+      },
+      "empty": {
+        "title": "No Services Found",
+        "message": "It seems we don't have any services available at the moment. Please check back soon!"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "subtitle": "Read the glowing reviews from our beloved customers.",
+      "first": {
+        "text": "An absolutely amazing experience! The staff are incredibly talented and friendly. I left feeling like a brand new person. Highly recommend!",
+        "author": "Jessica Miller",
+        "role": "Loyal Client"
+      },
+      "second": {
+        "text": "The best salon in town, hands down. Professional service, beautiful and clean environment. My hair has never looked better. Thank you!",
+        "author": "David Chen",
+        "role": "Happy Customer"
+      },
+      "third": {
+        "text": "I had a facial and a massage, and both were divine. So relaxing and professional. I will definitely be coming back for more treatments.",
+        "author": "Sophia Rodriguez",
+        "role": "Relaxed Guest"
+      }
+    },
+    "gallery": {
+      "title": "Our Salon's Gallery",
+      "subtitle": "A glimpse into our world of beauty and style. See our work and the beautiful ambiance of our salon.",
+      "itemText": "Our Work",
+      "viewMoreButton": "View More"
+    },
+    "stats": {
+      "title": "Our Impact",
+      "subtitle": "The numbers that define our passion for beauty",
+      "clients": "Happy Clients",
+      "stylists": "Expert Stylists",
+      "years": "Years of Service",
+      "awards": "Awards Won"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Look?",
+      "description": "Your journey to beauty and confidence starts here. Book your appointment today and let our experts take care of you.",
+      "button": "Reserve Your Spot"
     },
     "features": {
-      "title": "Powerful Features",
-      "subtitle": "Everything you need to build beautiful, data-driven admin interfaces.",
+      "title": "Our Services",
+      "subtitle": "Premium beauty and grooming services to enhance your natural beauty.",
       "modern": {
-        "title": "Modern UI",
-        "description": "Built with Next.js, Tailwind CSS, and shadcn/ui for a sleek, responsive interface."
+        "title": "Hair Styling",
+        "description": "Professional haircuts, styling, coloring and treatments for all hair types."
       },
       "customizable": {
-        "title": "Fully Customizable",
-        "description": "Easily extend and modify components to match your project's specific needs."
+        "title": "Beauty Treatments",
+        "description": "Facials, makeup, manicures, pedicures and other beauty treatments."
       },
       "ai": {
-        "title": "AI-Powered Tools",
-        "description": "Integrated AI features that help automate tasks and increase productivity."
+        "title": "Massage & Spa",
+        "description": "Relaxing massage therapies and spa treatments for body and mind."
       },
       "developer": {
-        "title": "Developer-Friendly",
-        "description": "Well-organized codebase with TypeScript for improved developer experience."
+        "title": "Barber Services",
+        "description": "Classic and modern barber services including beard trimming and hot towel shaves."
       }
     },
     "gettingStarted": {
-      "title": "Getting Started",
-      "subtitle": "Follow these simple steps to start using Django Modern Admin.",
+      "title": "Book Your Appointment",
+      "subtitle": "Follow these simple steps to book your salon appointment.",
       "step1": {
-        "title": "Set Up API",
-        "description": "Configure your Django REST Framework API endpoints."
+        "title": "Choose Service",
+        "description": "Select the beauty or grooming service you need."
       },
       "step2": {
-        "title": "Customize UI",
-        "description": "Tailor the dashboard to match your requirements and brand."
+        "title": "Pick Date & Time",
+        "description": "Choose a convenient date and time for your appointment."
       },
       "step3": {
-        "title": "Deploy",
-        "description": "Deploy your application to your favorite hosting platform."
+        "title": "Confirm Booking",
+        "description": "Complete your booking and receive confirmation."
       },
-      "docsButton": "Read the Documentation"
+      "docsButton": "View Our Services"
     }
   },
   "Header": {
-    "siteName": "Django Admin",
+    "siteName": "SBsalon",
     "home": "Home",
+    "services": "Services",
+    "booking": "Booking",
     "blog": "Blog",
-    "features": "Features",
-    "about": "About",
+    "contact": "Contact",
     "signIn": "Sign In",
+    "signOut": "Sign Out",
     "dashboard": "Dashboard",
     "settings": "Settings",
-    "adminDashboard": "Admin Dashboard",
-    "signOut": "Sign Out",
-    "signOutSuccessTitle": "Signed Out",
-    "signOutSuccessDescription": "You have been successfully signed out."
+    "adminDashboard": "Admin Panel"
   },
   "Footer": {
-    "siteName": "Django Admin",
-    "companyName": "Django Modern Admin",
+    "siteName": "SBsalon",
+    "companyName": "SBsalon",
     "allRightsReserved": "All rights reserved",
     "poweredBy": "Powered by",
     "categories": {
-      "solutions": "Solutions",
+      "solutions": "Services",
       "support": "Support",
       "company": "Company",
       "legal": "Legal",
@@ -89,14 +139,14 @@
     "solutions": {
       "admin": "Admin Dashboard",
       "analytics": "Analytics",
-      "commerce": "E-commerce",
-      "insights": "Insights"
+      "commerce": "Shop",
+      "insights": "Trends"
     },
     "support": {
-      "docs": "Documentation",
+      "docs": "FAQ",
       "pricing": "Pricing",
       "guides": "Guides",
-      "api": "API Status"
+      "api": "Service Status"
     },
     "company": {
       "about": "About",
@@ -107,10 +157,17 @@
     "legal": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
-    }
+    },
+    "description": "Discover your true beauty with our premium salon services. Book your appointment today and let us pamper you.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "address": "123 Beauty Street, Style City",
+    "phone": "+1 (555) 123-4567",
+    "email": "contact@sbsalon.com",
+    "copyright": "© {year} SBsalon. All Rights Reserved."
   },
   "DashboardPage": {
-    "title": "Dashboard",
+    "title": "My SBsalon",
     "description": "Welcome back! Here's a summary of your project.",
     "loadErrorTitle": "Dashboard Error",
     "loadErrorDescription": "There was a problem loading dashboard data. Some information may be missing. Using mock data as a fallback.",
@@ -350,14 +407,16 @@
     "tryAgain": "Try Again"
   },
   "DashboardLayout": {
-    "dashboard": "Dashboard",
+    "dashboard": "Home",
     "aiTools": "AI Tools",
     "blog": "Blog",
     "models": "Models",
     "settings": "Settings",
     "signOut": "Sign Out",
     "signOutSuccessTitle": "Signed Out",
-    "signOutSuccessDescription": "You have been successfully signed out."
+    "signOutSuccessDescription": "You have been successfully signed out.",
+    "system": "System",
+    "tools": "Tools"
   },
   "Time": {
     "years": "{count, plural, one {# year ago} other {# years ago}}",
@@ -407,5 +466,168 @@
     "noComments": "Be the first to comment.",
     "reply": "Reply",
     "cancelReply": "Cancel Reply"
+  },
+  "BookingPage": {
+    "title": "Book Your Appointment",
+    "subtitle": "Schedule your visit with us in just a few clicks. We look forward to welcoming you!",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service",
+      "selectService": "Select a service",
+      "loadingServices": "Loading services...",
+      "date": "Date",
+      "pickDate": "Pick a date",
+      "time": "Time",
+      "selectTime": "Select a time",
+      "notes": "Additional Notes (optional)",
+      "notesPlaceholder": "Let us know about any special requests or preferences.",
+      "submit": "Book Appointment",
+      "submitting": "Booking...",
+      "employee": "Select a Specialist",
+      "noEmployee": {
+        "title": "No Specialist Available",
+        "message": "There are currently no specialists available for the selected service. Please choose another service."
+      },
+      "yourInfo": "Your Information",
+      "bookingDetails": "Booking Details"
+    },
+    "services": {
+      "haircut": "Haircut & Styling",
+      "coloring": "Hair Coloring",
+      "styling": "Hair Styling",
+      "facial": "Facial Treatment",
+      "massage": "Massage Therapy",
+      "nails": "Nail Services",
+      "makeup": "Makeup Services"
+    },
+    "summary": {
+      "title": "Booking Summary",
+      "start": "Select a service to begin.",
+      "specialist": "Specialist"
+    },
+    "success": {
+      "title": "Booking Confirmed!",
+      "description": "We've sent a confirmation to your email. We look forward to seeing you!",
+      "heading": "Thank You!",
+      "message": "Your booking is confirmed. We look forward to seeing you soon.",
+      "newBooking": "Make Another Booking"
+    },
+    "errors": {
+      "required": "This field is required.",
+      "email": "Please enter a valid email address.",
+      "dateTime": "Date & Time Required",
+      "dateTimeMessage": "Please select both a date and a time for your appointment.",
+      "submitTitle": "Booking Failed",
+      "submitMessage": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Before You Book",
+      "description": "Please arrive 10 minutes early for your appointment. If you need to cancel or reschedule, please let us know at least 24 hours in advance.",
+      "hours": {
+        "title": "Opening Hours",
+        "monday": "Mon",
+        "tuesday": "Tue",
+        "wednesday": "Wed",
+        "thursday": "Thu",
+        "friday": "Fri",
+        "saturday": "Sat",
+        "sunday": "Sun",
+        "closed": "Closed"
+      }
+    },
+    "contact": {
+      "title": "Need Help?",
+      "description": "Have questions about our services? Reach out to us directly through any of these channels."
+    },
+    "servicesButton": "Our Services"
+  },
+  "ContactPage": {
+    "title": "Get In Touch",
+    "subtitle": "We'd love to hear from you. Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.",
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Our Address"
+      },
+      "phone": {
+        "title": "Phone"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": "Mon - Fri: 9am - 7pm",
+        "saturday": "Saturday: 10am - 5pm",
+        "sunday": "Sunday: Closed"
+      },
+      "social": {
+        "title": "Follow Us"
+      }
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Your Email",
+        "placeholder": "Enter your email address"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "What is your message about?"
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Write your message here..."
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Message Sent!",
+        "description": "Thank you for reaching out. We'll get back to you as soon as possible.",
+        "heading": "Success!",
+        "message": "Your message has been sent successfully.",
+        "newMessage": "Send Another Message"
+      },
+      "error": {
+        "title": "Error",
+        "description": "Failed to send message. Please try again."
+      },
+      "errors": {
+        "required": "This field is required.",
+        "email": "Please enter a valid email."
+      },
+      "employee": "Select a Specialist",
+      "noEmployee": {
+        "title": "No Specialist Available",
+        "message": "There are currently no specialists available for the selected service. Please choose another service."
+      }
+    },
+    "map": {
+      "placeholder": "Map integration would be displayed here in a production environment."
+    }
+  },
+  "ServicesPage": {
+    "title": "Our Services",
+    "subtitle": "Explore our wide range of professional beauty and wellness services, tailored to make you look and feel your best.",
+    "categories": "Categories",
+    "bookNow": "Book Now",
+    "error": {
+      "title": "Failed to Load Services",
+      "message": "We couldn't retrieve our services at the moment. Please try again later."
+    },
+    "empty": {
+      "title": "No Services Available",
+      "message": "There are currently no services to display in this category. Please check back later."
+    }
+  },
+  "stats": {
+    "title": "Our Impact",
+    "subtitle": "The numbers that define our passion for beauty"
   }
 }
