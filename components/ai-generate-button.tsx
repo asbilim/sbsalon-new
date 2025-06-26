@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useCompletion } from "@ai-sdk/react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -24,19 +23,63 @@ interface AiGenerateButtonProps {
 export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [prompt, setPrompt] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const { complete, isLoading } = useCompletion({
-    api: "/api/ai/generate",
-    onFinish: (prompt, completion) => {
+  const processStream = async (reader: ReadableStreamDefaultReader) => {
+    const decoder = new TextDecoder();
+    let fullResponse = "";
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      fullResponse += decoder.decode(value, { stream: true });
+    }
+    return fullResponse;
+  };
+
+  const handleAiGeneration = async (fullPrompt: string) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/ai/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: fullPrompt }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        try {
+          // Try to parse it as our structured error
+          const errorData = JSON.parse(errorText);
+          if (errorData.error && errorData.error.message) {
+            throw new Error(errorData.error.message);
+          }
+        } catch (e) {
+          // If parsing fails, it's not our structured error, so show the raw text
+          throw new Error(
+            `The server returned an error:
+${errorText}`
+          );
+        }
+        // It was JSON, but not in the expected format
+        throw new Error("An unknown error occurred during AI generation.");
+      }
+
+      if (!response.body) {
+        throw new Error("The response body is empty.");
+      }
+
+      const reader = response.body.getReader();
+      const completion = await processStream(reader);
+
       try {
-        // The AI might wrap the JSON in markdown or other text.
-        // We'll extract the JSON part of the response.
-        const match = completion.match(/{[\s\S]*}/);
+        const match = completion.match(
+          /```(?:json)?\s*({[\s\S]*?})\s*```|({[\s\S]*})/
+        );
         if (!match) {
           throw new Error("No valid JSON object found in the AI response.");
         }
-        const jsonString = match[0];
+        const jsonString = match[1] || match[2];
         const jsonResponse = JSON.parse(jsonString);
 
         Object.keys(jsonResponse).forEach((key) => {
@@ -55,9 +98,17 @@ export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
             ? error.message
             : "The AI response was not valid JSON. Please try again.";
         toast({
-          variant: "destructive",
+          variant: "info",
           title: "Error parsing AI response",
-          description: errorMessage,
+          description: (
+            <div className="flex flex-col gap-2">
+              <p>{errorMessage}</p>
+              <p className="font-semibold">Raw AI Response:</p>
+              <pre className="text-xs bg-muted p-2 rounded-md whitespace-pre-wrap font-mono">
+                <code>{completion}</code>
+              </pre>
+            </div>
+          ),
         });
         console.error(
           "AI response parsing error:",
@@ -66,17 +117,22 @@ export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
           completion
         );
       }
-    },
-    onError: (err) => {
+    } catch (err: any) {
       toast({
-        variant: "destructive",
+        variant: "info",
         title: "AI Generation Error",
-        description: err.message,
+        description: (
+          <p>
+            <code>{String(err.message)}</code>
+          </p>
+        ),
       });
-    },
-  });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  const handleGenerate = () => {
+  const handleGenerateClick = () => {
     const schema = Object.entries(modelConfig.fields)
       .filter(([, fieldConfig]: [string, any]) => fieldConfig.editable)
       .reduce((acc, [fieldName, fieldConfig]: [string, any]) => {
@@ -95,7 +151,7 @@ export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
     const fullPrompt = `
       You are a data generation assistant for a Django admin panel.
       Your task is to generate a complete JSON object based on a user's request and a provided model schema.
-      The JSON object must be valid and should not be wrapped in markdown or any other text.
+      The JSON object must be valid and should not be wrapped in markdown or any other text. Your output should be clean, raw JSON.
 
       User Request: "${prompt}"
 
@@ -104,13 +160,20 @@ export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
       Instructions:
       1. Analyze the user request.
       2. Look at the model schema below to understand the required fields, their types, and their languages.
-      3. **Crucially, you must provide plausible values for ALL fields in the schema, especially for all language variations (e.g., fields ending in _en, _fr, _de , etc... it can be less or more languages).** If the user's prompt is in one language, you must translate and adapt the content for the other languages.
-      4. The output must be ONLY the JSON object.
+      3. **Crucially, you must provide plausible values for ALL fields in the schema, especially for all language variations (e.g., fields ending in _en, _fr, _de).** If the user's prompt is in one language, you must translate and adapt the content for the other languages.
+      4. The output must be ONLY the raw JSON object. Do not add any commentary, greetings, or markdown syntax.
+
+      Example of a perfect response:
+      {
+        "field1": "value1",
+        "field2_en": "english value",
+        "field2_fr": "french value"
+      }
 
       Model Schema (for your reference):
       ${JSON.stringify(schema, null, 2)}
     `;
-    complete(fullPrompt);
+    handleAiGeneration(fullPrompt);
   };
 
   return (
@@ -138,7 +201,7 @@ export function AiGenerateButton({ modelConfig, form }: AiGenerateButtonProps) {
         />
         <DialogFooter>
           <Button
-            onClick={handleGenerate}
+            onClick={handleGenerateClick}
             disabled={isLoading || !prompt}
             className="w-full">
             {isLoading ? "Generating..." : "Generate"}
