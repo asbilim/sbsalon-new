@@ -1,38 +1,107 @@
-<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <pattern id="beauty-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-      <!-- Scissors -->
-      <path d="M15 20 Q 20 25 15 30 M15 20 Q 10 25 15 30" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <circle cx="15" cy="20" r="1.5" fill="currentColor" />
-      <circle cx="15" cy="30" r="1.5" fill="currentColor" />
-      
-      <!-- Comb -->
-      <path d="M70 25 L75 25 M70 27 L75 27 M70 29 L75 29" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <path d="M70 23 L75 23 L75 31 L70 31 Z" fill="none" stroke="currentColor" stroke-width="0.5" />
-      
-      <!-- Perfume bottle -->
-      <rect x="45" y="70" width="8" height="10" rx="1" fill="currentColor" opacity="0.5" />
-      <rect x="46" y="68" width="6" height="2" rx="1" fill="currentColor" opacity="0.6" />
-      <circle cx="49" cy="68" r="1" fill="currentColor" opacity="0.8" />
-      
-      <!-- Makeup brush -->
-      <path d="M20 80 L25 70" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <path d="M24 70 A 5 2 0 1 0 26 70" fill="currentColor" opacity="0.5" />
-      
-      <!-- Heart -->
-      <path d="M80 85 C80 80 75 80 75 85 Q75 87 80 90 Q85 87 85 85 C85 80 80 80 80 85" fill="none" stroke="currentColor" stroke-width="0.8" />
-      
-      <!-- Droplet -->
-      <path d="M85 15 Q85 20 80 20 Q75 20 75 15 Q75 10 80 5 Q85 10 85 15" fill="none" stroke="currentColor" stroke-width="0.8" />
-      
-      <!-- Sparkles -->
-      <path d="M25 50 L25 55 M22.5 52.5 L27.5 52.5 M35 45 L35 50 M32.5 47.5 L37.5 47.5" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
-      
-      <!-- Mirror -->
-      <rect x="60" y="45" width="15" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="0.8" />
-      <rect x="62" y="47" width="11" height="16" rx="1" fill="currentColor" opacity="0.1" />
-    </pattern>
-  </defs>
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background pattern - decorative grid -->
+  <path opacity="0.4" d="M0 0H720V720H0V0Z" fill="url(#grid_pattern)" />
   
-  <rect width="100" height="100" fill="url(#beauty-pattern)" />
+  <!-- Main decorative elements -->
+  <g opacity="0.2">
+    <!-- Central decorative scissors -->
+    <g transform="translate(360, 360) scale(1.2)">
+      <circle cx="0" cy="0" r="40" stroke="#D4AF37" stroke-width="1" />
+      <circle cx="0" cy="0" r="60" stroke="#D4AF37" stroke-width="0.5" />
+      <path d="M-20 -60C-20 -60 30 -20 30 0C30 20 -20 60 -20 60" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+      <path d="M20 -60C20 -60 -30 -20 -30 0C-30 20 20 60 20 60" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+      <circle cx="-20" cy="-60" r="8" fill="#D4AF37" />
+      <circle cx="-20" cy="60" r="8" fill="#D4AF37" />
+      <circle cx="20" cy="-60" r="8" fill="#D4AF37" />
+      <circle cx="20" cy="60" r="8" fill="#D4AF37" />
+    </g>
+    
+    <!-- Decorative beauty elements spread across -->
+    <!-- Top left - comb pattern -->
+    <g transform="translate(120, 120) rotate(45)" opacity="0.7">
+      <rect x="-30" y="-15" width="60" height="30" rx="2" stroke="#D4AF37" stroke-width="1" fill="none" />
+      <path d="M-25 -15V15 M-15 -15V15 M-5 -15V15 M5 -15V15 M15 -15V15 M25 -15V15" stroke="#D4AF37" stroke-width="1" />
+    </g>
+    
+    <!-- Top right - mirror -->
+    <g transform="translate(600, 120)" opacity="0.8">
+      <rect x="-40" y="-50" width="80" height="100" rx="5" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+      <rect x="-30" y="-40" width="60" height="80" rx="3" stroke="#D4AF37" stroke-width="0.5" fill="none" opacity="0.5" />
+      <circle cx="0" cy="-20" r="15" stroke="#D4AF37" stroke-width="1" fill="none" />
+    </g>
+    
+    <!-- Bottom left - bottle -->
+    <g transform="translate(120, 600)" opacity="0.7">
+      <path d="M-15 -40H15V-25C15 -25 25 -15 25 0V40C25 45 20 50 15 50H-15C-20 50 -25 45 -25 40V0C-25 -15 -15 -25 -15 -25V-40Z" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+      <rect x="-5" y="-50" width="10" height="10" rx="2" stroke="#D4AF37" stroke-width="1" fill="none" />
+      <path d="M0 -40V15 M-15 0H15" stroke="#D4AF37" stroke-width="0.5" opacity="0.5" />
+    </g>
+    
+    <!-- Bottom right - hairdryer -->
+    <g transform="translate(600, 600)" opacity="0.8">
+      <path d="M-30 -10C-30 -20 -20 -30 -10 -30H20C30 -30 40 -20 40 -10V10C40 20 30 30 20 30H-10C-20 30 -30 20 -30 10V-10Z" stroke="#D4AF37" stroke-width="1.5" fill="none" />
+      <path d="M-30 0H-50" stroke="#D4AF37" stroke-width="3" />
+      <path d="M40 0C40 0 50 -15 60 0C70 15 60 30 40 0Z" stroke="#D4AF37" stroke-width="1" fill="none" />
+    </g>
+    
+    <!-- Middle elements - decorative curly lines -->
+    <g transform="translate(240, 360)" opacity="0.6">
+      <path d="M0 -80C40 -80 40 -40 80 -40C120 -40 120 0 160 0C200 0 200 40 160 40C120 40 120 80 80 80C40 80 40 40 0 40C-40 40 -40 0 -80 0C-120 0 -120 -40 -80 -40C-40 -40 -40 -80 0 -80Z" stroke="#D4AF37" stroke-width="1" fill="none" />
+    </g>
+    
+    <!-- Bottom elements - decorative droplets -->
+    <g transform="translate(360, 480)" opacity="0.7">
+      <path d="M-40 0C-40 -40 0 -80 0 -80C0 -80 40 -40 40 0C40 30 20 50 0 50C-20 50 -40 30 -40 0Z" stroke="#D4AF37" stroke-width="1" fill="none" transform="rotate(15)" />
+      <path d="M-20 0C-20 -20 0 -40 0 -40C0 -40 20 -20 20 0C20 15 10 25 0 25C-10 25 -20 15 -20 0Z" stroke="#D4AF37" stroke-width="1" fill="none" transform="translate(-60, 40) rotate(-15)" />
+      <path d="M-20 0C-20 -20 0 -40 0 -40C0 -40 20 -20 20 0C20 15 10 25 0 25C-10 25 -20 15 -20 0Z" stroke="#D4AF37" stroke-width="1" fill="none" transform="translate(60, 40) rotate(15)" />
+    </g>
+  </g>
+  
+  <!-- Decorative corner elements -->
+  <g opacity="0.4">
+    <!-- Top left elegant corner -->
+    <path d="M20 20C60 20 60 20 60 60" stroke="#D4AF37" stroke-width="2" />
+    <path d="M20 30C50 30 50 30 50 60" stroke="#D4AF37" stroke-width="1" />
+    
+    <!-- Top right elegant corner -->
+    <path d="M700 20C660 20 660 20 660 60" stroke="#D4AF37" stroke-width="2" />
+    <path d="M700 30C670 30 670 30 670 60" stroke="#D4AF37" stroke-width="1" />
+    
+    <!-- Bottom left elegant corner -->
+    <path d="M20 700C60 700 60 700 60 660" stroke="#D4AF37" stroke-width="2" />
+    <path d="M20 690C50 690 50 690 50 660" stroke="#D4AF37" stroke-width="1" />
+    
+    <!-- Bottom right elegant corner -->
+    <path d="M700 700C660 700 660 700 660 660" stroke="#D4AF37" stroke-width="2" />
+    <path d="M700 690C670 690 670 690 670 660" stroke="#D4AF37" stroke-width="1" />
+  </g>
+  
+  <!-- Scattered gold accents -->
+  <g opacity="0.3">
+    <circle cx="120" cy="240" r="3" fill="#D4AF37" />
+    <circle cx="240" cy="120" r="2" fill="#D4AF37" />
+    <circle cx="600" cy="240" r="2" fill="#D4AF37" />
+    <circle cx="480" cy="120" r="3" fill="#D4AF37" />
+    <circle cx="120" cy="480" r="2" fill="#D4AF37" />
+    <circle cx="240" cy="600" r="3" fill="#D4AF37" />
+    <circle cx="600" cy="480" r="3" fill="#D4AF37" />
+    <circle cx="480" cy="600" r="2" fill="#D4AF37" />
+    <circle cx="360" cy="180" r="3" fill="#D4AF37" />
+    <circle cx="180" cy="360" r="2" fill="#D4AF37" />
+    <circle cx="540" cy="360" r="2" fill="#D4AF37" />
+    <circle cx="360" cy="540" r="3" fill="#D4AF37" />
+  </g>
+  
+  <!-- Patterns and gradients definitions -->
+  <defs>
+    <pattern id="grid_pattern" patternUnits="userSpaceOnUse" width="60" height="60">
+      <path d="M60 0L0 0L0 60" stroke="#D4AF37" stroke-width="0.2" fill="none" opacity="0.2" />
+    </pattern>
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#F2DC9E" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
 </svg> 

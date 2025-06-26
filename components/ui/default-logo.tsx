@@ -1,26 +1,50 @@
-import * as React from "react";
+import React from "react";
 
-export const DefaultLogo = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}>
-    {/* Stylized S for Salon */}
-    <path
-      d="M14.5,4c0,0-3-0.5-5.5,1s-2.5,3.5-1.5,5s3.5,1.5,5.5,2s3,2.5,2,4s-3,2-5.5,2"
-      strokeWidth="2"
+export function DefaultLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 48 48"
       fill="none"
-    />
+      xmlns="http://www.w3.org/2000/svg">
+      {/* Main circular background */}
+      <circle cx="24" cy="24" r="22" fill="#121212" />
 
-    {/* Scissors */}
-    <circle cx="18" cy="6" r="1.5" />
-    <circle cx="18" cy="18" r="1.5" />
-    <line x1="18" y1="6" x2="10" y2="12" />
-    <line x1="18" y1="18" x2="10" y2="12" />
-  </svg>
-);
+      {/* Gold circular accent */}
+      <circle cx="24" cy="24" r="18" stroke="#D4AF37" strokeWidth="1.5" />
+
+      {/* Stylized "S" for Salon with gradient */}
+      <path
+        d="M29.5 15C29.5 15 23 14 19 17C15 20 14.5 24 17 26.5C19.5 29 24 28 27.5 29.5C31 31 31.5 34.5 29 36.5C26.5 38.5 20 38 17 36"
+        stroke="url(#goldGradient)"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+
+      {/* Scissors element */}
+      <g stroke="url(#goldGradient)" strokeWidth="1.5" strokeLinecap="round">
+        <circle cx="33" cy="18" r="2.5" />
+        <circle cx="33" cy="30" r="2.5" />
+        <path d="M33 18L26 24" />
+        <path d="M33 30L26 24" />
+      </g>
+
+      {/* Gold gradient definition */}
+      <defs>
+        <linearGradient
+          id="goldGradient"
+          x1="14"
+          y1="15"
+          x2="35"
+          y2="36"
+          gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#D4AF37" />
+          <stop offset="50%" stopColor="#F2D675" />
+          <stop offset="100%" stopColor="#D4AF37" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}

@@ -1,6 +1,6 @@
 /**
  * SBsalon Configuration
- * Customize these settings to change the appearance and behavior of the salon booking system
+ * Premium Beauty Salon and Spa Experience
  */
 
 export interface NavigationItem {
@@ -24,11 +24,24 @@ export interface DashboardConfig {
     enabled: boolean;
     name: string;
   };
+  brand: {
+    colors: {
+      primary: string;
+      secondary: string;
+      background: string;
+      text: string;
+      accent: string;
+    };
+    typography: {
+      headingFont: string;
+      bodyFont: string;
+    };
+  };
 }
 
 export const dashboardConfig: DashboardConfig = {
   name: "SBsalon",
-  description: "Premium beauty salon and barber services",
+  description: "Luxury beauty salon and premium styling services",
   repositoryUrl: "https://github.com/asbilim/sbsalon-new.git",
   logoUrl: "/logo.svg",
   favicon: "/favicon.ico",
@@ -40,6 +53,19 @@ export const dashboardConfig: DashboardConfig = {
   },
   blog: {
     enabled: true,
-    name: "Beauty Blog",
+    name: "Beauty & Style Journal",
+  },
+  brand: {
+    colors: {
+      primary: "#D4AF37", // Gold
+      secondary: "#9F8E45", // Darker gold
+      background: "#121212", // Rich black
+      text: "#F5F5F5", // Off-white
+      accent: "#E8D282", // Light gold
+    },
+    typography: {
+      headingFont: "Playfair Display, serif",
+      bodyFont: "Inter, sans-serif",
+    },
   },
 };
