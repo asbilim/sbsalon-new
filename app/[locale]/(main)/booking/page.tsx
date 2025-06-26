@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -27,11 +27,13 @@ import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
+import { useSearchParams } from "next/navigation";
 
 export default function BookingPage() {
   const t = useTranslations("BookingPage");
   const { toast } = useToast();
   const locale = useLocale();
+  const searchParams = useSearchParams();
 
   const { data: servicesData, isLoading: isLoadingServices } = useQuery({
     queryKey: ["services", locale],
@@ -45,12 +47,16 @@ export default function BookingPage() {
   const [time, setTime] = useState<string | undefined>(undefined);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | undefined>(
+    undefined
+  );
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm({
     defaultValues: {
       name: "",
@@ -60,6 +66,22 @@ export default function BookingPage() {
       notes: "",
     },
   });
+
+  useEffect(() => {
+    const serviceId = searchParams.get("service");
+    if (serviceId && services.length > 0) {
+      const serviceExists = services.some((s) => String(s.id) === serviceId);
+      if (serviceExists) {
+        setValue("service", serviceId);
+        setSelectedService(serviceId);
+      }
+    }
+  }, [searchParams, services, setValue]);
+
+  const handleServiceChange = (value: string) => {
+    setValue("service", value);
+    setSelectedService(value);
+  };
 
   // Available time slots
   const timeSlots = [
@@ -226,10 +248,8 @@ export default function BookingPage() {
                 <div className="space-y-2">
                   <Label htmlFor="service">{t("form.service")}</Label>
                   <Select
-                    onValueChange={(value) => {
-                      const field = register("service", { required: true });
-                      field.onChange({ target: { name: "service", value } });
-                    }}
+                    value={selectedService}
+                    onValueChange={handleServiceChange}
                     disabled={isLoadingServices}>
                     <SelectTrigger
                       className={cn({ "border-destructive": errors.service })}>

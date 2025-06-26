@@ -672,7 +672,7 @@ export default function HomePage() {
                           variant="outline"
                           size="sm"
                           className="relative overflow-hidden group/btn">
-                          <Link href="/booking">
+                          <Link href={`/booking?service=${service.id}`}>
                             <span className="relative z-10">
                               {t("services.bookNow")}
                             </span>

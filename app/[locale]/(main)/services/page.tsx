@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 import { api } from "@/lib/api";
 import { Service } from "@/types/salon";
@@ -79,7 +80,7 @@ export default function ServicesPage() {
   }, [groupedServices, activeCategory]);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     if (mainContainerRef.current) {
       const triggers = ScrollTrigger.batch(".service-category-section", {
@@ -192,7 +193,7 @@ export default function ServicesPage() {
                           ${service.base_price}
                         </span>
                         <Button asChild variant="outline">
-                          <Link href="/booking">
+                          <Link href={`/booking?service=${service.id}`}>
                             {t("bookNow")}
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
@@ -233,7 +234,7 @@ export default function ServicesPage() {
         </motion.div>
 
         <div
-          className="flex flex-col md:flex-row gap-12"
+          className="flex flex-col md:flex-row gap-16"
           ref={mainContainerRef}>
           <aside className="md:w-1/4 md:sticky top-24 self-start">
             <nav className="space-y-2">

@@ -15,77 +15,62 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Beauté & Style à Portée de Main",
-      "description": "Découvrez des services de salon haut de gamme avec nos stylistes experts. Réservez votre rendez-vous aujourd'hui et découvrez le vrai sens du soin de soi.",
-      "bookButton": "Réserver Maintenant",
-      "servicesButton": "Nos Services",
-      "dashboardButton": "Accéder au tableau de bord",
-      "loginButton": "Commencer",
-      "learnMoreButton": "En savoir plus"
+      "title": "L'élégance dans chaque mèche",
+      "description": "Découvrez l'art de la beauté et de la détente au SBsalon, où nos stylistes experts créent des looks époustouflants conçus spécialement pour vous.",
+      "bookButton": "Prendre rendez-vous",
+      "servicesButton": "Nos services"
     },
     "services": {
-      "title": "Nos Services",
-      "subtitle": "Services de beauté et de soins haut de gamme pour mettre en valeur votre beauté naturelle.",
-      "viewAllButton": "Voir Tous les Services",
+      "title": "Nos services signature",
+      "subtitle": "Découvrez notre liste de services conçus pour rajeunir votre corps et votre âme.",
       "bookNow": "Réserver",
-      "haircut": {
-        "title": "Coiffure",
-        "description": "Coupes de cheveux professionnelles, coiffage, coloration et traitements pour tous types de cheveux.",
-        "price": "45€+"
+      "viewAllButton": "Voir tous les services",
+      "error": {
+        "title": "Impossible de charger les services",
+        "message": "Nous rencontrons des difficultés pour récupérer nos services pour le moment. Veuillez actualiser la page ou réessayer dans un instant."
       },
-      "facial": {
-        "title": "Soins Beauté",
-        "description": "Soins du visage, maquillage, manucures, pédicures et autres traitements de beauté.",
-        "price": "65€+"
-      },
-      "massage": {
-        "title": "Massage & Spa",
-        "description": "Thérapies de massage relaxantes et traitements spa pour le corps et l'esprit.",
-        "price": "80€+"
-      },
-      "nails": {
-        "title": "Soins des Ongles",
-        "description": "Manucures et pédicures professionnelles, et nail art pour de belles mains et pieds.",
-        "price": "35€+"
+      "empty": {
+        "title": "Aucun service trouvé",
+        "message": "Il semble que nous n'ayons aucun service disponible pour le moment. Veuillez revenir bientôt !"
       }
     },
     "testimonials": {
-      "title": "Ce Que Disent Nos Clients",
-      "subtitle": "Expériences réelles de nos clients satisfaits.",
+      "title": "Ce que disent nos clients",
+      "subtitle": "Lisez les avis élogieux de nos chers clients.",
       "first": {
-        "text": "Le service était exceptionnel ! Ma styliste a parfaitement compris ce que je voulais et a dépassé mes attentes.",
-        "author": "Sarah Johnson",
-        "role": "Cliente Régulière"
+        "text": "Une expérience absolument incroyable ! Le personnel est incroyablement talentueux et amical. Je suis partie en me sentant comme une nouvelle personne. Je recommande vivement !",
+        "author": "Jessica Martin",
+        "role": "Cliente fidèle"
       },
       "second": {
-        "text": "L'ambiance, le professionnalisme et les résultats étaient tous incroyables. J'ai trouvé mon nouveau salon préféré !",
-        "author": "Michael Chen",
-        "role": "Nouveau Client"
+        "text": "Le meilleur salon de la ville, sans conteste. Un service professionnel, un environnement magnifique et propre. Mes cheveux n'ont jamais été aussi beaux. Merci !",
+        "author": "David Chen",
+        "role": "Client heureux"
       },
       "third": {
-        "text": "Je viens ici depuis des années, et la qualité du service ne déçoit jamais. Fortement recommandé !",
-        "author": "Jennifer Lopez",
-        "role": "Membre VIP"
+        "text": "J'ai eu un soin du visage et un massage, et les deux étaient divins. Tellement relaxant et professionnel. Je reviendrai certainement pour d'autres soins.",
+        "author": "Sophia Rodriguez",
+        "role": "Invitée détendue"
       }
     },
     "gallery": {
-      "title": "Notre Galerie",
-      "subtitle": "Jetez un coup d'œil à notre magnifique salon et découvrez notre travail.",
-      "itemText": "Voir les détails",
-      "viewMoreButton": "Voir Plus"
+      "title": "La galerie de notre salon",
+      "subtitle": "Un aperçu de notre monde de beauté et de style. Découvrez notre travail et l'ambiance magnifique de notre salon.",
+      "itemText": "Notre travail",
+      "viewMoreButton": "Voir plus"
     },
     "stats": {
-      "title": "Notre Impact",
+      "title": "Notre impact",
       "subtitle": "Les chiffres qui définissent notre passion pour la beauté",
-      "clients": "Clients Satisfaits",
-      "stylists": "Stylistes Experts",
-      "years": "Années d'Expérience",
-      "awards": "Prix Remportés"
+      "clients": "Clients satisfaits",
+      "stylists": "Stylistes experts",
+      "years": "Années de service",
+      "awards": "Prix remportés"
     },
     "cta": {
-      "title": "Prêt pour un Nouveau Look ?",
-      "description": "Réservez votre rendez-vous maintenant et laissez nos experts prendre soin de vous.",
-      "button": "Prendre Rendez-vous"
+      "title": "Prêt(e) à transformer votre look ?",
+      "description": "Votre voyage vers la beauté et la confiance commence ici. Prenez rendez-vous dès aujourd'hui et laissez nos experts prendre soin de vous.",
+      "button": "Réservez votre place"
     },
     "features": {
       "title": "Nos Services",
@@ -129,16 +114,14 @@
     "siteName": "SBsalon",
     "home": "Accueil",
     "services": "Services",
-    "booking": "Réserver",
+    "booking": "Réservation",
     "blog": "Blog",
     "contact": "Contact",
     "signIn": "Se connecter",
-    "dashboard": "Mon Compte",
-    "settings": "Paramètres",
-    "adminDashboard": "Administration",
     "signOut": "Se déconnecter",
-    "signOutSuccessTitle": "Déconnecté",
-    "signOutSuccessDescription": "Vous avez été déconnecté avec succès."
+    "dashboard": "Tableau de bord",
+    "settings": "Paramètres",
+    "adminDashboard": "Panneau d'administration"
   },
   "Footer": {
     "siteName": "SBsalon",
@@ -174,7 +157,14 @@
     "legal": {
       "privacy": "Politique de confidentialité",
       "terms": "Conditions d'utilisation"
-    }
+    },
+    "description": "Découvrez votre vraie beauté avec nos services de salon haut de gamme. Prenez rendez-vous dès aujourd'hui et laissez-nous vous choyer.",
+    "quickLinks": "Liens rapides",
+    "contactInfo": "Infos contact",
+    "address": "123 Rue de la Beauté, Style City",
+    "phone": "+1 (555) 123-4567",
+    "email": "contact@sbsalon.com",
+    "copyright": "© {year} SBsalon. Tous droits réservés."
   },
   "DashboardPage": {
     "title": "Mon SBsalon",
@@ -469,129 +459,135 @@
     "cancelReply": "Annuler la réponse"
   },
   "BookingPage": {
-    "title": "Réservez Votre Rendez-vous",
-    "subtitle": "Découvrez des services de salon haut de gamme avec nos stylistes experts. Sélectionnez votre service et votre horaire préférés ci-dessous.",
+    "title": "Prenez votre rendez-vous",
+    "subtitle": "Planifiez votre visite chez nous en quelques clics. Nous avons hâte de vous accueillir !",
     "form": {
-      "name": "Nom Complet",
-      "email": "Adresse Email",
-      "phone": "Numéro de Téléphone",
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
       "service": "Service",
       "selectService": "Sélectionnez un service",
+      "loadingServices": "Chargement des services...",
       "date": "Date",
-      "pickDate": "Choisir une date",
+      "pickDate": "Choisissez une date",
       "time": "Heure",
-      "selectTime": "Sélectionner une heure",
-      "notes": "Demandes Spéciales ou Remarques",
-      "notesPlaceholder": "Dites-nous vos exigences ou préférences particulières...",
-      "submit": "Réserver le Rendez-vous",
+      "selectTime": "Sélectionnez une heure",
+      "notes": "Notes supplémentaires (facultatif)",
+      "notesPlaceholder": "Faites-nous part de toute demande ou préférence particulière.",
+      "submit": "Réserver le rendez-vous",
       "submitting": "Réservation en cours..."
     },
-    "services": {
-      "haircut": "Coupe & Coiffage",
-      "coloring": "Coloration des Cheveux",
-      "styling": "Coiffure",
-      "facial": "Soin du Visage",
-      "massage": "Thérapie de Massage",
-      "nails": "Services d'Onglerie",
-      "makeup": "Services de Maquillage"
-    },
     "success": {
-      "title": "Réservation Réussie",
-      "description": "Votre rendez-vous a été réservé avec succès.",
-      "heading": "Rendez-vous Réservé !",
-      "message": "Nous avons reçu votre demande de réservation et vous enverrons bientôt un email de confirmation.",
-      "newBooking": "Réserver un Autre Rendez-vous"
+      "title": "Réservation confirmée !",
+      "description": "Votre rendez-vous a été programmé avec succès. Nous avons envoyé une confirmation à votre adresse e-mail.",
+      "heading": "Merci !",
+      "message": "Votre réservation est confirmée. Nous sommes impatients de vous voir bientôt.",
+      "newBooking": "Faire une autre réservation"
     },
     "errors": {
-      "required": "Ce champ est obligatoire",
-      "email": "Veuillez entrer une adresse email valide",
-      "dateTime": "Information Manquante",
-      "dateTimeMessage": "Veuillez sélectionner à la fois une date et une heure pour votre rendez-vous",
-      "submitTitle": "Échec de la Réservation",
-      "submitMessage": "Une erreur s'est produite lors du traitement de votre réservation. Veuillez réessayer."
+      "required": "Ce champ est obligatoire.",
+      "email": "Veuillez saisir une adresse e-mail valide.",
+      "dateTime": "Date et heure requises",
+      "dateTimeMessage": "Veuillez sélectionner à la fois une date et une heure pour votre rendez-vous.",
+      "submitTitle": "La réservation a échoué",
+      "submitMessage": "Un problème est survenu. Veuillez réessayer."
     },
     "info": {
-      "title": "Informations de Réservation",
-      "description": "Notre équipe de stylistes professionnels est prête à vous offrir une expérience de salon exceptionnelle. Veuillez réserver votre rendez-vous au moins 24 heures à l'avance.",
+      "title": "Avant de réserver",
+      "description": "Veuillez arriver 10 minutes à l'avance pour votre rendez-vous. Si vous devez annuler ou reporter, veuillez nous en informer au moins 24 heures à l'avance.",
       "hours": {
-        "title": "Heures d'Ouverture du Salon",
-        "monday": "Lundi",
-        "tuesday": "Mardi",
-        "wednesday": "Mercredi",
-        "thursday": "Jeudi",
-        "friday": "Vendredi",
-        "saturday": "Samedi",
-        "sunday": "Dimanche",
+        "title": "Heures d'ouverture",
+        "monday": "Lun",
+        "tuesday": "Mar",
+        "wednesday": "Mer",
+        "thursday": "Jeu",
+        "friday": "Ven",
+        "saturday": "Sam",
+        "sunday": "Dim",
         "closed": "Fermé"
       }
     },
     "contact": {
-      "title": "Contactez-Nous",
-      "description": "Vous avez des questions sur nos services ? Contactez-nous directement par l'un de ces canaux."
+      "title": "Besoin d'aide ?",
+      "description": "Vous avez des questions sur nos services ? Contactez-nous directement via l'un de ces canaux."
     }
   },
   "ContactPage": {
-    "title": "Contactez-Nous",
-    "subtitle": "Nous aimerions avoir de vos nouvelles. Contactez notre équipe sympathique.",
-    "form": {
-      "title": "Envoyez-nous un Message",
-      "name": {
-        "label": "Votre Nom",
-        "placeholder": "Entrez votre nom complet"
-      },
-      "email": {
-        "label": "Adresse Email",
-        "placeholder": "Entrez votre adresse email"
-      },
-      "subject": {
-        "label": "Sujet",
-        "placeholder": "De quoi parle votre message ?"
-      },
-      "message": {
-        "label": "Message",
-        "placeholder": "Dites-nous comment nous pouvons vous aider..."
-      },
-      "submit": "Envoyer le Message",
-      "submitting": "Envoi en cours...",
-      "success": {
-        "title": "Message Envoyé",
-        "description": "Nous avons reçu votre message et vous répondrons bientôt.",
-        "heading": "Merci !",
-        "message": "Votre message a été envoyé avec succès. Nous vous répondrons dès que possible.",
-        "newMessage": "Envoyer un Autre Message"
-      },
-      "error": {
-        "title": "Message Non Envoyé",
-        "description": "Un problème est survenu lors de l'envoi de votre message. Veuillez réessayer."
-      },
-      "errors": {
-        "required": "Ce champ est obligatoire",
-        "email": "Veuillez entrer une adresse email valide"
-      }
-    },
+    "title": "Contactez-nous",
+    "subtitle": "Nous serions ravis de vous entendre. Que vous ayez une question sur nos services, nos tarifs ou autre chose, notre équipe est prête à répondre à toutes vos questions.",
     "info": {
-      "title": "Informations de Contact",
+      "title": "Coordonnées",
       "address": {
-        "title": "Adresse"
+        "title": "Notre adresse"
       },
       "phone": {
         "title": "Téléphone"
       },
       "email": {
-        "title": "Email"
+        "title": "E-mail"
       },
       "hours": {
-        "title": "Heures d'Ouverture",
-        "weekdays": "Lundi - Vendredi : 9:00 - 19:00",
-        "saturday": "Samedi : 10:00 - 17:00",
+        "title": "Heures d'ouverture",
+        "weekdays": "Lun - Ven : 9h - 19h",
+        "saturday": "Samedi : 10h - 17h",
         "sunday": "Dimanche : Fermé"
       },
       "social": {
-        "title": "Suivez-Nous"
+        "title": "Suivez-nous"
+      }
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": {
+        "label": "Votre nom",
+        "placeholder": "Entrez votre nom complet"
+      },
+      "email": {
+        "label": "Votre e-mail",
+        "placeholder": "Entrez votre adresse e-mail"
+      },
+      "subject": {
+        "label": "Sujet",
+        "placeholder": "Quel est l'objet de votre message ?"
+      },
+      "message": {
+        "label": "Votre message",
+        "placeholder": "Écrivez votre message ici..."
+      },
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "success": {
+        "title": "Message envoyé !",
+        "description": "Merci de nous avoir contactés. Nous vous répondrons dès que possible.",
+        "heading": "Succès !",
+        "message": "Votre message a été envoyé avec succès.",
+        "newMessage": "Envoyer un autre message"
+      },
+      "error": {
+        "title": "Erreur",
+        "description": "L'envoi du message a échoué. Veuillez réessayer."
+      },
+      "errors": {
+        "required": "Ce champ est obligatoire.",
+        "email": "Veuillez saisir un e-mail valide."
       }
     },
     "map": {
       "placeholder": "L'intégration de la carte serait affichée ici dans un environnement de production."
+    }
+  },
+  "ServicesPage": {
+    "title": "Nos Services",
+    "subtitle": "Découvrez notre large gamme de services professionnels de beauté et de bien-être, conçus pour vous mettre en valeur et vous sentir au mieux.",
+    "categories": "Catégories",
+    "bookNow": "Réserver maintenant",
+    "error": {
+      "title": "Échec du chargement des services",
+      "message": "Nous n'avons pas pu récupérer nos services pour le moment. Veuillez réessayer plus tard."
+    },
+    "empty": {
+      "title": "Aucun service disponible",
+      "message": "Il n'y a actuellement aucun service à afficher dans cette catégorie. Veuillez revenir plus tard."
     }
   }
 }

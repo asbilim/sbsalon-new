@@ -15,19 +15,19 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Schönheit & Stil auf Abruf",
-      "description": "Erleben Sie Premium-Salondienstleistungen mit unseren Experten-Stylisten. Buchen Sie Ihren Termin heute und entdecken Sie die wahre Bedeutung von Selbstpflege.",
-      "bookButton": "Jetzt Buchen",
+      "title": "Eleganz in jeder Strähne",
+      "description": "Erleben Sie die Kunst der Schönheit und Entspannung im SBsalon, wo unsere erfahrenen Stylisten atemberaubende Looks kreieren, die nur auf Sie zugeschnitten sind.",
+      "bookButton": "Termin buchen",
       "servicesButton": "Unsere Dienstleistungen",
       "dashboardButton": "Zum Dashboard",
       "loginButton": "Loslegen",
       "learnMoreButton": "Mehr Erfahren"
     },
     "services": {
-      "title": "Unsere Dienstleistungen",
-      "subtitle": "Premium-Schönheits- und Pflegedienstleistungen zur Betonung Ihrer natürlichen Schönheit.",
+      "title": "Unsere besonderen Dienstleistungen",
+      "subtitle": "Entdecken Sie unsere kuratierte Liste von Dienstleistungen, die darauf ausgelegt sind, Ihren Körper und Ihre Seele zu verjüngen.",
       "viewAllButton": "Alle Dienstleistungen anzeigen",
-      "bookNow": "Buchen",
+      "bookNow": "Jetzt buchen",
       "haircut": {
         "title": "Haarstyling",
         "description": "Professionelle Haarschnitte, Styling, Färben und Behandlungen für alle Haartypen.",
@@ -47,45 +47,53 @@
         "title": "Nagelpflege",
         "description": "Professionelle Maniküre, Pediküre und Nail Art für schöne Hände und Füße.",
         "price": "35€+"
+      },
+      "error": {
+        "title": "Dienstleistungen konnten nicht geladen werden",
+        "message": "Wir haben derzeit Probleme beim Abrufen unserer Dienstleistungen. Bitte aktualisieren Sie die Seite oder versuchen Sie es in einem Moment erneut."
+      },
+      "empty": {
+        "title": "Keine Dienstleistungen gefunden",
+        "message": "Es scheint, dass wir im Moment keine Dienstleistungen verfügbar haben. Bitte schauen Sie bald wieder vorbei!"
       }
     },
     "testimonials": {
       "title": "Was unsere Kunden sagen",
-      "subtitle": "Echte Erfahrungen von unseren zufriedenen Kunden.",
+      "subtitle": "Lesen Sie die begeisterten Bewertungen unserer geschätzten Kunden.",
       "first": {
-        "text": "Der Service war außergewöhnlich! Meine Stylistin hat genau verstanden, was ich wollte, und meine Erwartungen übertroffen.",
-        "author": "Sarah Johnson",
+        "text": "Eine absolut erstaunliche Erfahrung! Das Personal ist unglaublich talentiert und freundlich. Ich fühlte mich wie ein neuer Mensch. Sehr zu empfehlen!",
+        "author": "Jessica Müller",
         "role": "Stammkundin"
       },
       "second": {
-        "text": "Die Atmosphäre, die Professionalität und die Ergebnisse waren alle unglaublich. Ich habe meinen neuen Lieblingssalon gefunden!",
-        "author": "Michael Chen",
-        "role": "Erstkunde"
+        "text": "Der beste Salon der Stadt, ohne Zweifel. Professioneller Service, schöne und saubere Umgebung. Meine Haare sahen noch nie besser aus. Danke!",
+        "author": "David Chen",
+        "role": "Zufriedener Kunde"
       },
       "third": {
-        "text": "Ich komme seit Jahren hierher, und die Servicequalität enttäuscht nie. Sehr zu empfehlen!",
-        "author": "Jennifer Lopez",
-        "role": "VIP-Mitglied"
+        "text": "Ich hatte eine Gesichtsbehandlung und eine Massage, und beide waren göttlich. So entspannend und professionell. Ich werde auf jeden Fall für weitere Behandlungen wiederkommen.",
+        "author": "Sophia Rodriguez",
+        "role": "Entspannter Gast"
       }
     },
     "gallery": {
-      "title": "Unsere Galerie",
-      "subtitle": "Werfen Sie einen Blick in unseren wunderschönen Salon und betrachten Sie unsere Arbeit.",
-      "itemText": "Details anzeigen",
-      "viewMoreButton": "Mehr anzeigen"
+      "title": "Die Galerie unseres Salons",
+      "subtitle": "Ein Einblick in unsere Welt der Schönheit und des Stils. Sehen Sie unsere Arbeit und das wunderschöne Ambiente unseres Salons.",
+      "itemText": "Unsere Arbeit",
+      "viewMoreButton": "Mehr ansehen"
     },
     "stats": {
       "title": "Unser Einfluss",
       "subtitle": "Die Zahlen, die unsere Leidenschaft für Schönheit definieren",
       "clients": "Zufriedene Kunden",
       "stylists": "Experten-Stylisten",
-      "years": "Jahre Erfahrung",
+      "years": "Jahre im Dienst",
       "awards": "Gewonnene Auszeichnungen"
     },
     "cta": {
       "title": "Bereit für einen neuen Look?",
-      "description": "Buchen Sie jetzt Ihren Termin und lassen Sie unsere Experten sich um Sie kümmern.",
-      "button": "Termin Buchen"
+      "description": "Ihre Reise zu Schönheit und Selbstvertrauen beginnt hier. Buchen Sie noch heute Ihren Termin und lassen Sie sich von unseren Experten verwöhnen.",
+      "button": "Platz reservieren"
     },
     "features": {
       "title": "Unsere Dienstleistungen",
@@ -129,13 +137,13 @@
     "siteName": "SBsalon",
     "home": "Startseite",
     "services": "Dienstleistungen",
-    "booking": "Termin buchen",
+    "booking": "Buchung",
     "blog": "Blog",
     "contact": "Kontakt",
     "signIn": "Anmelden",
-    "dashboard": "Mein Konto",
+    "dashboard": "Dashboard",
     "settings": "Einstellungen",
-    "adminDashboard": "Administration",
+    "adminDashboard": "Admin-Panel",
     "signOut": "Abmelden",
     "signOutSuccessTitle": "Abgemeldet",
     "signOutSuccessDescription": "Sie wurden erfolgreich abgemeldet."
@@ -174,7 +182,14 @@
     "legal": {
       "privacy": "Datenschutzrichtlinie",
       "terms": "Nutzungsbedingungen"
-    }
+    },
+    "description": "Entdecken Sie Ihre wahre Schönheit mit unseren Premium-Salondienstleistungen. Buchen Sie noch heute Ihren Termin und lassen Sie sich von uns verwöhnen.",
+    "quickLinks": "Schnelllinks",
+    "contactInfo": "Kontaktinformation",
+    "address": "Beauty-Straße 123, Style City",
+    "phone": "+1 (555) 123-4567",
+    "email": "contact@sbsalon.com",
+    "copyright": "© {year} SBsalon. Alle Rechte vorbehalten."
   },
   "DashboardPage": {
     "title": "Mein SBsalon",
@@ -478,21 +493,22 @@
   },
   "BookingPage": {
     "title": "Buchen Sie Ihren Termin",
-    "subtitle": "Erleben Sie Premium-Salondienstleistungen mit unseren Experten-Stylisten. Wählen Sie unten Ihren bevorzugten Service und Ihre Wunschzeit.",
+    "subtitle": "Planen Sie Ihren Besuch bei uns mit nur wenigen Klicks. Wir freuen uns darauf, Sie bei uns begrüßen zu dürfen!",
     "form": {
       "name": "Vollständiger Name",
       "email": "E-Mail-Adresse",
       "phone": "Telefonnummer",
       "service": "Dienstleistung",
       "selectService": "Wählen Sie eine Dienstleistung",
+      "loadingServices": "Dienstleistungen werden geladen...",
       "date": "Datum",
-      "pickDate": "Datum auswählen",
-      "time": "Zeit",
-      "selectTime": "Zeit auswählen",
-      "notes": "Besondere Wünsche oder Anmerkungen",
-      "notesPlaceholder": "Teilen Sie uns besondere Anforderungen oder Vorlieben mit...",
+      "pickDate": "Wählen Sie ein Datum",
+      "time": "Uhrzeit",
+      "selectTime": "Wählen Sie eine Uhrzeit",
+      "notes": "Zusätzliche Anmerkungen (optional)",
+      "notesPlaceholder": "Teilen Sie uns besondere Wünsche oder Vorlieben mit.",
       "submit": "Termin buchen",
-      "submitting": "Wird gebucht..."
+      "submitting": "Bucht..."
     },
     "services": {
       "haircut": "Haarschnitt & Styling",
@@ -504,43 +520,64 @@
       "makeup": "Make-up-Services"
     },
     "success": {
-      "title": "Buchung erfolgreich",
-      "description": "Ihr Termin wurde erfolgreich gebucht.",
-      "heading": "Termin gebucht!",
-      "message": "Wir haben Ihre Buchungsanfrage erhalten und werden in Kürze eine Bestätigungs-E-Mail senden.",
-      "newBooking": "Weiteren Termin buchen"
+      "title": "Buchung bestätigt!",
+      "description": "Ihr Termin wurde erfolgreich geplant. Wir haben eine Bestätigung an Ihre E-Mail gesendet.",
+      "heading": "Vielen Dank!",
+      "message": "Ihre Buchung ist bestätigt. Wir freuen uns, Sie bald zu sehen.",
+      "newBooking": "Weitere Buchung vornehmen"
     },
     "errors": {
-      "required": "Dieses Feld ist erforderlich",
-      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-      "dateTime": "Fehlende Informationen",
-      "dateTimeMessage": "Bitte wählen Sie sowohl ein Datum als auch eine Uhrzeit für Ihren Termin",
+      "required": "Dieses Feld ist erforderlich.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "dateTime": "Datum & Uhrzeit erforderlich",
+      "dateTimeMessage": "Bitte wählen Sie sowohl ein Datum als auch eine Uhrzeit für Ihren Termin.",
       "submitTitle": "Buchung fehlgeschlagen",
-      "submitMessage": "Bei der Verarbeitung Ihrer Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      "submitMessage": "Etwas ist schiefgegangen. Bitte versuchen Sie es erneut."
     },
     "info": {
-      "title": "Buchungsinformationen",
-      "description": "Unser Team professioneller Stylisten steht bereit, um Ihnen ein außergewöhnliches Salon-Erlebnis zu bieten. Bitte buchen Sie Ihren Termin mindestens 24 Stunden im Voraus.",
+      "title": "Vor Ihrer Buchung",
+      "description": "Bitte kommen Sie 10 Minuten vor Ihrem Termin an. Wenn Sie stornieren oder verschieben müssen, teilen Sie uns dies bitte mindestens 24 Stunden im Voraus mit.",
       "hours": {
-        "title": "Salon-Öffnungszeiten",
-        "monday": "Montag",
-        "tuesday": "Dienstag",
-        "wednesday": "Mittwoch",
-        "thursday": "Donnerstag",
-        "friday": "Freitag",
-        "saturday": "Samstag",
-        "sunday": "Sonntag",
+        "title": "Öffnungszeiten",
+        "monday": "Mo",
+        "tuesday": "Di",
+        "wednesday": "Mi",
+        "thursday": "Do",
+        "friday": "Fr",
+        "saturday": "Sa",
+        "sunday": "So",
         "closed": "Geschlossen"
       }
     },
     "contact": {
-      "title": "Kontaktieren Sie uns",
+      "title": "Benötigen Sie Hilfe?",
       "description": "Haben Sie Fragen zu unseren Dienstleistungen? Kontaktieren Sie uns direkt über einen dieser Kanäle."
     }
   },
   "ContactPage": {
     "title": "Kontaktieren Sie uns",
-    "subtitle": "Wir würden gerne von Ihnen hören. Nehmen Sie Kontakt mit unserem freundlichen Team auf.",
+    "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Ob Sie eine Frage zu unseren Dienstleistungen, Preisen oder etwas anderem haben, unser Team ist bereit, alle Ihre Fragen zu beantwortrauen.",
+    "info": {
+      "title": "Kontaktinformationen",
+      "address": {
+        "title": "Unsere Adresse"
+      },
+      "phone": {
+        "title": "Telefon"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Öffnungszeiten",
+        "weekdays": "Mo - Fr: 9 - 19 Uhr",
+        "saturday": "Samstag: 10 - 17 Uhr",
+        "sunday": "Sonntag: Geschlossen"
+      },
+      "social": {
+        "title": "Folgen Sie uns"
+      }
+    },
     "form": {
       "title": "Senden Sie uns eine Nachricht",
       "name": {
@@ -548,7 +585,7 @@
         "placeholder": "Geben Sie Ihren vollständigen Namen ein"
       },
       "email": {
-        "label": "E-Mail-Adresse",
+        "label": "Ihre E-Mail",
         "placeholder": "Geben Sie Ihre E-Mail-Adresse ein"
       },
       "subject": {
@@ -556,50 +593,43 @@
         "placeholder": "Worum geht es in Ihrer Nachricht?"
       },
       "message": {
-        "label": "Nachricht",
-        "placeholder": "Teilen Sie uns mit, wie wir Ihnen helfen können..."
+        "label": "Ihre Nachricht",
+        "placeholder": "Schreiben Sie hier Ihre Nachricht..."
       },
       "submit": "Nachricht senden",
       "submitting": "Wird gesendet...",
       "success": {
-        "title": "Nachricht gesendet",
-        "description": "Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.",
-        "heading": "Vielen Dank!",
-        "message": "Ihre Nachricht wurde erfolgreich gesendet. Wir werden Ihnen so schnell wie möglich antworten.",
+        "title": "Nachricht gesendet!",
+        "description": "Danke für Ihre Kontaktaufnahme. Wir werden uns so schnell wie möglich bei Ihnen melden.",
+        "heading": "Erfolg!",
+        "message": "Ihre Nachricht wurde erfolgreich gesendet.",
         "newMessage": "Weitere Nachricht senden"
       },
       "error": {
-        "title": "Nachricht nicht gesendet",
-        "description": "Beim Senden Ihrer Nachricht ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
+        "title": "Fehler",
+        "description": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
       },
       "errors": {
-        "required": "Dieses Feld ist erforderlich",
-        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
-      }
-    },
-    "info": {
-      "title": "Kontaktinformationen",
-      "address": {
-        "title": "Adresse"
-      },
-      "phone": {
-        "title": "Telefon"
-      },
-      "email": {
-        "title": "E-Mail"
-      },
-      "hours": {
-        "title": "Geschäftszeiten",
-        "weekdays": "Montag - Freitag: 9:00 - 19:00 Uhr",
-        "saturday": "Samstag: 10:00 - 17:00 Uhr",
-        "sunday": "Sonntag: Geschlossen"
-      },
-      "social": {
-        "title": "Folgen Sie uns"
+        "required": "Dieses Feld ist erforderlich.",
+        "email": "Bitte geben Sie eine gültige E-Mail ein."
       }
     },
     "map": {
-      "placeholder": "Kartenintegration würde in einer Produktionsumgebung hier angezeigt werden."
+      "placeholder": "Die Kartenintegration würde hier in einer Produktionsumgebung angezeigt."
+    }
+  },
+  "ServicesPage": {
+    "title": "Unsere Dienstleistungen",
+    "subtitle": "Entdecken Sie unser breites Angebot an professionellen Schönheits- und Wellnessdienstleistungen, die darauf zugeschnitten sind, dass Sie gut aussehen und sich gut fühlen.",
+    "categories": "Kategorien",
+    "bookNow": "Jetzt buchen",
+    "error": {
+      "title": "Dienste konnten nicht geladen werden",
+      "message": "Wir konnten unsere Dienste im Moment nicht abrufen. Bitte versuchen Sie es später noch einmal."
+    },
+    "empty": {
+      "title": "Keine Dienste verfügbar",
+      "message": "Derzeit sind keine Dienste in dieser Kategorie verfügbar. Bitte schauen Sie später wieder vorbei."
     }
   }
 }
