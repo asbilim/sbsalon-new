@@ -407,7 +407,10 @@ export const api = {
   disable2FA: (password: string) =>
     apiRequest("POST", "/api/auth/2fa/disable/", JSON.stringify({ password })),
   importModelItems: (modelKey: string, data: FormData) => {
-    return apiRequest("POST", `/api/admin/models/${modelKey}/import/`, data);
+    return apiFetch(`/api/admin/models/${modelKey}/import/`, {
+      method: "POST",
+      body: data,
+    });
   },
   getBlogPosts: (
     locale: string,

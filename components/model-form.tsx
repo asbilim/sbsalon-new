@@ -118,7 +118,7 @@ export function ModelForm({
       });
       queryClient.invalidateQueries({ queryKey: ["modelItems", modelKey] });
       queryClient.invalidateQueries({ queryKey: ["adminConfig"] }); // Invalidate dashboard counts
-      router.push(`/models/${modelKey}`);
+      router.push(`/dashboard/models/${modelKey}`);
     },
     onError: (error: Error) => {
       toast({
@@ -130,12 +130,20 @@ export function ModelForm({
   });
 
   const onSubmit = (data: Record<string, any>) => {
+    const augmentedData = { ...data };
+    for (const key in augmentedData) {
+      if (key.endsWith("_en")) {
+        const baseKey = key.slice(0, -3);
+        augmentedData[baseKey] = augmentedData[key];
+      }
+    }
+
     const preparedData: Record<string, any> = {};
     let hasFiles = false;
 
-    for (const key in data) {
-      if (Object.prototype.hasOwnProperty.call(data, key)) {
-        const value = data[key];
+    for (const key in augmentedData) {
+      if (Object.prototype.hasOwnProperty.call(augmentedData, key)) {
+        const value = augmentedData[key];
         const fieldConfig = modelConfig.fields[key];
 
         if (
