@@ -10,7 +10,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 import { api } from "@/lib/api";
 import { Service } from "@/types/salon";
-import { getLocalizedFields } from "@/lib/utils";
+import { getLocalizedFields, slugify } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing/navigation";
@@ -43,7 +43,9 @@ export default function ServicesPage() {
   const t = useTranslations("ServicesPage");
   const locale = useLocale();
   const mainContainerRef = useRef<HTMLDivElement>(null);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategorySlug, setActiveCategorySlug] = useState<string | null>(
+    null
+  );
 
   const {
     data: servicesData,
@@ -74,32 +76,28 @@ export default function ServicesPage() {
   );
 
   useEffect(() => {
-    if (groupedServices && groupedServices.length > 0 && !activeCategory) {
-      setActiveCategory(groupedServices[0].categoryName);
+    if (groupedServices && groupedServices.length > 0 && !activeCategorySlug) {
+      setActiveCategorySlug(slugify(groupedServices[0].categoryName));
     }
-  }, [groupedServices, activeCategory]);
+  }, [groupedServices, activeCategorySlug]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    if (mainContainerRef.current) {
-      const triggers = ScrollTrigger.batch(".service-category-section", {
-        onEnter: (batch) => {
-          const id = batch[0].getAttribute("id");
-          if (id) {
-            setActiveCategory(id.replace("category-", ""));
-          }
-        },
-        onEnterBack: (batch) => {
-          const id = batch[0].getAttribute("id");
-          if (id) {
-            setActiveCategory(id.replace("category-", ""));
-          }
-        },
-        start: "top 50%",
-        end: "bottom 50%",
+    if (mainContainerRef.current && groupedServices) {
+      const triggers = groupedServices.map((group) => {
+        const slug = slugify(group.categoryName);
+        return ScrollTrigger.create({
+          trigger: `#category-${slug}`,
+          start: "top center",
+          end: "bottom center",
+          onToggle: (self) => {
+            if (self.isActive) {
+              setActiveCategorySlug(slug);
+            }
+          },
+        });
       });
-
       return () => {
         triggers.forEach((trigger) => trigger.kill());
       };
@@ -107,10 +105,11 @@ export default function ServicesPage() {
   }, [groupedServices]);
 
   const handleCategoryClick = (categoryName: string) => {
-    setActiveCategory(categoryName);
+    const slug = slugify(categoryName);
+    setActiveCategorySlug(slug);
     gsap.to(window, {
       scrollTo: {
-        y: `#category-${categoryName}`,
+        y: `#category-${slug}`,
         offsetY: 100,
       },
       duration: 1,
@@ -157,62 +156,65 @@ export default function ServicesPage() {
 
     return (
       <div className="w-full space-y-16">
-        {groupedServices.map((group) => (
-          <motion.section
-            key={group.categoryName}
-            id={`category-${group.categoryName}`}
-            className="service-category-section"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}>
-            <h2 className="text-3xl font-bold mb-8 font-mono tracking-tight text-primary">
-              {group.categoryName}
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {group.services.map((service, i) => {
-                const { name, description } = getLocalizedFields(
-                  service,
-                  locale
-                );
-                return (
-                  <motion.div
-                    key={service.id}
-                    className="bg-card border rounded-xl shadow-sm hover:shadow-lg transition-all overflow-hidden group"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}>
-                    <div className="p-8">
-                      <h3 className="text-2xl font-semibold mb-3">{name}</h3>
-                      <p className="text-muted-foreground mb-4 min-h-[70px]">
-                        {description}
-                      </p>
-                      <div className="flex justify-between items-center mt-6">
-                        <span className="text-2xl font-mono font-semibold text-primary">
-                          ${service.base_price}
-                        </span>
-                        <Button asChild variant="outline">
-                          <Link href={`/booking?service=${service.id}`}>
-                            {t("bookNow")}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
+        {groupedServices.map((group) => {
+          const slug = slugify(group.categoryName);
+          return (
+            <motion.section
+              key={group.categoryName}
+              id={`category-${slug}`}
+              className="service-category-section"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}>
+              <h2 className="text-3xl font-bold mb-8 font-mono tracking-tight text-primary">
+                {group.categoryName}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {group.services.map((service, i) => {
+                  const { name, description } = getLocalizedFields(
+                    service,
+                    locale
+                  );
+                  return (
                     <motion.div
-                      className="h-1 bg-primary/20 w-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
+                      key={service.id}
+                      className="bg-card border rounded-xl shadow-sm hover:shadow-lg transition-all overflow-hidden group"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1, delay: i * 0.1 }}
-                    />
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.section>
-        ))}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}>
+                      <div className="p-8">
+                        <h3 className="text-2xl font-semibold mb-3">{name}</h3>
+                        <p className="text-muted-foreground mb-4 min-h-[70px]">
+                          {description}
+                        </p>
+                        <div className="flex justify-between items-center mt-6">
+                          <span className="text-2xl font-mono font-semibold text-primary">
+                            ${service.base_price}
+                          </span>
+                          <Button asChild variant="outline">
+                            <Link href={`/booking?service=${service.id}`}>
+                              {t("bookNow")}
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
+                      <motion.div
+                        className="h-1 bg-primary/20 w-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "100%" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: i * 0.1 }}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.section>
+          );
+        })}
       </div>
     );
   };
@@ -245,23 +247,26 @@ export default function ServicesPage() {
                 Array.from({ length: 5 }).map((_, i) => (
                   <Skeleton key={i} className="h-10 w-full" />
                 ))}
-              {groupedServices?.map((group) => (
-                <motion.button
-                  key={group.categoryName}
-                  onClick={() => handleCategoryClick(group.categoryName)}
-                  className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-3 ${
-                    activeCategory === group.categoryName
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-muted"
-                  }`}
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.98 }}>
-                  {categoryIcons[group.services[0].category_name] || (
-                    <Scissors className="h-6 w-6" />
-                  )}
-                  <span className="font-medium">{group.categoryName}</span>
-                </motion.button>
-              ))}
+              {groupedServices?.map((group) => {
+                const slug = slugify(group.categoryName);
+                return (
+                  <motion.button
+                    key={group.categoryName}
+                    onClick={() => handleCategoryClick(group.categoryName)}
+                    className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-3 ${
+                      activeCategorySlug === slug
+                        ? "bg-primary text-primary-foreground"
+                        : "hover:bg-muted"
+                    }`}
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.98 }}>
+                    {categoryIcons[group.services[0].category_name] || (
+                      <Scissors className="h-6 w-6" />
+                    )}
+                    <span className="font-medium">{group.categoryName}</span>
+                  </motion.button>
+                );
+              })}
             </nav>
           </aside>
           <main className="md:w-3/4">{renderContent()}</main>
