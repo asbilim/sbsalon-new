@@ -47,9 +47,7 @@ export const dashboardConfig: DashboardConfig = {
   favicon: "/favicon.ico",
   backendUrl: process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.sbsaloon.com",
   api: {
-    baseUrl:
-      process.env.NEXT_PUBLIC_BACKEND_URL ||
-      "https://api.sbsaloon.com/api/admin",
+    baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.sbsaloon.com",
     debugMode: process.env.NODE_ENV === "development",
   },
   blog: {

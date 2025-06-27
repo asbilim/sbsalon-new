@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/popover";
 import { cn, getInitials, getLocalizedFields } from "@/lib/utils";
 import { format } from "date-fns";
+import { Price } from "@/components/price";
 import {
   AlertCircle,
   CalendarIcon,
@@ -687,8 +688,8 @@ export default function BookingPage() {
                             <span className="font-medium">
                               {getLocalizedFields(selectedService, locale).name}
                             </span>
-                            <span className="font-mono text-lg">
-                              ${selectedService.base_price}
+                            <span className="text-2xl font-mono font-semibold text-primary">
+                              <Price amount={selectedService.base_price} />
                             </span>
                           </div>
                         )}
@@ -831,7 +832,7 @@ export default function BookingPage() {
                     {t("summary.price")}:
                   </span>
                   <span className="font-medium text-lg font-mono">
-                    ${selectedService.base_price}
+                    <Price amount={selectedService.base_price} />
                   </span>
                 </div>
               </div>

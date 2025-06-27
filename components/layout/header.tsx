@@ -6,6 +6,7 @@ import { Link, usePathname } from "@/i18n/routing/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { CurrencySwitcher } from "@/components/currency-switcher";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { DefaultLogo } from "@/components/ui/default-logo";
@@ -101,6 +102,7 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <ThemeSwitcher />
             <LanguageSwitcher />
+            <CurrencySwitcher />
 
             {/* Auth Buttons */}
             {status === "loading" ? (
@@ -215,6 +217,7 @@ export function Header() {
 
             <div className="pt-2 flex items-center justify-between border-t">
               <LanguageSwitcher />
+              <CurrencySwitcher />
 
               {status !== "loading" && !session && (
                 <Button asChild>
