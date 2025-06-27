@@ -2,7 +2,7 @@
 
 import { api } from "@/lib/api";
 import { useTranslations } from "next-intl";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, Clock, Tag, Folder, ExternalLink } from "lucide-react";
@@ -28,11 +28,11 @@ const getCorrectImageUrl = (url: string) => {
   return url;
 };
 
-export default function BlogPostPage({
-  params: { locale, id },
-}: {
-  params: { locale: string; id: string };
-}) {
+export default function BlogPostPage() {
+  const params = useParams();
+  const locale = params.locale as string;
+  const id = params.id as string;
+
   const t = useTranslations("BlogPage");
 
   const {

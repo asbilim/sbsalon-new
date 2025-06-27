@@ -83,7 +83,9 @@ export default function SettingsPage() {
       <h1 className="text-2xl font-bold">{t("title")}</h1>
       <ProfileForm user={user} />
       <PasswordForm />
-      <TwoFactorAuthForm is2FAEnabled={user?.is_2fa_enabled} />
+      <TwoFactorAuthForm
+        is2FAEnabled={Boolean((user as any)?.is_2fa_enabled)}
+      />
     </div>
   );
 }
@@ -280,7 +282,12 @@ function TwoFactorAuthForm({ is2FAEnabled }: { is2FAEnabled: boolean }) {
 
   // Mutation to get the 2FA secret and QR code
   const enableMutation = useMutation({
-    mutationFn: api.get2FASecret,
+    mutationFn: () =>
+      api.get2FASecret() as Promise<{
+        qr_code?: string;
+        qr_code_url?: string;
+        secret_key: string;
+      }>,
     onSuccess: (data: {
       qr_code?: string;
       qr_code_url?: string;

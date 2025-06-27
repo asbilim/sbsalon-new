@@ -135,7 +135,7 @@ export default function ModelListPage() {
 
   const { data: adminConfig } = useQuery<AdminConfig>({
     queryKey: ["adminConfig"],
-    queryFn: api.getAdminConfig,
+    queryFn: () => api.getAdminConfig() as Promise<AdminConfig>,
     enabled: status === "authenticated",
   });
 
