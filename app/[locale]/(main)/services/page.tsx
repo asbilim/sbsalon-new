@@ -24,6 +24,8 @@ import {
   Droplet,
   ArrowRight,
 } from "lucide-react";
+import { cn, getInitials } from "@/lib/utils";
+import { Price } from "@/components/price";
 
 const categoryIcons: { [key: string]: React.ReactNode } = {
   Hair: <Scissors className="h-6 w-6" />,
@@ -191,7 +193,7 @@ export default function ServicesPage() {
                         </p>
                         <div className="flex justify-between items-center mt-6">
                           <span className="text-2xl font-mono font-semibold text-primary">
-                            ${service.base_price}
+                            <Price amount={service.base_price} />
                           </span>
                           <Button asChild variant="outline">
                             <Link href={`/booking?service=${service.id}`}>

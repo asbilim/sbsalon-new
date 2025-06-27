@@ -31,6 +31,7 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getLocalizedFields } from "@/lib/utils";
+import { Price } from "@/components/price";
 
 const serviceIcons = [
   <Scissors className="h-7 w-7" />,
@@ -665,7 +666,7 @@ export default function HomePage() {
                       </p>
                       <div className="flex justify-between items-center">
                         <span className="text-xl font-mono font-semibold text-primary">
-                          ${service.base_price}
+                          <Price amount={service.base_price} />
                         </span>
                         <Button
                           asChild
