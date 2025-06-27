@@ -333,6 +333,7 @@ export default function BookingPage() {
                     <Label htmlFor="first_name">{t("form.firstName")}</Label>
                     <Input
                       id="first_name"
+                      placeholder={t("form.firstNamePlaceholder")}
                       {...register("first_name", { required: true })}
                       className={cn({
                         "border-destructive": errors.first_name,
@@ -348,6 +349,7 @@ export default function BookingPage() {
                     <Label htmlFor="last_name">{t("form.lastName")}</Label>
                     <Input
                       id="last_name"
+                      placeholder={t("form.lastNamePlaceholder")}
                       {...register("last_name", { required: true })}
                       className={cn({ "border-destructive": errors.last_name })}
                     />
@@ -361,6 +363,7 @@ export default function BookingPage() {
                     <Label htmlFor="phone">{t("form.phone")}</Label>
                     <Input
                       id="phone"
+                      placeholder={t("form.phonePlaceholder")}
                       {...register("phone", { required: true })}
                       className={cn({ "border-destructive": errors.phone })}
                     />
@@ -375,6 +378,7 @@ export default function BookingPage() {
                     <Input
                       id="email"
                       type="email"
+                      placeholder={t("form.emailPlaceholder")}
                       {...register("email", {
                         required: true,
                         pattern: /^\S+@\S+$/i,

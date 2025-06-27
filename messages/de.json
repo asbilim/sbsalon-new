@@ -476,6 +476,12 @@
       "lastName": "Nachname",
       "email": "E-Mail-Adresse",
       "phone": "Telefonnummer",
+      "firstNamePlaceholder": "Vorname",
+      "lastNamePlaceholder": "Nachname",
+      "phonePlaceholder": "Telefonnummer",
+      "emailPlaceholder": "E-Mail-Adresse",
+      "address": "Adresse",
+      "addressPlaceholder": "Ihre Straße und Hausnummer",
       "service": "Dienstleistung",
       "selectService": "Wählen Sie eine Dienstleistung",
       "loadingServices": "Dienstleistungen werden geladen...",
@@ -556,7 +562,13 @@
       "title": "Brauchen Sie Hilfe?",
       "description": "Haben Sie Fragen zu unseren Dienstleistungen? Kontaktieren Sie uns direkt über einen dieser Kanäle."
     },
-    "servicesButton": "Unsere Dienstleistungen"
+    "servicesButton": "Unsere Dienstleistungen",
+    "confirmation": {
+      "title": "Buchung bestätigen",
+      "description": "Bitte überprüfen Sie Ihre Buchungsdetails bevor Sie fortfahren.",
+      "cancel": "Zurück",
+      "confirm": "Buchung bestätigen"
+    }
   },
   "ContactPage": {
     "title": "Kontaktieren Sie uns",

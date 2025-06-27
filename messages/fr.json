@@ -467,6 +467,10 @@
       "lastName": "Nom de famille",
       "email": "Adresse e-mail",
       "phone": "Numéro de téléphone",
+      "firstNamePlaceholder": "Prénom",
+      "lastNamePlaceholder": "Nom de famille",
+      "phonePlaceholder": "Numéro de téléphone",
+      "emailPlaceholder": "Adresse e-mail",
       "service": "Service",
       "selectService": "Sélectionnez un service",
       "loadingServices": "Chargement des services...",
@@ -537,6 +541,12 @@
     "contact": {
       "title": "Besoin d'aide ?",
       "description": "Vous avez des questions sur nos services ? Contactez-nous directement via l'un de ces canaux."
+    },
+    "confirmation": {
+      "title": "Confirmer votre réservation",
+      "description": "Veuillez vérifier les détails avant de confirmer.",
+      "cancel": "Retour",
+      "confirm": "Confirmer la réservation"
     }
   },
   "ContactPage": {
