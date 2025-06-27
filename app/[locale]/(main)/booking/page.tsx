@@ -208,7 +208,7 @@ export default function BookingPage() {
     try {
       // Make API call to create booking
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/salon/admin/bookings/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/salon/bookings/`,
         {
           method: "POST",
           headers: {
@@ -255,27 +255,29 @@ export default function BookingPage() {
     }
   };
 
-  const timeSlots = [
-    "09:00",
-    "09:30",
-    "10:00",
-    "10:30",
-    "11:00",
-    "11:30",
-    "12:00",
-    "12:30",
-    "13:00",
-    "13:30",
-    "14:00",
-    "14:30",
-    "15:00",
-    "15:30",
-    "16:00",
-    "16:30",
-    "17:00",
-    "17:30",
-    "18:00",
-  ];
+  // Fetch timeslot list
+  const {
+    data: timeslotData,
+    isLoading: isLoadingTimeslots,
+    error: timeslotError,
+  } = useQuery({
+    queryKey: ["timeslots"],
+    queryFn: async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/salon/timeslots`
+      );
+      if (!res.ok) {
+        throw new Error("Failed to fetch timeslots");
+      }
+      return res.json();
+    },
+  });
+
+  const timeSlotsApi = timeslotData?.results || [];
+
+  const selectedTimeSlot = useMemo(() => {
+    return timeSlotsApi.find((s: any) => String(s.id) === time);
+  }, [timeSlotsApi, time]);
 
   if (isSuccess) {
     return (
@@ -555,18 +557,32 @@ export default function BookingPage() {
                         </div>
                         <div className="space-y-2">
                           <Label>{t("form.time")}</Label>
-                          <Select onValueChange={setTime} value={time}>
-                            <SelectTrigger>
-                              <SelectValue placeholder={t("form.selectTime")} />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {timeSlots.map((slot) => (
-                                <SelectItem key={slot} value={slot}>
-                                  {slot}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          {isLoadingTimeslots ? (
+                            <Skeleton className="h-10 w-full" />
+                          ) : timeslotError ? (
+                            <p className="text-sm text-destructive">
+                              {t("errors.timeslotLoad")}
+                            </p>
+                          ) : timeSlotsApi.length === 0 ? (
+                            <p className="text-sm text-muted-foreground">
+                              {t("form.noTimeslots")}
+                            </p>
+                          ) : (
+                            <Select onValueChange={setTime} value={time}>
+                              <SelectTrigger>
+                                <SelectValue
+                                  placeholder={t("form.selectTime")}
+                                />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {timeSlotsApi.map((slot: any) => (
+                                  <SelectItem key={slot.id} value={slot.id}>
+                                    {slot.start_time} - {slot.end_time}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          )}
                         </div>
                       </motion.div>
                     )}
@@ -706,7 +722,10 @@ export default function BookingPage() {
                                 {format(date, "EEEE, MMMM do")}
                               </p>
                               <p className="text-sm text-muted-foreground">
-                                @ {time}
+                                @
+                                {selectedTimeSlot
+                                  ? `${selectedTimeSlot.start_time} - ${selectedTimeSlot.end_time}`
+                                  : ""}
                               </p>
                             </div>
                           </div>
@@ -785,7 +804,10 @@ export default function BookingPage() {
                     {t("summary.dateTime")}:
                   </span>
                   <span className="font-medium">
-                    {format(date, "PPP")} @ {time}
+                    {format(date, "PPP")} @
+                    {selectedTimeSlot
+                      ? ` ${selectedTimeSlot.start_time} - ${selectedTimeSlot.end_time}`
+                      : ""}
                   </span>
                 </div>
 
