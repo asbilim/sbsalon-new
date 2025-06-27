@@ -130,20 +130,12 @@ export function ModelForm({
   });
 
   const onSubmit = (data: Record<string, any>) => {
-    const augmentedData = { ...data };
-    for (const key in augmentedData) {
-      if (key.endsWith("_en")) {
-        const baseKey = key.slice(0, -3);
-        augmentedData[baseKey] = augmentedData[key];
-      }
-    }
-
     const preparedData: Record<string, any> = {};
     let hasFiles = false;
 
-    for (const key in augmentedData) {
-      if (Object.prototype.hasOwnProperty.call(augmentedData, key)) {
-        const value = augmentedData[key];
+    for (const key in data) {
+      if (Object.prototype.hasOwnProperty.call(data, key)) {
+        const value = data[key];
         const fieldConfig = modelConfig.fields[key];
 
         if (
@@ -163,6 +155,20 @@ export function ModelForm({
           hasFiles = true;
         } else {
           preparedData[key] = value;
+        }
+      }
+    }
+
+    // Add default fields from English versions
+    for (const key in preparedData) {
+      if (key.endsWith("_en")) {
+        const baseKey = key.slice(0, -3);
+        if (
+          preparedData[key] !== null &&
+          preparedData[key] !== undefined &&
+          !preparedData[baseKey]
+        ) {
+          preparedData[baseKey] = preparedData[key];
         }
       }
     }
@@ -480,8 +486,14 @@ function RelationField({
             <FormMultiSelect
               label={fieldConfig.verbose_name}
               options={options || []}
-              onChange={field.onChange}
-              value={field.value || []}
+              onChange={(newVal) =>
+                field.onChange(newVal.map((v: any) => String(v)))
+              }
+              value={
+                Array.isArray(field.value)
+                  ? field.value.map((v: any) => String(v))
+                  : []
+              }
               required={fieldConfig.required}
               disabled={disabled}
             />

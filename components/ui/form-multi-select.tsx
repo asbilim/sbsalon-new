@@ -31,6 +31,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { api } from "@/lib/api";
 import { useMutation } from "@tanstack/react-query";
+import { Label } from "@/components/ui/label";
 
 export interface Option {
   value: any;
@@ -59,6 +60,8 @@ export function FormMultiSelect({
   onNewItemsCreated,
   displayField = "name",
   disabled,
+  label,
+  required,
 }: FormMultiSelectProps) {
   const [open, setOpen] = React.useState(false);
   const [dialogOpen, setDialogOpen] = React.useState(false);
@@ -92,12 +95,12 @@ export function FormMultiSelect({
       .map((s) => s.trim())
       .filter(Boolean);
 
-    const createdItems: any[] = [];
+    const createdItems: string[] = [];
     for (const name of itemNames) {
       try {
         const newItem = await createMutation.mutateAsync(name);
         if (newItem?.id) {
-          createdItems.push(newItem.id);
+          createdItems.push(String(newItem.id));
         }
       } catch (e) {
         // Errors are handled by the mutation's onError callback
@@ -110,116 +113,127 @@ export function FormMultiSelect({
         description: `${createdItems.length} new item(s) created.`,
       });
       onNewItemsCreated?.();
-      onChange([...value, ...createdItems]);
+      const currentValuesStr = value.map((v) => String(v));
+      onChange([...currentValuesStr, ...createdItems]);
     }
 
     setDialogOpen(false);
     setNewItemsInput("");
   };
 
-  const selectedValues = new Set(value);
+  const selectedValues = new Set(value.map((v) => String(v)));
   const selectedOptions = options.filter((option) =>
-    selectedValues.has(option.value)
+    selectedValues.has(String(option.value))
   );
 
   return (
-    <div className="relative">
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            className="w-full justify-between h-auto min-h-10"
-            disabled={disabled}>
-            <div className="flex flex-wrap gap-1">
-              {selectedOptions.length > 0 ? (
-                selectedOptions.map((option) => (
-                  <Badge key={option.value} variant="secondary">
-                    {option.label}
-                  </Badge>
-                ))
-              ) : (
-                <span className="text-muted-foreground font-normal">
-                  {placeholder}
-                </span>
-              )}
-            </div>
-            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-          <Command>
-            <CommandInput placeholder="Search or create..." />
-            <CommandList>
-              <CommandEmpty>
-                <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button variant="ghost" className="w-full justify-start">
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      Create new
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>Create New Item(s)</DialogTitle>
-                      <DialogDescription>
-                        You can create multiple items by separating them with a
-                        comma (,).
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="py-4">
-                      <Textarea
-                        placeholder="e.g., New Tag 1, Another Tag, Final Tag"
-                        value={newItemsInput}
-                        onChange={(e) => setNewItemsInput(e.target.value)}
-                        rows={4}
-                      />
-                    </div>
-                    <DialogFooter>
-                      <Button
-                        variant="outline"
-                        onClick={() => setDialogOpen(false)}>
-                        Cancel
-                      </Button>
-                      <Button
-                        onClick={handleCreateNewItems}
-                        disabled={createMutation.isPending}>
-                        {createMutation.isPending ? "Creating..." : "Create"}
-                      </Button>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-              </CommandEmpty>
-              <CommandGroup>
-                {options.map((option) => {
-                  const isSelected = selectedValues.has(option.value);
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      disabled={disabled}
-                      onSelect={() => {
-                        if (isSelected) {
-                          onChange(value.filter((v) => v !== option.value));
-                        } else {
-                          onChange([...value, option.value]);
-                        }
-                      }}>
-                      <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          isSelected ? "opacity-100" : "opacity-0"
-                        )}
-                      />
+    <div className="w-full space-y-2">
+      <Label>
+        {label}
+        {required && <span className="text-destructive ml-1">*</span>}
+      </Label>
+      <div className="relative">
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={open}
+              className="w-full justify-between h-auto min-h-10"
+              disabled={disabled}>
+              <div className="flex flex-wrap gap-1">
+                {selectedOptions.length > 0 ? (
+                  selectedOptions.map((option) => (
+                    <Badge key={option.value} variant="secondary">
                       {option.label}
-                    </CommandItem>
-                  );
-                })}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
+                    </Badge>
+                  ))
+                ) : (
+                  <span className="text-muted-foreground font-normal">
+                    {placeholder}
+                  </span>
+                )}
+              </div>
+              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+            <Command>
+              <CommandInput placeholder="Search or create..." />
+              <CommandList>
+                <CommandEmpty>
+                  <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button variant="ghost" className="w-full justify-start">
+                        <PlusCircle className="mr-2 h-4 w-4" />
+                        Create new
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Create New Item(s)</DialogTitle>
+                        <DialogDescription>
+                          You can create multiple items by separating them with a
+                          comma (,).
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="py-4">
+                        <Textarea
+                          placeholder="e.g., New Tag 1, Another Tag, Final Tag"
+                          value={newItemsInput}
+                          onChange={(e) => setNewItemsInput(e.target.value)}
+                          rows={4}
+                        />
+                      </div>
+                      <DialogFooter>
+                        <Button
+                          variant="outline"
+                          onClick={() => setDialogOpen(false)}>
+                          Cancel
+                        </Button>
+                        <Button
+                          onClick={handleCreateNewItems}
+                          disabled={createMutation.isPending}>
+                          {createMutation.isPending ? "Creating..." : "Create"}
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                </CommandEmpty>
+                <CommandGroup>
+                  {options.map((option) => {
+                    const optionValStr = String(option.value);
+                    const isSelected = selectedValues.has(optionValStr);
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        disabled={disabled}
+                        onSelect={() => {
+                          const currentValues = value.map((v) => String(v));
+                          if (isSelected) {
+                            onChange(
+                              currentValues.filter((v) => v !== optionValStr)
+                            );
+                          } else {
+                            onChange([...currentValues, optionValStr]);
+                          }
+                        }}>
+                        <Check
+                          className={cn(
+                            "mr-2 h-4 w-4",
+                            isSelected ? "opacity-100" : "opacity-0"
+                          )}
+                        />
+                        {option.label}
+                      </CommandItem>
+                    );
+                  })}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
     </div>
   );
 }

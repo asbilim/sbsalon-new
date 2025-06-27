@@ -88,9 +88,25 @@ export function AiGenerateButton({
         const jsonResponse = JSON.parse(jsonString);
 
         if (Array.isArray(jsonResponse)) {
-          const creationPromises = jsonResponse.map((itemData) =>
-            api.createModelItem(`/api/admin/models/${modelKey}/`, itemData)
-          );
+          const creationPromises = jsonResponse.map((itemData) => {
+            const augmentedData = { ...itemData };
+            for (const key in augmentedData) {
+              if (key.endsWith("_en")) {
+                const baseKey = key.slice(0, -3);
+                if (
+                  augmentedData[key] !== null &&
+                  augmentedData[key] !== undefined &&
+                  !augmentedData[baseKey]
+                ) {
+                  augmentedData[baseKey] = augmentedData[key];
+                }
+              }
+            }
+            return api.createModelItem(
+              `/api/admin/models/${modelKey}/`,
+              augmentedData
+            );
+          });
           await Promise.all(creationPromises);
           toast({
             title: "Success",
@@ -99,9 +115,24 @@ export function AiGenerateButton({
           queryClient.invalidateQueries({ queryKey: ["modelItems", modelKey] });
           queryClient.invalidateQueries({ queryKey: ["adminConfig"] });
         } else {
-          Object.keys(jsonResponse).forEach((key) => {
+          const augmentedData = { ...jsonResponse };
+          for (const key in augmentedData) {
+            if (key.endsWith("_en")) {
+              const baseKey = key.slice(0, -3);
+              if (
+                augmentedData[key] !== null &&
+                augmentedData[key] !== undefined &&
+                !augmentedData[baseKey]
+              ) {
+                augmentedData[baseKey] = augmentedData[key];
+              }
+            }
+          }
+          Object.keys(augmentedData).forEach((key) => {
             if (modelConfig.fields[key]) {
-              form.setValue(key, jsonResponse[key], { shouldValidate: true });
+              form.setValue(key, augmentedData[key], {
+                shouldValidate: true,
+              });
             }
           });
           toast({

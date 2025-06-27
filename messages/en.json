@@ -472,8 +472,12 @@
     "subtitle": "Schedule your visit with us in just a few clicks. We look forward to welcoming you!",
     "form": {
       "name": "Full Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
       "email": "Email Address",
       "phone": "Phone Number",
+      "address": "Address",
+      "addressPlaceholder": "Your street address",
       "service": "Service",
       "selectService": "Select a service",
       "loadingServices": "Loading services...",
@@ -491,7 +495,11 @@
         "message": "There are currently no specialists available for the selected service. Please choose another service."
       },
       "yourInfo": "Your Information",
-      "bookingDetails": "Booking Details"
+      "bookingDetails": "Booking Details",
+      "homeService": "Home Service",
+      "homeServiceDescription": "Would you like this service to be performed at your home?",
+      "homeAddress": "Home Service Address",
+      "homeAddressPlaceholder": "Enter the complete address where you'd like to receive the service"
     },
     "services": {
       "haircut": "Haircut & Styling",
@@ -505,7 +513,14 @@
     "summary": {
       "title": "Booking Summary",
       "start": "Select a service to begin.",
-      "specialist": "Specialist"
+      "specialist": "Specialist",
+      "service": "Service",
+      "dateTime": "Date & Time",
+      "location": "Location",
+      "price": "Price",
+      "homeService": "Home Service",
+      "homeServiceLocation": "At your home",
+      "addressNeeded": "Please provide your address"
     },
     "success": {
       "title": "Booking Confirmed!",
@@ -514,13 +529,21 @@
       "message": "Your booking is confirmed. We look forward to seeing you soon.",
       "newBooking": "Make Another Booking"
     },
+    "confirmation": {
+      "title": "Confirm Your Booking",
+      "description": "Please review your booking details before confirming.",
+      "cancel": "Back",
+      "confirm": "Confirm Booking"
+    },
     "errors": {
       "required": "This field is required.",
       "email": "Please enter a valid email address.",
       "dateTime": "Date & Time Required",
       "dateTimeMessage": "Please select both a date and a time for your appointment.",
       "submitTitle": "Booking Failed",
-      "submitMessage": "Something went wrong. Please try again."
+      "submitMessage": "Something went wrong. Please try again.",
+      "missingData": "Missing Information",
+      "missingDataMessage": "Please ensure all required fields are filled out."
     },
     "info": {
       "title": "Before You Book",
