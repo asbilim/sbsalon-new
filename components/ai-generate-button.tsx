@@ -90,6 +90,7 @@ export function AiGenerateButton({
         if (Array.isArray(jsonResponse)) {
           const creationPromises = jsonResponse.map((itemData) => {
             const augmentedData = { ...itemData };
+            const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
             for (const key in augmentedData) {
               if (key.endsWith("_en")) {
                 const baseKey = key.slice(0, -3);
@@ -100,6 +101,17 @@ export function AiGenerateButton({
                 ) {
                   augmentedData[baseKey] = augmentedData[key];
                 }
+              }
+              // Filter many-to-many arrays
+              const fieldCfg = modelConfig.fields[key];
+              if (
+                fieldCfg &&
+                fieldCfg.ui_component === "manytomany_select" &&
+                Array.isArray(augmentedData[key])
+              ) {
+                augmentedData[key] = augmentedData[key]
+                  .map((v: any) => String(v))
+                  .filter((v: string) => uuidRegex.test(v));
               }
             }
             return api.createModelItem(
@@ -116,6 +128,7 @@ export function AiGenerateButton({
           queryClient.invalidateQueries({ queryKey: ["adminConfig"] });
         } else {
           const augmentedData = { ...jsonResponse };
+          const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
           for (const key in augmentedData) {
             if (key.endsWith("_en")) {
               const baseKey = key.slice(0, -3);
@@ -127,10 +140,29 @@ export function AiGenerateButton({
                 augmentedData[baseKey] = augmentedData[key];
               }
             }
+            // Filter many-to-many arrays
+            const fieldCfg = modelConfig.fields[key];
+            if (
+              fieldCfg &&
+              fieldCfg.ui_component === "manytomany_select" &&
+              Array.isArray(augmentedData[key])
+            ) {
+              augmentedData[key] = augmentedData[key]
+                .map((v: any) => String(v))
+                .filter((v: string) => uuidRegex.test(v));
+            }
           }
           Object.keys(augmentedData).forEach((key) => {
             if (modelConfig.fields[key]) {
-              form.setValue(key, augmentedData[key], {
+              const fieldCfg = modelConfig.fields[key];
+              let val = augmentedData[key];
+              if (
+                fieldCfg.ui_component === "manytomany_select" &&
+                Array.isArray(val)
+              ) {
+                val = val.map((v: any) => String(v));
+              }
+              form.setValue(key, val, {
                 shouldValidate: true,
               });
             }
