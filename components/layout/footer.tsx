@@ -257,7 +257,7 @@ export function Footer() {
               viewport={{ once: true }}
               className="flex items-center">
               <MapPin className="h-4 w-4 text-[#D4AF37] mr-2" />
-              <span>123 Beauty Street, Style City</span>
+              <span>Lütge Brückstraße 14, 44135 Dortmund</span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -266,7 +266,7 @@ export function Footer() {
               viewport={{ once: true }}
               className="flex items-center">
               <Phone className="h-4 w-4 text-[#D4AF37] mr-2" />
-              <span>+1 (555) 123-4567</span>
+              <span>+49 231 22383351</span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}

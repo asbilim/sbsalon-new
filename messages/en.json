@@ -161,8 +161,8 @@
     "description": "Discover your true beauty with our premium salon services. Book your appointment today and let us pamper you.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
-    "address": "123 Beauty Street, Style City",
-    "phone": "+1 (555) 123-4567",
+    "address": "Lütge Brückstraße 14, 44135 Dortmund",
+    "phone": "+49 231 22383351",
     "email": "contact@sbsalon.com",
     "copyright": "© {year} SBsalon. All Rights Reserved."
   },
@@ -499,7 +499,8 @@
       "homeService": "Home Service",
       "homeServiceDescription": "Would you like this service to be performed at your home?",
       "homeAddress": "Home Service Address",
-      "homeAddressPlaceholder": "Enter the complete address where you'd like to receive the service"
+      "homeAddressPlaceholder": "Enter the complete address where you'd like to receive the service",
+      "noTimeslots": "No timeslots available"
     },
     "services": {
       "haircut": "Haircut & Styling",
@@ -543,7 +544,8 @@
       "submitTitle": "Booking Failed",
       "submitMessage": "Something went wrong. Please try again.",
       "missingData": "Missing Information",
-      "missingDataMessage": "Please ensure all required fields are filled out."
+      "missingDataMessage": "Please ensure all required fields are filled out.",
+      "timeslotLoad": "Failed to load timeslots"
     },
     "info": {
       "title": "Before You Book",
