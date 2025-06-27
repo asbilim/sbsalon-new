@@ -113,11 +113,11 @@ export default function ContactPage() {
                       {t("info.address.title")}
                     </h3>
                     <p className="text-muted-foreground">
-                      123 Beauty Street
+                      Lütge Brückstraße 14
                       <br />
-                      Style City, SC 12345
+                      44135 Dortmund
                       <br />
-                      United States
+                      Germany
                     </p>
                   </div>
                 </div>
@@ -130,8 +130,7 @@ export default function ContactPage() {
                     <h3 className="font-medium text-lg mb-1">
                       {t("info.phone.title")}
                     </h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    <p className="text-muted-foreground">+1 (555) 987-6543</p>
+                    <p className="text-muted-foreground">+49 231 22383351</p>
                   </div>
                 </div>
 

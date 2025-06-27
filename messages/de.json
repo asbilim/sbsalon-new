@@ -161,8 +161,8 @@
     "description": "Entdecken Sie Ihre wahre Schönheit mit unseren Premium-Salondienstleistungen. Buchen Sie noch heute Ihren Termin und lassen Sie sich von uns verwöhnen.",
     "quickLinks": "Schnelllinks",
     "contactInfo": "Kontaktinformationen",
-    "address": "Beauty-Straße 123, Style City",
-    "phone": "+1 (555) 123-4567",
+    "address": "Lütge Brückstraße 14, 44135 Dortmund",
+    "phone": "+49 231 22383351",
     "email": "contact@sbsalon.com",
     "copyright": "© {year} SBsalon. Alle Rechte vorbehalten."
   },
@@ -472,6 +472,8 @@
     "subtitle": "Planen Sie Ihren Besuch bei uns mit nur wenigen Klicks. Wir freuen uns, Sie begrüßen zu dürfen!",
     "form": {
       "name": "Vollständiger Name",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
       "email": "E-Mail-Adresse",
       "phone": "Telefonnummer",
       "service": "Dienstleistung",
@@ -483,6 +485,11 @@
       "selectTime": "Wählen Sie eine Uhrzeit",
       "notes": "Zusätzliche Anmerkungen (optional)",
       "notesPlaceholder": "Teilen Sie uns Ihre Wünsche oder Präferenzen mit.",
+      "homeService": "Heimservice",
+      "homeServiceDescription": "Möchten Sie diesen Service bei Ihnen Zuhause durchführen lassen?",
+      "homeAddress": "Heimservice-Adresse",
+      "homeAddressPlaceholder": "Bitte geben Sie die vollständige Adresse ein, an der der Service durchgeführt werden soll",
+      "noTimeslots": "Keine Zeitfenster verfügbar",
       "submit": "Termin buchen",
       "submitting": "Wird gebucht...",
       "employee": "Spezialist auswählen",
@@ -505,7 +512,14 @@
     "summary": {
       "title": "Buchungsübersicht",
       "start": "Wählen Sie einen Service, um zu beginnen.",
-      "specialist": "Spezialist"
+      "specialist": "Spezialist",
+      "service": "Service",
+      "dateTime": "Datum & Uhrzeit",
+      "location": "Ort",
+      "price": "Preis",
+      "homeService": "Heimservice",
+      "homeServiceLocation": "Bei Ihnen Zuhause",
+      "addressNeeded": "Bitte geben Sie Ihre Adresse an"
     },
     "success": {
       "title": "Buchung bestätigt!",
@@ -520,7 +534,8 @@
       "dateTime": "Datum & Uhrzeit erforderlich",
       "dateTimeMessage": "Bitte wählen Sie sowohl ein Datum als auch eine Uhrzeit für Ihren Termin.",
       "submitTitle": "Buchung fehlgeschlagen",
-      "submitMessage": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
+      "submitMessage": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.",
+      "timeslotLoad": "Zeitfenster konnten nicht geladen werden"
     },
     "info": {
       "title": "Bevor Sie buchen",

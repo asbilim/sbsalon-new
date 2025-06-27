@@ -161,8 +161,8 @@
     "description": "Découvrez votre vraie beauté avec nos services de salon haut de gamme. Prenez rendez-vous dès aujourd'hui et laissez-nous vous choyer.",
     "quickLinks": "Liens rapides",
     "contactInfo": "Infos contact",
-    "address": "123 Rue de la Beauté, Style City",
-    "phone": "+1 (555) 123-4567",
+    "address": "Lütge Brückstraße 14, 44135 Dortmund",
+    "phone": "+49 231 22383351",
     "email": "contact@sbsalon.com",
     "copyright": "© {year} SBsalon. Tous droits réservés."
   },
@@ -463,6 +463,8 @@
     "subtitle": "Planifiez votre visite chez nous en quelques clics. Nous avons hâte de vous accueillir !",
     "form": {
       "name": "Nom complet",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
       "email": "Adresse e-mail",
       "phone": "Numéro de téléphone",
       "service": "Service",
@@ -482,12 +484,24 @@
         "message": "Aucun spécialiste n'est actuellement disponible pour le service sélectionné. Veuillez choisir un autre service."
       },
       "yourInfo": "Vos informations",
-      "bookingDetails": "Détails de la réservation"
+      "bookingDetails": "Détails de la réservation",
+      "homeService": "Service à domicile",
+      "homeServiceDescription": "Souhaitez-vous que ce service soit effectué à votre domicile ?",
+      "homeAddress": "Adresse du service à domicile",
+      "homeAddressPlaceholder": "Entrez l'adresse complète où vous souhaitez recevoir le service",
+      "noTimeslots": "Aucun créneau disponible"
     },
     "summary": {
       "title": "Résumé de la réservation",
       "start": "Sélectionnez un service pour commencer.",
-      "specialist": "Spécialiste"
+      "specialist": "Spécialiste",
+      "service": "Service",
+      "dateTime": "Date & Heure",
+      "location": "Lieu",
+      "price": "Prix",
+      "homeService": "Service à domicile",
+      "homeServiceLocation": "À votre domicile",
+      "addressNeeded": "Veuillez fournir votre adresse"
     },
     "success": {
       "title": "Réservation confirmée !",
@@ -502,7 +516,8 @@
       "dateTime": "Date et heure requises",
       "dateTimeMessage": "Veuillez sélectionner à la fois une date et une heure pour votre rendez-vous.",
       "submitTitle": "La réservation a échoué",
-      "submitMessage": "Une erreur s'est produite. Veuillez réessayer."
+      "submitMessage": "Une erreur s'est produite. Veuillez réessayer.",
+      "timeslotLoad": "Impossible de charger les créneaux horaires"
     },
     "info": {
       "title": "Avant de réserver",
