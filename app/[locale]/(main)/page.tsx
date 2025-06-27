@@ -696,7 +696,7 @@ export default function HomePage() {
                 asChild
                 size="lg"
                 className="relative overflow-hidden group">
-                <Link href="/booking">
+                <Link href="/services">
                   <span className="relative z-10 flex items-center">
                     {t("services.viewAllButton")}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />

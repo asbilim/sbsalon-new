@@ -500,7 +500,11 @@
       "homeServiceDescription": "Would you like this service to be performed at your home?",
       "homeAddress": "Home Service Address",
       "homeAddressPlaceholder": "Enter the complete address where you'd like to receive the service",
-      "noTimeslots": "No timeslots available"
+      "noTimeslots": "No timeslots available",
+      "firstNamePlaceholder": "First name",
+      "lastNamePlaceholder": "Last name",
+      "phonePlaceholder": "Phone number",
+      "emailPlaceholder": "Email address"
     },
     "services": {
       "haircut": "Haircut & Styling",
