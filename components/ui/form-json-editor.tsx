@@ -87,7 +87,7 @@ export function FormJsonEditor({
 
   return (
     <div className={cn("form-group space-y-2", disabled && "opacity-50")}>
-      <FormLabel required={required}>{label}</FormLabel>
+      <FormLabel>{label}</FormLabel>
       <div className="space-y-3 p-4 border rounded-md">
         {items.map((item) => (
           <div key={item.id} className="flex items-center gap-2">

@@ -69,3 +69,28 @@ export interface Employee {
   is_available: boolean;
   bio: string;
 }
+
+export interface ClientLocation {
+  latitude: number | null;
+  longitude: number | null;
+}
+
+export interface ClientDetails {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  address: string;
+  location: ClientLocation;
+}
+
+export interface BookingData {
+  client_details: ClientDetails;
+  employee: string;
+  service: string;
+  booking_date: string; // format: "YYYY-MM-DD"
+  timeslot: string;
+  is_home_service: boolean;
+  home_address: string;
+  client_notes: string;
+}

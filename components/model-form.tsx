@@ -130,20 +130,12 @@ export function ModelForm({
   });
 
   const onSubmit = (data: Record<string, any>) => {
-    const augmentedData = { ...data };
-    for (const key in augmentedData) {
-      if (key.endsWith("_en")) {
-        const baseKey = key.slice(0, -3);
-        augmentedData[baseKey] = augmentedData[key];
-      }
-    }
-
     const preparedData: Record<string, any> = {};
     let hasFiles = false;
 
-    for (const key in augmentedData) {
-      if (Object.prototype.hasOwnProperty.call(augmentedData, key)) {
-        const value = augmentedData[key];
+    for (const key in data) {
+      if (Object.prototype.hasOwnProperty.call(data, key)) {
+        const value = data[key];
         const fieldConfig = modelConfig.fields[key];
 
         if (
@@ -158,11 +150,36 @@ export function ModelForm({
           } else {
             preparedData[key] = value;
           }
+        } else if (
+          fieldConfig &&
+          fieldConfig.ui_component === "manytomany_select" &&
+          Array.isArray(value)
+        ) {
+          // keep only uuid-like strings
+          const uuidRegex =
+            /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+          preparedData[key] = value
+            .map((v: any) => String(v))
+            .filter((v: string) => uuidRegex.test(v));
         } else if (value instanceof FileList && value.length > 0) {
           preparedData[key] = value;
           hasFiles = true;
         } else {
           preparedData[key] = value;
+        }
+      }
+    }
+
+    // Add default fields from English versions
+    for (const key in preparedData) {
+      if (key.endsWith("_en")) {
+        const baseKey = key.slice(0, -3);
+        if (
+          preparedData[key] !== null &&
+          preparedData[key] !== undefined &&
+          !preparedData[baseKey]
+        ) {
+          preparedData[baseKey] = preparedData[key];
         }
       }
     }
@@ -453,6 +470,26 @@ function RelationField({
     enabled: status === "authenticated" && !!fieldConfig.related_model?.api_url,
   });
 
+  // Clean up selected values that no longer exist in options (e.g., numeric leftovers like "1", "2")
+  useEffect(() => {
+    if (!isLoading && Array.isArray(options)) {
+      const optionValues = options.map((opt: any) => String(opt.value));
+      try {
+        const currentValues = formControl.getValues(fieldName) || [];
+        if (Array.isArray(currentValues)) {
+          const filtered = currentValues
+            .map((v: any) => String(v))
+            .filter((v: string) => optionValues.includes(v));
+          if (filtered.length !== currentValues.length) {
+            formControl.setValue(fieldName, filtered);
+          }
+        }
+      } catch (e) {
+        // getValues might fail if formControl is not initialized yet; ignore
+      }
+    }
+  }, [isLoading, options, formControl, fieldName]);
+
   if (isLoading) {
     return (
       <p>
@@ -480,8 +517,14 @@ function RelationField({
             <FormMultiSelect
               label={fieldConfig.verbose_name}
               options={options || []}
-              onChange={field.onChange}
-              value={field.value || []}
+              onChange={(newVal) =>
+                field.onChange(newVal.map((v: any) => String(v)))
+              }
+              value={
+                Array.isArray(field.value)
+                  ? field.value.map((v: any) => String(v))
+                  : []
+              }
               required={fieldConfig.required}
               disabled={disabled}
             />

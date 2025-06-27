@@ -7,12 +7,12 @@ import { PostListItem } from "@/types/blog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/routing/navigation";
 import { CategoryList } from "@/components/blog/CategoryList";
 
-export default function BlogPage({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export default function BlogPage() {
+  const locale = (useParams().locale || "en") as string;
   const t = useTranslations("BlogPage");
   const router = useRouter();
   const pathname = usePathname();

@@ -84,7 +84,7 @@ export function AiResult({
                 <ol className="list-decimal pl-5 mb-4" {...props} />
               ),
               li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-              code: ({ node, inline, ...props }) =>
+              code: ({ node, inline, ...props }: any) =>
                 inline ? (
                   <code
                     className="bg-primary/10 text-primary px-1 py-0.5 rounded-sm"

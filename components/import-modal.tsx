@@ -49,7 +49,8 @@ export function ImportModal({
   const { register, handleSubmit, control, reset } = useForm<IFormInput>();
 
   const mutation = useMutation({
-    mutationFn: (data: FormData) => api.importModelItems(modelKey, data),
+    mutationFn: (data: FormData) =>
+      api.importModelItems(modelKey, data) as Promise<{ count: number }>,
     onSuccess: (result: { count: number }) => {
       toast({
         title: t("importSuccessTitle"),

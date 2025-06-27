@@ -88,9 +88,38 @@ export function AiGenerateButton({
         const jsonResponse = JSON.parse(jsonString);
 
         if (Array.isArray(jsonResponse)) {
-          const creationPromises = jsonResponse.map((itemData) =>
-            api.createModelItem(`/api/admin/models/${modelKey}/`, itemData)
-          );
+          const creationPromises = jsonResponse.map((itemData) => {
+            const augmentedData = { ...itemData };
+            const uuidRegex =
+              /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+            for (const key in augmentedData) {
+              if (key.endsWith("_en")) {
+                const baseKey = key.slice(0, -3);
+                if (
+                  augmentedData[key] !== null &&
+                  augmentedData[key] !== undefined &&
+                  !augmentedData[baseKey]
+                ) {
+                  augmentedData[baseKey] = augmentedData[key];
+                }
+              }
+              // Filter many-to-many arrays
+              const fieldCfg = modelConfig.fields[key];
+              if (
+                fieldCfg &&
+                fieldCfg.ui_component === "manytomany_select" &&
+                Array.isArray(augmentedData[key])
+              ) {
+                augmentedData[key] = augmentedData[key]
+                  .map((v: any) => String(v))
+                  .filter((v: string) => uuidRegex.test(v));
+              }
+            }
+            return api.createModelItem(
+              `/api/admin/models/${modelKey}/`,
+              augmentedData
+            );
+          });
           await Promise.all(creationPromises);
           toast({
             title: "Success",
@@ -99,9 +128,45 @@ export function AiGenerateButton({
           queryClient.invalidateQueries({ queryKey: ["modelItems", modelKey] });
           queryClient.invalidateQueries({ queryKey: ["adminConfig"] });
         } else {
-          Object.keys(jsonResponse).forEach((key) => {
+          const augmentedData = { ...jsonResponse };
+          const uuidRegex =
+            /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+          for (const key in augmentedData) {
+            if (key.endsWith("_en")) {
+              const baseKey = key.slice(0, -3);
+              if (
+                augmentedData[key] !== null &&
+                augmentedData[key] !== undefined &&
+                !augmentedData[baseKey]
+              ) {
+                augmentedData[baseKey] = augmentedData[key];
+              }
+            }
+            // Filter many-to-many arrays
+            const fieldCfg = modelConfig.fields[key];
+            if (
+              fieldCfg &&
+              fieldCfg.ui_component === "manytomany_select" &&
+              Array.isArray(augmentedData[key])
+            ) {
+              augmentedData[key] = augmentedData[key]
+                .map((v: any) => String(v))
+                .filter((v: string) => uuidRegex.test(v));
+            }
+          }
+          Object.keys(augmentedData).forEach((key) => {
             if (modelConfig.fields[key]) {
-              form.setValue(key, jsonResponse[key], { shouldValidate: true });
+              const fieldCfg = modelConfig.fields[key];
+              let val = augmentedData[key];
+              if (
+                fieldCfg.ui_component === "manytomany_select" &&
+                Array.isArray(val)
+              ) {
+                val = val.map((v: any) => String(v));
+              }
+              form.setValue(key, val, {
+                shouldValidate: true,
+              });
             }
           });
           toast({
@@ -150,7 +215,7 @@ export function AiGenerateButton({
     }
   };
 
-  const handleGenerateClick = () => {
+  const handleGenerateClick = async () => {
     const schema = Object.entries(modelConfig.fields)
       .filter(([, fieldConfig]: [string, any]) => fieldConfig.editable)
       .reduce((acc, [fieldName, fieldConfig]: [string, any]) => {
@@ -165,6 +230,49 @@ export function AiGenerateButton({
         }
         return acc;
       }, {} as Record<string, any>);
+
+    // Fetch allowed values for relation fields (foreignkey & manytomany)
+    const relationEntries = Object.entries(modelConfig.fields).filter(
+      ([, cfg]: [string, any]) =>
+        cfg.editable &&
+        cfg.related_model &&
+        cfg.ui_component?.includes("select")
+    );
+
+    await Promise.all(
+      relationEntries.map(async ([fname, cfg]: [string, any]) => {
+        try {
+          const res = await api.getModelList(cfg.related_model.api_url);
+          const opts = res.results.map((item: any) => {
+            let label = `ID: ${item.id}`;
+            if (item.name) label = item.name;
+            else if (item.title) label = item.title;
+            else if (item.username) label = item.username;
+            return { id: String(item.id), label };
+          });
+          schema[fname].allowed_values = opts; // include id & label
+        } catch (_) {
+          // ignore fetch errors; AI will fallback
+        }
+      })
+    );
+
+    // Special handling for 'timeslot' field if present in schema
+    if (schema["timeslot"]) {
+      try {
+        const res = await fetch("/api/v1/salon/timeslots");
+        if (res.ok) {
+          const data = await res.json();
+          const opts = (data.results || []).map((slot: any) => ({
+            id: String(slot.id),
+            label: `${slot.start_time} - ${slot.end_time}`,
+          }));
+          schema["timeslot"].allowed_values = opts;
+        }
+      } catch (_) {
+        // ignore
+      }
+    }
 
     const outputInstruction =
       numberOfItems > 1
@@ -185,7 +293,8 @@ export function AiGenerateButton({
       1. Analyze the user request.
       2. Look at the model schema below to understand the required fields, their types, and their languages.
       3. **Crucially, you must provide plausible values for ALL fields in the schema, especially for all language variations (e.g., fields ending in _en, _fr, _de).** If the user's prompt is in one language, you must translate and adapt the content for the other languages.
-      4. ${outputInstruction}
+      4. When filling relation fields (those that have an "allowed_values" list in the schema), you MUST choose only IDs that appear in that list. Feel free to pick any that make sense given the context.
+      5. ${outputInstruction}
 
       Example of a perfect response:
       {
